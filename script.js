@@ -17,7 +17,7 @@ const translations = {
     "nav.contact": "Kapcsolat",
     "nav.cta": "Weboldal igénylése",
     "hero.eyebrow": "D.A.-Tech weboldal modernizálás",
-    "hero.title": "Where design, meets Technology!",
+    "hero.title": "Ahol a design találkozik a technológiával.",
     "hero.lead": "Modern weboldalakat és weboldal frissítéseket készítünk vállalkozásoknak, akik gyorsabb, elegánsabb és meggyőzőbb online megjelenést akarnak. Nem sablont adunk, hanem stratégiai webes élményt, ami bizalmat épít és érdeklődőket hoz.",
     "hero.primary": "Weboldalt igénylek",
     "hero.secondary": "Mit tudunk építeni?",
@@ -92,6 +92,44 @@ const translations = {
     "form.messagePlaceholder": "Mi a cél, mi nem működik most, milyen hatást szeretnél?",
     "form.submit": "Weboldal igénylés indítása",
     "footer.tagline": "Modern weboldalak és weboldal modernizálás",
+    "audit.eyebrow": "Gyors weboldal audit",
+    "audit.title": "Nézd meg, mit modernizálnánk először.",
+    "audit.label": "Weboldalad címe",
+    "audit.placeholder": "https://ceged.hu",
+    "audit.button": "Audit indítása",
+    "audit.note": "A modul URL-alapú gyorsdiagnózist ad: design, sebesség, bizalom és mobilélmény alapján.",
+    "audit.design": "Design",
+    "audit.speed": "Sebesség",
+    "audit.trust": "Bizalom",
+    "audit.mobile": "Mobil",
+    "audit.summary": "Javaslat: erősebb első képernyő, tisztább CTA és prémium mobil ritmus.",
+    "audit.insightsTitle": "Elemzés",
+    "audit.recommendationsTitle": "Változtatási javaslatok",
+    "audit.defaultInsight1": "A kezdőoldal első képernyője legyen azonnal érthető: mit kínál a cég és miért érdemes tovább olvasni.",
+    "audit.defaultInsight2": "A fő cselekvés legyen egyértelmű, kontrasztos és minden eszközön könnyen elérhető.",
+    "audit.defaultSuggestion1": "Erősebb hero üzenet és bizalomépítő blokk az első görgetés előtt.",
+    "audit.defaultSuggestion2": "Mobil-first CTA ritmus, rövidebb szövegek és gyorsabb ajánlatkérési útvonal.",
+    "before.eyebrow": "Before / After",
+    "before.title": "Így lesz egy sablonos oldalból modern ügyfélszerző felület.",
+    "trust.eyebrow": "Bizalmi rendszer",
+    "trust.title": "Nem csak látványt adunk, hanem döntési biztonságot.",
+    "trust.item1": "Átlátható folyamat és mérföldkövek.",
+    "trust.item2": "Mobil-first megjelenés minden képernyőre.",
+    "trust.item3": "SEO és sebesség alapok már induláskor.",
+    "trust.item4": "Átadás után is továbbfejleszthető rendszer.",
+    "packages.eyebrow": "Ajánlati irányok",
+    "packages.title": "Válassz kiindulási szintet, mi hozzáépítjük a stratégiát.",
+    "packages.startTitle": "Gyors, modern jelenlét",
+    "packages.startText": "Landing page vagy egyszerű céges oldal erős első benyomással.",
+    "packages.modernTitle": "Régi oldalból prémium felület",
+    "packages.modernText": "Struktúra, UX, mobilnézet, animáció és konverziós útvonal újragondolva.",
+    "packages.premiumTitle": "Teljes digitális élmény",
+    "packages.premiumText": "Egyedi többoldalas weboldal, prémium interakciókkal és brand rendszerrel.",
+    "flow.summaryTitle": "DA Tech javaslat",
+    "flow.summaryText": "Modernizálási audit, prémium első képernyő és mobil-first konverziós útvonal.",
+    "flow.prev": "Vissza",
+    "flow.next": "Tovább",
+    "flow.send": "Igénylés indítása",
     "about.eyebrow": "About us",
     "about.title": "DA Tech: modern weboldal, ami ügyfeleket győz meg.",
     "about.lead": "A DA Tech olyan vállalkozásoknak készít modern weboldalakat és weboldal-modernizálásokat, akik erősebb online benyomást, gyorsabb felületet és több érdeklődőt szeretnének.",
@@ -117,7 +155,7 @@ const translations = {
     "nav.contact": "Contact",
     "nav.cta": "Request a Website",
     "hero.eyebrow": "D.A.-Tech website modernization",
-    "hero.title": "Where design, meets Technology!",
+    "hero.title": "Where design meets technology.",
     "hero.lead": "We build modern websites and website upgrades for businesses that want a faster, sharper and more persuasive online presence. Not a template, but a strategic web experience that builds trust and brings in leads.",
     "hero.primary": "I need a website",
     "hero.secondary": "What can we build?",
@@ -192,6 +230,44 @@ const translations = {
     "form.messagePlaceholder": "What is the goal, what does not work now, what effect do you want?",
     "form.submit": "Start website request",
     "footer.tagline": "Modern websites and website modernization",
+    "audit.eyebrow": "Quick website audit",
+    "audit.title": "See what we would modernize first.",
+    "audit.label": "Your website URL",
+    "audit.placeholder": "https://company.com",
+    "audit.button": "Run audit",
+    "audit.note": "The module gives a URL-based quick diagnosis across design, speed, trust and mobile experience.",
+    "audit.design": "Design",
+    "audit.speed": "Speed",
+    "audit.trust": "Trust",
+    "audit.mobile": "Mobile",
+    "audit.summary": "Suggestion: stronger first screen, clearer CTA and a premium mobile rhythm.",
+    "audit.insightsTitle": "Analysis",
+    "audit.recommendationsTitle": "Change recommendations",
+    "audit.defaultInsight1": "The first screen should make the offer instantly clear: what the company provides and why visitors should continue.",
+    "audit.defaultInsight2": "The main action should be obvious, high-contrast and easy to reach on every device.",
+    "audit.defaultSuggestion1": "Use a stronger hero message and a trust-building block before the first scroll.",
+    "audit.defaultSuggestion2": "Create a mobile-first CTA rhythm with shorter copy and a faster request path.",
+    "before.eyebrow": "Before / After",
+    "before.title": "This is how a template-like page becomes a modern lead-generating interface.",
+    "trust.eyebrow": "Trust system",
+    "trust.title": "We do not just add visuals. We create decision confidence.",
+    "trust.item1": "Transparent process and milestones.",
+    "trust.item2": "Mobile-first appearance for every screen.",
+    "trust.item3": "SEO and speed foundations from launch.",
+    "trust.item4": "A system that can keep evolving after handover.",
+    "packages.eyebrow": "Offer directions",
+    "packages.title": "Choose a starting level, we build the strategy around it.",
+    "packages.startTitle": "Fast modern presence",
+    "packages.startText": "Landing page or simple company site with a strong first impression.",
+    "packages.modernTitle": "Premium interface from an old site",
+    "packages.modernText": "Structure, UX, mobile view, animation and conversion path rethought.",
+    "packages.premiumTitle": "Complete digital experience",
+    "packages.premiumText": "Custom multi-page website with premium interactions and brand system.",
+    "flow.summaryTitle": "DA Tech recommendation",
+    "flow.summaryText": "Modernization audit, premium first screen and mobile-first conversion path.",
+    "flow.prev": "Back",
+    "flow.next": "Next",
+    "flow.send": "Start request",
     "about.eyebrow": "About us",
     "about.title": "DA Tech: a modern website that wins customers.",
     "about.lead": "DA Tech builds modern websites and website modernizations for businesses that want a stronger online impression, a faster interface and more qualified leads.",
@@ -217,7 +293,7 @@ const translations = {
     "nav.contact": "Kontakt",
     "nav.cta": "Website anfragen",
     "hero.eyebrow": "D.A.-Tech Website-Modernisierung",
-    "hero.title": "Where design, meets Technology!",
+    "hero.title": "Wo Design auf Technologie trifft.",
     "hero.lead": "Wir erstellen moderne Websites und Website-Modernisierungen fuer Unternehmen, die online schneller, eleganter und ueberzeugender auftreten wollen. Keine Vorlage, sondern ein strategisches Web-Erlebnis, das Vertrauen aufbaut und Anfragen bringt.",
     "hero.primary": "Website anfragen",
     "hero.secondary": "Was koennen wir bauen?",
@@ -292,6 +368,44 @@ const translations = {
     "form.messagePlaceholder": "Was ist das Ziel, was funktioniert aktuell nicht, welche Wirkung wuenschst du dir?",
     "form.submit": "Website-Anfrage starten",
     "footer.tagline": "Moderne Websites und Website-Modernisierung",
+    "audit.eyebrow": "Schneller Website-Audit",
+    "audit.title": "Sieh, was wir zuerst modernisieren wuerden.",
+    "audit.label": "Deine Website-URL",
+    "audit.placeholder": "https://firma.de",
+    "audit.button": "Audit starten",
+    "audit.note": "Das Modul gibt eine URL-basierte Schnelldiagnose zu Design, Geschwindigkeit, Vertrauen und Mobile Experience.",
+    "audit.design": "Design",
+    "audit.speed": "Tempo",
+    "audit.trust": "Vertrauen",
+    "audit.mobile": "Mobil",
+    "audit.summary": "Empfehlung: staerkerer erster Bildschirm, klarerer CTA und hochwertiger mobiler Rhythmus.",
+    "audit.insightsTitle": "Analyse",
+    "audit.recommendationsTitle": "Aenderungsvorschlaege",
+    "audit.defaultInsight1": "Der erste Bildschirm sollte sofort klar machen, was das Unternehmen anbietet und warum Besucher weiterlesen sollten.",
+    "audit.defaultInsight2": "Die Hauptaktion sollte eindeutig, kontrastreich und auf jedem Geraet leicht erreichbar sein.",
+    "audit.defaultSuggestion1": "Nutze eine staerkere Hero-Botschaft und einen vertrauensbildenden Block vor dem ersten Scrollen.",
+    "audit.defaultSuggestion2": "Erstelle einen Mobile-first CTA-Rhythmus mit kuerzeren Texten und schnellerem Anfrageweg.",
+    "before.eyebrow": "Before / After",
+    "before.title": "So wird aus einer Template-Seite eine moderne Oberflaeche fuer neue Anfragen.",
+    "trust.eyebrow": "Vertrauenssystem",
+    "trust.title": "Wir liefern nicht nur Optik, sondern Entscheidungssicherheit.",
+    "trust.item1": "Transparenter Prozess und klare Meilensteine.",
+    "trust.item2": "Mobile-first Darstellung fuer jeden Bildschirm.",
+    "trust.item3": "SEO- und Speed-Grundlagen ab dem Start.",
+    "trust.item4": "Ein System, das nach der Uebergabe weiter wachsen kann.",
+    "packages.eyebrow": "Angebotsrichtungen",
+    "packages.title": "Waehle den Startpunkt, wir bauen die Strategie dazu.",
+    "packages.startTitle": "Schnelle moderne Praesenz",
+    "packages.startText": "Landingpage oder einfache Firmenseite mit starkem ersten Eindruck.",
+    "packages.modernTitle": "Premium-Oberflaeche aus alter Seite",
+    "packages.modernText": "Struktur, UX, Mobile View, Animation und Conversion-Pfad neu gedacht.",
+    "packages.premiumTitle": "Komplettes digitales Erlebnis",
+    "packages.premiumText": "Individuelle mehrseitige Website mit Premium-Interaktionen und Brand-System.",
+    "flow.summaryTitle": "DA Tech Empfehlung",
+    "flow.summaryText": "Modernisierungs-Audit, premium erster Bildschirm und mobile-first Conversion-Pfad.",
+    "flow.prev": "Zurueck",
+    "flow.next": "Weiter",
+    "flow.send": "Anfrage starten",
     "about.eyebrow": "About us",
     "about.title": "DA Tech: eine moderne Website, die Kunden ueberzeugt.",
     "about.lead": "DA Tech erstellt moderne Websites und Website-Modernisierungen fuer Unternehmen, die online staerker wirken, schneller auftreten und mehr qualifizierte Anfragen gewinnen wollen.",
@@ -326,6 +440,7 @@ function setLanguage(lang) {
   });
 
   window.localStorage.setItem("daTechLang", lang);
+  if (flowPanels.length) setFlowStep(flowStep);
 }
 
 function resizeCanvas() {
@@ -437,7 +552,285 @@ document.querySelectorAll(".lang-option").forEach((button) => {
   button.addEventListener("click", () => setLanguage(button.dataset.lang));
 });
 
+document.querySelectorAll(".nav-menu").forEach((menu) => {
+  const trigger = menu.querySelector(".nav-menu-button");
+  if (!trigger) return;
+
+  trigger.addEventListener("click", (event) => {
+    event.stopPropagation();
+    menu.classList.toggle("is-open");
+  });
+
+  menu.querySelectorAll(".nav-dropdown a").forEach((link) => {
+    link.addEventListener("click", () => menu.classList.remove("is-open"));
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!menu.contains(event.target)) menu.classList.remove("is-open");
+  });
+});
+
+const compareFrame = document.querySelector("#compareFrame");
+const compareRange = document.querySelector("#compareRange");
+if (compareFrame && compareRange) {
+  const syncCompare = () => {
+    compareFrame.style.setProperty("--split", `${compareRange.value}%`);
+  };
+  compareRange.addEventListener("input", syncCompare);
+  syncCompare();
+}
+
+const auditButton = document.querySelector("#auditButton");
+if (auditButton) {
+  auditButton.addEventListener("click", () => {
+    const input = document.querySelector("#auditUrl");
+    const rawUrl = input.value.trim();
+    const audit = buildWebsiteAudit(rawUrl);
+
+    document.querySelector("#auditScore").textContent = audit.score;
+    document.querySelector("#auditSummary").textContent = audit.summary;
+
+    Object.entries(audit.categories).forEach(([key, value]) => {
+      const bar = document.querySelector(`[data-audit-bar="${key}"]`);
+      if (!bar) return;
+      bar.style.setProperty("--value", `${value}%`);
+      const valueLabel = bar.querySelector("em");
+      if (valueLabel) valueLabel.textContent = value;
+    });
+
+    renderAuditList("#auditInsights", audit.insights);
+    renderAuditList("#auditRecommendations", audit.recommendations, "ol");
+  });
+}
+
+function normalizeAuditUrl(rawUrl) {
+  if (!rawUrl) return null;
+  try {
+    return new URL(rawUrl.includes("://") ? rawUrl : `https://${rawUrl}`);
+  } catch {
+    return null;
+  }
+}
+
+function clampScore(value) {
+  return Math.max(38, Math.min(97, Math.round(value)));
+}
+
+function textFingerprint(text) {
+  return [...text].reduce((sum, char, index) => sum + char.charCodeAt(0) * (index + 3), 0);
+}
+
+const auditCopy = {
+  hu: {
+    labels: {
+      design: "design",
+      speed: "sebesség",
+      trust: "bizalom",
+      mobile: "mobilélmény"
+    },
+    summary: (score, weak) => `Audit eredmény: ${score}/100. A legfontosabb fejlesztési fókusz most: ${weak}.`,
+    insightScore: (host, score) => `${host} URL-struktúrája alapján a becsült modernizálási potenciál ${score}/100.`,
+    httpsGood: "HTTPS jel látszik, ez jó alap a bizalomhoz és a böngésző-kompatibilitáshoz.",
+    httpsMissing: "Nem látszik HTTPS protokoll, ezt bizalmi és technikai okból első körben javítani kell.",
+    domainClean: "A domain rövid és brandelhető, ezért könnyebben megjegyezhető és hirdetésekben is erősebb.",
+    domainComplex: "A domain vagy útvonal túl összetettnek tűnik, ez ronthatja a prémium első benyomást.",
+    conversionSignal: "Az URL-ben látszik szolgáltatás vagy kapcsolat fókusz, ez támogatja a konverziós útvonalat.",
+    conversionMissing: "Az URL-ből nem derül ki erős ajánlatkérési vagy kapcsolatfelvételi útvonal.",
+    recommendations: {
+      design: "Építsünk erősebb első képernyőt: világos főállítás, nagyobb vizuális fókusz, egyetlen domináns CTA.",
+      speed: "Egyszerűsítsük az oldalszerkezetet, optimalizáljuk a képeket és csökkentsük a felesleges betöltési elemeket.",
+      trust: "Tegyünk fel referenciát, rövid bizalmi érveket, ügyfél-előnyöket és jól látható kapcsolatfelvételi pontot.",
+      mobile: "Finomítsuk a mobil ritmust: nagyobb gombok, rövidebb blokkok, könnyebb görgetés és sticky ajánlatkérés.",
+      trustBlock: "Kerüljön az első görgetés elé egy bizalomépítő blokk: eredmények, folyamat, garancia vagy ügyfélvélemény.",
+      cta: "Legyen minden fő szekció végén kontextushoz illő CTA, ne csak az oldal alján lehessen érdeklődni.",
+      navigation: "Rövidítsük a navigációs útvonalat, hogy a látogató maximum két kattintással eljusson az ajánlatkérésig."
+    }
+  },
+  en: {
+    labels: {
+      design: "design",
+      speed: "speed",
+      trust: "trust",
+      mobile: "mobile experience"
+    },
+    summary: (score, weak) => `Audit result: ${score}/100. The main improvement focus should be: ${weak}.`,
+    insightScore: (host, score) => `Based on the URL structure of ${host}, the estimated modernization potential is ${score}/100.`,
+    httpsGood: "HTTPS is visible, which is a strong baseline for trust and browser compatibility.",
+    httpsMissing: "HTTPS is not visible, so this should be fixed early for trust and technical quality.",
+    domainClean: "The domain is short and brandable, making it easier to remember and stronger in campaigns.",
+    domainComplex: "The domain or path looks too complex, which can weaken the premium first impression.",
+    conversionSignal: "The URL suggests a service or contact focus, which supports the conversion path.",
+    conversionMissing: "The URL does not show a strong request or contact path.",
+    recommendations: {
+      design: "Build a stronger first screen: clear promise, bigger visual focus and one dominant CTA.",
+      speed: "Simplify the page structure, optimize images and reduce unnecessary loading elements.",
+      trust: "Add references, short trust arguments, customer benefits and a visible contact point.",
+      mobile: "Refine the mobile rhythm: larger buttons, shorter blocks, easier scrolling and sticky request action.",
+      trustBlock: "Add a trust block before the first scroll: results, process, guarantee or client feedback.",
+      cta: "Place a contextual CTA at the end of every main section, not only at the bottom of the page.",
+      navigation: "Shorten the navigation path so visitors can reach the request flow within two clicks."
+    }
+  },
+  de: {
+    labels: {
+      design: "Design",
+      speed: "Tempo",
+      trust: "Vertrauen",
+      mobile: "Mobile Experience"
+    },
+    summary: (score, weak) => `Audit-Ergebnis: ${score}/100. Der wichtigste Fokus fuer die Verbesserung ist: ${weak}.`,
+    insightScore: (host, score) => `Auf Basis der URL-Struktur von ${host} liegt das geschaetzte Modernisierungspotenzial bei ${score}/100.`,
+    httpsGood: "HTTPS ist sichtbar, das ist eine gute Basis fuer Vertrauen und Browser-Kompatibilitaet.",
+    httpsMissing: "HTTPS ist nicht sichtbar, das sollte aus Vertrauens- und Technikgruenden frueh behoben werden.",
+    domainClean: "Die Domain ist kurz und markenfaehig, dadurch bleibt sie besser im Kopf und wirkt staerker in Kampagnen.",
+    domainComplex: "Domain oder Pfad wirken zu komplex, das kann den hochwertigen ersten Eindruck schwaechen.",
+    conversionSignal: "Die URL zeigt Service- oder Kontaktfokus, das unterstuetzt den Conversion-Pfad.",
+    conversionMissing: "Aus der URL wird kein klarer Anfrage- oder Kontaktweg sichtbar.",
+    recommendations: {
+      design: "Bauen wir einen staerkeren ersten Bildschirm: klare Aussage, groesserer visueller Fokus und ein dominanter CTA.",
+      speed: "Vereinfachen wir die Seitenstruktur, optimieren Bilder und reduzieren unnoetige Ladeelemente.",
+      trust: "Fuegen wir Referenzen, kurze Vertrauensargumente, Kundenvorteile und einen sichtbaren Kontaktpunkt hinzu.",
+      mobile: "Verbessern wir den mobilen Rhythmus: groessere Buttons, kuerzere Bloecke, leichteres Scrollen und sticky Anfrage.",
+      trustBlock: "Ein Vertrauensblock sollte vor dem ersten Scrollen erscheinen: Ergebnisse, Prozess, Garantie oder Kundenfeedback.",
+      cta: "Jede Hauptsektion sollte einen passenden CTA haben, nicht nur das Seitenende.",
+      navigation: "Kuerzen wir den Navigationsweg, damit Besucher in maximal zwei Klicks zur Anfrage kommen."
+    }
+  },
+  invalid: {
+    insights: {
+      hu: ["A mező jelenleg nem tartalmaz értelmezhető webcímet.", "Pontosabb auditért add meg a teljes domaint, például https://ceged.hu."],
+      en: ["The field does not contain a valid website address yet.", "For a sharper audit, enter the full domain, for example https://company.com."],
+      de: ["Das Feld enthaelt noch keine gueltige Website-Adresse.", "Fuer einen genaueren Audit gib die komplette Domain ein, zum Beispiel https://firma.de."]
+    },
+    recommendations: {
+      hu: ["Első lépésként add meg az elemzendő weboldal címét.", "Ezután kategóriánként kapsz konkrét modernizálási javaslatokat."],
+      en: ["First enter the website URL you want to analyze.", "Then you will receive concrete modernization suggestions by category."],
+      de: ["Gib zuerst die Website-URL ein, die analysiert werden soll.", "Danach bekommst du konkrete Modernisierungsvorschlaege pro Kategorie."]
+    }
+  }
+};
+
+function buildWebsiteAudit(rawUrl) {
+  const lang = window.localStorage.getItem("daTechLang") || "hu";
+  const url = normalizeAuditUrl(rawUrl);
+  const fallback = {
+    hu: "Adj meg egy weboldal címet, és az audit URL-alapú elemzést készít róla.",
+    en: "Enter a website URL and the audit will create a URL-based analysis.",
+    de: "Gib eine Website-URL ein, dann erstellt der Audit eine URL-basierte Analyse."
+  };
+
+  if (!url) {
+    return {
+      score: 64,
+      categories: { design: 62, speed: 68, trust: 58, mobile: 66 },
+      summary: fallback[lang] || fallback.hu,
+      insights: auditCopy.invalid.insights[lang] || auditCopy.invalid.insights.hu,
+      recommendations: auditCopy.invalid.recommendations[lang] || auditCopy.invalid.recommendations.hu
+    };
+  }
+
+  const host = url.hostname.replace(/^www\./, "");
+  const path = url.pathname.replace(/\/$/, "");
+  const segments = path.split("/").filter(Boolean);
+  const words = host.split(/[.-]/).filter(Boolean);
+  const fingerprint = textFingerprint(`${host}${path}`);
+  const hasHttps = url.protocol === "https:";
+  const cleanDomain = host.length <= 22 && !host.includes("--") && words.every((word) => word.length <= 14);
+  const brandedDomain = words.length <= 3 && words.some((word) => word.length >= 4);
+  const hasClearPage = segments.length > 0 && segments.length <= 2;
+  const longPath = path.length > 34 || segments.length > 2;
+  const keywordText = `${host} ${segments.join(" ")}`.toLowerCase();
+  const hasTrustKeyword = /(about|rolunk|ueber|team|kontakt|contact|impressum|portfolio|case|referencia)/.test(keywordText);
+  const hasConversionKeyword = /(ajanlat|quote|request|booking|contact|kapcsolat|weboldal|service|services|leistungen)/.test(keywordText);
+  const hasModernSignal = /(tech|digital|studio|design|web|app|media|creative|modern)/.test(keywordText);
+  const mobilePenalty = longPath ? 10 : 0;
+  const stability = (fingerprint % 9) - 4;
+
+  const categories = {
+    design: clampScore(70 + (cleanDomain ? 10 : -8) + (brandedDomain ? 7 : -4) + (hasModernSignal ? 7 : 0) + stability),
+    speed: clampScore(76 + (hasHttps ? 8 : -10) + (longPath ? -9 : 4) + ((fingerprint % 5) - 2)),
+    trust: clampScore(66 + (hasHttps ? 9 : -12) + (hasTrustKeyword ? 10 : -5) + (cleanDomain ? 5 : -4)),
+    mobile: clampScore(72 + (cleanDomain ? 8 : -5) + (hasClearPage ? 5 : -2) - mobilePenalty + ((fingerprint % 7) - 3))
+  };
+  const score = clampScore(Object.values(categories).reduce((sum, value) => sum + value, 0) / 4);
+  const weakCategories = Object.entries(categories).sort((a, b) => a[1] - b[1]).slice(0, 2).map(([key]) => key);
+  const copy = auditCopy[lang] || auditCopy.hu;
+
+  const insights = [
+    copy.insightScore(host, score),
+    hasHttps ? copy.httpsGood : copy.httpsMissing,
+    cleanDomain ? copy.domainClean : copy.domainComplex,
+    hasConversionKeyword ? copy.conversionSignal : copy.conversionMissing
+  ];
+
+  const recommendations = weakCategories.map((key) => copy.recommendations[key]);
+  if (!hasTrustKeyword) recommendations.push(copy.recommendations.trustBlock);
+  if (!hasConversionKeyword) recommendations.push(copy.recommendations.cta);
+  if (longPath) recommendations.push(copy.recommendations.navigation);
+
+  return {
+    score,
+    categories,
+    summary: copy.summary(score, weakCategories.map((key) => copy.labels[key]).join(", ")),
+    insights,
+    recommendations: [...new Set(recommendations)].slice(0, 5)
+  };
+}
+
+function renderAuditList(selector, items) {
+  const list = document.querySelector(selector);
+  if (!list) return;
+  list.replaceChildren(...items.map((item) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = item;
+    return listItem;
+  }));
+}
+
+let flowStep = 0;
+const flowPanels = [...document.querySelectorAll(".flow-panel")];
+const flowButtons = [...document.querySelectorAll(".flow-steps button")];
+const flowPrev = document.querySelector("#flowPrev");
+const flowNext = document.querySelector("#flowNext");
+
+function setFlowStep(nextStep) {
+  if (!flowPanels.length) return;
+  flowStep = Math.max(0, Math.min(flowPanels.length - 1, nextStep));
+  flowPanels.forEach((panel, index) => panel.classList.toggle("active", index === flowStep));
+  flowButtons.forEach((button, index) => button.classList.toggle("active", index === flowStep));
+  if (flowPrev) flowPrev.disabled = flowStep === 0;
+  if (flowNext) {
+    const lang = window.localStorage.getItem("daTechLang") || "hu";
+    const dictionary = translations[lang] || translations.hu;
+    flowNext.textContent = flowStep === flowPanels.length - 1 ? dictionary["flow.send"] : dictionary["flow.next"];
+  }
+}
+
+flowButtons.forEach((button) => {
+  button.addEventListener("click", () => setFlowStep(Number(button.dataset.step)));
+});
+if (flowPrev) flowPrev.addEventListener("click", () => setFlowStep(flowStep - 1));
+if (flowNext) {
+  flowNext.addEventListener("click", () => {
+    if (flowStep < flowPanels.length - 1) setFlowStep(flowStep + 1);
+  });
+}
+
+const revealObserver = "IntersectionObserver" in window
+  ? new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("is-visible");
+      });
+    }, { threshold: 0.14 })
+  : null;
+
+document.querySelectorAll(".reveal-on-scroll").forEach((element) => {
+  if (revealObserver) revealObserver.observe(element);
+  else element.classList.add("is-visible");
+});
+
 setLanguage(window.localStorage.getItem("daTechLang") || "hu");
+setFlowStep(0);
 if (canvas && ctx) {
   resizeCanvas();
   draw();
