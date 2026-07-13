@@ -19,7 +19,7 @@ const translations = {
     "nav.cta": "Weboldal igénylése",
     "hero.eyebrow": "D.A.-Tech weboldal modernizálás",
     "hero.title": "Ahol a design találkozik a technológiával.",
-    "hero.lead": "Modern weboldalakat és weboldal frissítéseket készítünk vállalkozásoknak, akik gyorsabb, elegánsabb és meggyőzőbb online megjelenést akarnak. Nem sablont adunk, hanem stratégiai webes élményt, ami bizalmat épít és érdeklődőket hoz.",
+    "hero.lead": "Régi, sablonos vagy gyenge weboldalból prémium digitális élményt építünk. Gyors. Mobilra hangolt. Ügyfélszerzésre tervezett.",
     "hero.primary": "Weboldalt igénylek",
     "hero.secondary": "Mit tudunk építeni?",
     "hero.signalSpeed": "célzott betöltési érzet",
@@ -40,46 +40,52 @@ const translations = {
     "marquee.requests": "automatizált ajánlatkérés",
     "marquee.seo": "SEO alapok",
     "marquee.brand": "brand élmény",
+    "impact.item1Title": "5 mp alatt érthető",
+    "impact.item1Text": "A látogató azonnal tudja, miért maradjon.",
+    "impact.item2Title": "Nem néz ki sablonnak",
+    "impact.item2Text": "Tech vizuál, mozgás, prémium első benyomás.",
+    "impact.item3Title": "Ajánlatkérésre vezet",
+    "impact.item3Text": "Kevesebb zavar, tisztább döntési út.",
     "services.eyebrow": "Amit felépítünk",
-    "services.title": "Nem csak új weboldalt kapsz, hanem erősebb online értékesítési gépet.",
+    "services.title": "Amit építünk: látvány, bizalom, ajánlatkérés.",
     "services.card1Title": "Prémium céges weboldal",
-    "services.card1Text": "Meggyőző struktúra, látványos első képernyő, gyorsan érthető ajánlat és olyan vizuális nyelv, ami profivá teszi a márkádat.",
+    "services.card1Text": "Erős első képernyő, tiszta ajánlat, prémium márkaérzet.",
     "services.card2Title": "Weboldal modernizálás",
-    "services.card2Text": "Régi, lassú vagy bizalmatlan hatású oldalból modern, mobilbarát, letisztult és ügyfélszerző felületet készítünk.",
+    "services.card2Text": "Régi oldalból modern, gyors, mobilbarát ügyfélszerző felület.",
     "services.card3Title": "Extravagáns interakciók",
-    "services.card3Text": "Animált hős szekciók, finom mikrointerakciók, dinamikus tartalomblokkok és prémium hatású UI megoldások.",
+    "services.card3Text": "Animált hero, mikrointerakciók, emlékezetes tech részletek.",
     "services.card4Title": "Konverziós stratégia",
-    "services.card4Text": "CTA, ajánlatkérés, bizalmi elemek, szolgáltatás bontás és oldalritmus úgy kialakítva, hogy a látogatóból érdeklődő legyen.",
+    "services.card4Text": "Kevesebb zaj, erősebb CTA, tisztább döntési út.",
     "proof.eyebrow": "Miért a D.A.-Tech?",
     "proof.title": "A látogató nem kódot lát. Ő azt érzi, hogy ez a cég megbízható-e.",
-    "proof.text": "A DA Tech oldalak ezért három dologra vannak kihegyezve: első benyomás, sebesség és világos üzleti üzenet. Az eredmény egy olyan webes jelenlét, amely nem csak fent van az interneten, hanem dolgozik a cégedért.",
+    "proof.text": "Az oldalnak nem mindent elmondania kell. El kell érnie, hogy a jó ügyfél tovább akarjon lépni.",
     "proof.item1Title": "Stratégiai design",
-    "proof.item1Text": "A struktúra az ügyfél döntési útját követi, nem a menüpontok véletlen sorrendjét.",
+    "proof.item1Text": "A figyelmet oda vezetjük, ahol döntés születik.",
     "proof.item2Title": "Modern technikai alap",
-    "proof.item2Text": "Gyors, reszponzív, keresőbarát és könnyen továbbfejleszthető felületek.",
+    "proof.item2Text": "Gyors, reszponzív, keresőbarát alap.",
     "proof.item3Title": "Prémium érzés",
-    "proof.item3Text": "Animáció, tér, ritmus és vizuális fókusz, ami azonnal magasabb kategóriába emeli a márkát.",
+    "proof.item3Text": "Animáció, tér és fókusz, ami drágábbnak érződik.",
     "showcase.eyebrow": "Extravagáns megoldások",
-    "showcase.title": "Olyan részletek, amik miatt az oldal emlékezetes marad.",
+    "showcase.title": "Mozgás, fény, interakció. Csak ott, ahol számít.",
     "showcase.card1Title": "Élő tech háttér",
-    "showcase.card1Text": "Interaktív, mozgó rendszerhatás, amely azonnal digitális szakértelmet kommunikál.",
+    "showcase.card1Text": "Az első másodpercben tech szakértelmet sugall.",
     "showcase.card2Title": "Konverziós modulok",
-    "showcase.card2Text": "Mérhető, átlátható elemek, amelyek gyorsan megmutatják, miért érdemes ajánlatot kérni.",
+    "showcase.card2Text": "Gyorsan mutatják, miért érdemes ajánlatot kérni.",
     "showcase.card3Title": "Fejlesztői minőség",
-    "showcase.card3Text": "Tiszta felépítés, gyors működés és karbantartható kód, nem egyszer használatos látvány.",
+    "showcase.card3Text": "Gyors működés, tiszta struktúra, nem egyszer használatos show.",
     "process.eyebrow": "Így dolgozunk",
-    "process.title": "Rövid, fókuszált folyamat, látványos végeredménnyel.",
+    "process.title": "Négy lépés. Nincs ködösítés.",
     "process.step1Title": "Audit és cél",
-    "process.step1Text": "Megnézzük, miért nem teljesít elég jól a jelenlegi oldal, és milyen üzleti célt kell kiszolgálnia az újnak.",
+    "process.step1Text": "Mi nem működik, és milyen eredményt kell hoznia?",
     "process.step2Title": "Design irány",
-    "process.step2Text": "Felépítjük az első benyomást, a fő üzenetet, a vizuális rendszert és a látogató útvonalát.",
+    "process.step2Text": "Első benyomás, üzenet, vizuális irány, CTA.",
     "process.step3Title": "Fejlesztés",
-    "process.step3Text": "Gyors, modern, mobilbarát oldalt készítünk animációkkal, űrlapokkal és igény szerint extra funkciókkal.",
+    "process.step3Text": "Gyors, modern, mobilbarát felület, extra funkciókkal.",
     "process.step4Title": "Finomhangolás",
-    "process.step4Text": "Átnézzük a teljes élményt, javítjuk a ritmust, a sebességet és a konverziós pontokat.",
+    "process.step4Text": "Ritmus, sebesség, mobilnézet, ajánlatkérési út.",
     "contact.eyebrow": "Indítsuk el",
     "contact.title": "Készen állsz egy weboldalra, ami végre komolyan képviseli a céged?",
-    "contact.text": "Írd meg, mire van szükséged: új weboldalra, modernizálásra, landing page-re vagy teljes online arculatfrissítésre. A DA Tech segít olyan oldalt építeni, amire büszkén küldöd az ügyfeleidet.",
+    "contact.text": "Írd meg pár mondatban, mit szeretnél. Mi visszajövünk egy tiszta iránnyal.",
     "form.name": "Név",
     "form.namePlaceholder": "Név vagy cégnév",
     "form.email": "E-mail",
@@ -123,25 +129,58 @@ const translations = {
     "before.title": "Így lesz egy sablonos oldalból modern ügyfélszerző felület.",
     "before.oldLabel": "Régi sablon oldal",
     "before.newLabel": "Modern DA Tech élmény",
+    "cases.eyebrow": "Demo transformation",
+    "cases.title": "Nem több szöveg. Jobb első benyomás.",
+    "cases.card1Tag": "Régi céges oldal",
+    "cases.card1Title": "Régi hatásból prémium belépő.",
+    "cases.card1Text": "Egyértelmű ajánlat, gyors kapcsolat, mobil-first szerkezet.",
+    "cases.card2Tag": "Landing page",
+    "cases.card2Title": "Szétszórt üzenetből tiszta CTA.",
+    "cases.card2Text": "A látogató nem bolyong: lát, ért, kattint.",
+    "cases.card3Tag": "Weboldal modernizálás",
+    "cases.card3Title": "Sablonból emlékezetes élmény.",
+    "cases.card3Text": "Before/after, neon tech hangulat, gyors mobil élmény.",
+    "cases.metricTrust": "erősebb bizalmi érzet",
+    "cases.metricPath": "tisztább döntési út",
+    "cases.metricMobile": "mobil audit célpont",
     "trust.eyebrow": "Bizalmi rendszer",
-    "trust.title": "Nem csak látványt adunk, hanem döntési biztonságot.",
+    "trust.title": "Bizalom gyorsan, felesleges magyarázkodás nélkül.",
     "trust.item1": "Átlátható folyamat és mérföldkövek.",
     "trust.item2": "Mobil-first megjelenés minden képernyőre.",
     "trust.item3": "SEO és sebesség alapok már induláskor.",
     "trust.item4": "Átadás után is továbbfejleszthető rendszer.",
+    "trust.note1": "Nem tűnünk el átadás után.",
+    "trust.note2": "Mobilon kezdjük a gondolkodást.",
+    "trust.note3": "Nem sablont kapsz, hanem üzleti célt kiszolgáló oldalt.",
     "packages.eyebrow": "Ajánlati irányok",
-    "packages.title": "Válassz kiindulási szintet, mi hozzáépítjük a stratégiát.",
+    "packages.title": "Három indulási irány. Mind konverzióra építve.",
     "packages.startTitle": "Gyors, modern jelenlét",
     "packages.startText": "Landing page vagy egyszerű céges oldal erős első benyomással.",
+    "packages.startPoint1": "1 oldalas prémium struktúra",
+    "packages.startPoint2": "Mobil-first megjelenés",
+    "packages.startPoint3": "Ajánlatkérési CTA útvonal",
     "packages.modernTitle": "Régi oldalból prémium felület",
-    "packages.modernText": "Struktúra, UX, mobilnézet, animáció és konverziós útvonal újragondolva.",
+    "packages.modernText": "A régi oldal megtartja a lényeget, de új élményt kap.",
+    "packages.modernPoint1": "Before/after modernizálási audit",
+    "packages.modernPoint2": "Új első képernyő és szolgáltatás logika",
+    "packages.modernPoint3": "Sebesség, bizalom és mobil élmény fókusz",
     "packages.premiumTitle": "Teljes digitális élmény",
     "packages.premiumText": "Egyedi többoldalas weboldal, prémium interakciókkal és brand rendszerrel.",
+    "packages.premiumPoint1": "Többoldalas céges rendszer",
+    "packages.premiumPoint2": "Extravagáns animációk és audit modulok",
+    "packages.premiumPoint3": "Többnyelvű, skálázható tartalom",
+    "packages.cta": "Ezt kérem",
     "flow.summaryTitle": "DA Tech javaslat",
     "flow.summaryText": "Modernizálási audit, prémium első képernyő és mobil-first konverziós útvonal.",
+    "flow.summaryNew": "Prémium első képernyő, világos céges struktúra és gyors ajánlatkérési útvonal.",
+    "flow.summaryModern": "Before/after audit, új vizuális rendszer, mobil-first rebuild és bizalmi szekciók.",
+    "flow.summaryLanding": "Egy ajánlatra fókuszált landing page, erős CTA ritmussal és konverziós blokkokkal.",
+    "flow.summaryAdvice": "Rövid stratégiai audit, majd javaslat a legjobb indulási irányra.",
     "flow.prev": "Vissza",
     "flow.next": "Tovább",
     "flow.send": "Igénylés indítása",
+    "flow.success": "Kész az email vázlat. Ha nem nyílt meg automatikusan, írj nekünk: hello@datech.hu",
+    "flow.missingEmail": "Adj meg egy e-mail címet, hogy tudjuk hova válaszoljunk.",
     "about.eyebrow": "About us",
     "about.title": "DA Tech: modern weboldal, ami ügyfeleket győz meg.",
     "about.lead": "A DA Tech olyan vállalkozásoknak készít modern weboldalakat és weboldal-modernizálásokat, akik erősebb online benyomást, gyorsabb felületet és több érdeklődőt szeretnének.",
@@ -168,7 +207,7 @@ const translations = {
     "nav.cta": "Request a Website",
     "hero.eyebrow": "D.A.-Tech website modernization",
     "hero.title": "Where design meets technology.",
-    "hero.lead": "We build modern websites and website upgrades for businesses that want a faster, sharper and more persuasive online presence. Not a template, but a strategic web experience that builds trust and brings in leads.",
+    "hero.lead": "We turn old, template-like or weak websites into premium digital experiences. Fast. Mobile-tuned. Built to win leads.",
     "hero.primary": "I need a website",
     "hero.secondary": "What can we build?",
     "hero.signalSpeed": "targeted load feel",
@@ -189,46 +228,52 @@ const translations = {
     "marquee.requests": "automated requests",
     "marquee.seo": "SEO foundations",
     "marquee.brand": "brand experience",
+    "impact.item1Title": "Clear in 5 seconds",
+    "impact.item1Text": "Visitors instantly know why they should stay.",
+    "impact.item2Title": "No template feel",
+    "impact.item2Text": "Tech visuals, motion and a premium first impression.",
+    "impact.item3Title": "Built for requests",
+    "impact.item3Text": "Less noise, clearer path to action.",
     "services.eyebrow": "What we build",
-    "services.title": "You do not just get a new website. You get a stronger online sales engine.",
+    "services.title": "What we build: visuals, trust, requests.",
     "services.card1Title": "Premium business website",
-    "services.card1Text": "A persuasive structure, striking first screen, clear offer and visual language that makes your brand feel professional.",
+    "services.card1Text": "Strong first screen, clear offer, premium brand feel.",
     "services.card2Title": "Website modernization",
-    "services.card2Text": "We turn old, slow or low-trust websites into modern, mobile-friendly and lead-generating experiences.",
+    "services.card2Text": "Old site into a modern, fast, mobile-friendly lead interface.",
     "services.card3Title": "Extravagant interactions",
-    "services.card3Text": "Animated hero sections, refined microinteractions, dynamic content blocks and premium UI details.",
+    "services.card3Text": "Animated hero, microinteractions, memorable tech details.",
     "services.card4Title": "Conversion strategy",
-    "services.card4Text": "CTA, request flow, trust elements, service structure and rhythm designed to turn visitors into leads.",
+    "services.card4Text": "Less noise, stronger CTA, clearer decision path.",
     "proof.eyebrow": "Why DA Tech?",
     "proof.title": "Visitors do not see code. They feel whether a company is trustworthy.",
-    "proof.text": "DA Tech websites focus on three things: first impression, speed and a clear business message. The result is a web presence that does not just exist online, it works for your company.",
+    "proof.text": "A website does not need to say everything. It needs to make the right customer want the next step.",
     "proof.item1Title": "Strategic design",
-    "proof.item1Text": "The structure follows the customer decision path instead of a random menu order.",
+    "proof.item1Text": "We guide attention to the moment where decisions happen.",
     "proof.item2Title": "Modern technical base",
-    "proof.item2Text": "Fast, responsive, search-friendly and easy-to-extend interfaces.",
+    "proof.item2Text": "Fast, responsive, search-friendly foundation.",
     "proof.item3Title": "Premium feel",
-    "proof.item3Text": "Animation, space, rhythm and visual focus that instantly raises the brand perception.",
+    "proof.item3Text": "Animation, space and focus that make the brand feel premium.",
     "showcase.eyebrow": "Extravagant solutions",
-    "showcase.title": "Details that make the website memorable.",
+    "showcase.title": "Motion, light, interaction. Only where it matters.",
     "showcase.card1Title": "Live tech background",
-    "showcase.card1Text": "An interactive moving system effect that immediately communicates digital expertise.",
+    "showcase.card1Text": "Signals tech expertise in the first second.",
     "showcase.card2Title": "Conversion modules",
-    "showcase.card2Text": "Measurable, clear elements that quickly show why a visitor should request an offer.",
+    "showcase.card2Text": "Quickly shows why a visitor should request an offer.",
     "showcase.card3Title": "Developer quality",
-    "showcase.card3Text": "Clean structure, fast behavior and maintainable code instead of disposable visuals.",
+    "showcase.card3Text": "Fast behavior, clean structure, not disposable show.",
     "process.eyebrow": "How we work",
-    "process.title": "A short, focused process with a striking result.",
+    "process.title": "Four steps. No fog.",
     "process.step1Title": "Audit and goal",
-    "process.step1Text": "We inspect why the current site is underperforming and what business goal the new one must serve.",
+    "process.step1Text": "What is not working, and what result should it bring?",
     "process.step2Title": "Design direction",
-    "process.step2Text": "We shape the first impression, core message, visual system and visitor path.",
+    "process.step2Text": "First impression, message, visual direction, CTA.",
     "process.step3Title": "Development",
-    "process.step3Text": "We build a fast, modern, mobile-friendly site with animations, forms and extra functions when needed.",
+    "process.step3Text": "Fast, modern, mobile-friendly interface with extras.",
     "process.step4Title": "Fine tuning",
-    "process.step4Text": "We review the complete experience and refine rhythm, speed and conversion points.",
+    "process.step4Text": "Rhythm, speed, mobile view and request path.",
     "contact.eyebrow": "Start the build",
     "contact.title": "Ready for a website that finally represents your company seriously?",
-    "contact.text": "Tell us what you need: a new website, modernization, a landing page or a full online identity refresh. DA Tech helps you build a site you can proudly send customers to.",
+    "contact.text": "Tell us in a few sentences what you want. We come back with a clear direction.",
     "form.name": "Name",
     "form.namePlaceholder": "Name or company",
     "form.email": "E-mail",
@@ -272,25 +317,58 @@ const translations = {
     "before.title": "This is how a template-like page becomes a modern lead-generating interface.",
     "before.oldLabel": "Old template page",
     "before.newLabel": "Modern DA Tech experience",
+    "cases.eyebrow": "Demo transformation",
+    "cases.title": "Not more text. A better first impression.",
+    "cases.card1Tag": "Old company website",
+    "cases.card1Title": "From old feel to premium entry.",
+    "cases.card1Text": "Clear offer, fast contact, mobile-first structure.",
+    "cases.card2Tag": "Landing page",
+    "cases.card2Title": "From scattered message to clear CTA.",
+    "cases.card2Text": "Visitors do not wander: they see, understand, click.",
+    "cases.card3Tag": "Website modernization",
+    "cases.card3Title": "From template to memorable experience.",
+    "cases.card3Text": "Before/after, neon tech mood, fast mobile experience.",
+    "cases.metricTrust": "stronger trust feel",
+    "cases.metricPath": "clearer decision path",
+    "cases.metricMobile": "mobile audit target",
     "trust.eyebrow": "Trust system",
-    "trust.title": "We do not just add visuals. We create decision confidence.",
+    "trust.title": "Trust quickly, without over-explaining.",
     "trust.item1": "Transparent process and milestones.",
     "trust.item2": "Mobile-first appearance for every screen.",
     "trust.item3": "SEO and speed foundations from launch.",
     "trust.item4": "A system that can keep evolving after handover.",
+    "trust.note1": "We do not disappear after handover.",
+    "trust.note2": "We start thinking from mobile.",
+    "trust.note3": "You do not get a template, but a site serving a business goal.",
     "packages.eyebrow": "Offer directions",
-    "packages.title": "Choose a starting level, we build the strategy around it.",
+    "packages.title": "Three starting paths. All built for conversion.",
     "packages.startTitle": "Fast modern presence",
     "packages.startText": "Landing page or simple company site with a strong first impression.",
+    "packages.startPoint1": "1-page premium structure",
+    "packages.startPoint2": "Mobile-first appearance",
+    "packages.startPoint3": "Request-focused CTA path",
     "packages.modernTitle": "Premium interface from an old site",
-    "packages.modernText": "Structure, UX, mobile view, animation and conversion path rethought.",
+    "packages.modernText": "The old site keeps its essence, but gets a new experience.",
+    "packages.modernPoint1": "Before/after modernization audit",
+    "packages.modernPoint2": "New first screen and service logic",
+    "packages.modernPoint3": "Speed, trust and mobile experience focus",
     "packages.premiumTitle": "Complete digital experience",
     "packages.premiumText": "Custom multi-page website with premium interactions and brand system.",
+    "packages.premiumPoint1": "Multi-page company system",
+    "packages.premiumPoint2": "Extravagant animations and audit modules",
+    "packages.premiumPoint3": "Multilingual scalable content",
+    "packages.cta": "Request this",
     "flow.summaryTitle": "DA Tech recommendation",
     "flow.summaryText": "Modernization audit, premium first screen and mobile-first conversion path.",
+    "flow.summaryNew": "Premium first screen, clear company structure and a fast request path.",
+    "flow.summaryModern": "Before/after audit, new visual system, mobile-first rebuild and trust sections.",
+    "flow.summaryLanding": "A one-offer landing page with strong CTA rhythm and conversion blocks.",
+    "flow.summaryAdvice": "Short strategic audit, then a recommendation for the best starting direction.",
     "flow.prev": "Back",
     "flow.next": "Next",
     "flow.send": "Start request",
+    "flow.success": "The email draft is ready. If it did not open automatically, write to us: hello@datech.hu",
+    "flow.missingEmail": "Add an email address so we know where to reply.",
     "about.eyebrow": "About us",
     "about.title": "DA Tech: a modern website that wins customers.",
     "about.lead": "DA Tech builds modern websites and website modernizations for businesses that want a stronger online impression, a faster interface and more qualified leads.",
@@ -317,7 +395,7 @@ const translations = {
     "nav.cta": "Website anfragen",
     "hero.eyebrow": "D.A.-Tech Website-Modernisierung",
     "hero.title": "Wo Design auf Technologie trifft.",
-    "hero.lead": "Wir erstellen moderne Websites und Website-Modernisierungen fuer Unternehmen, die online schneller, eleganter und ueberzeugender auftreten wollen. Keine Vorlage, sondern ein strategisches Web-Erlebnis, das Vertrauen aufbaut und Anfragen bringt.",
+    "hero.lead": "Wir verwandeln alte, templateartige oder schwache Websites in premium digitale Erlebnisse. Schnell. Mobil optimiert. Fuer Anfragen gebaut.",
     "hero.primary": "Website anfragen",
     "hero.secondary": "Was koennen wir bauen?",
     "hero.signalSpeed": "gezieltes Ladegefuehl",
@@ -338,46 +416,52 @@ const translations = {
     "marquee.requests": "automatisierte Anfragen",
     "marquee.seo": "SEO-Grundlagen",
     "marquee.brand": "Markenerlebnis",
+    "impact.item1Title": "In 5 Sekunden klar",
+    "impact.item1Text": "Besucher verstehen sofort, warum sie bleiben sollten.",
+    "impact.item2Title": "Kein Template-Gefuehl",
+    "impact.item2Text": "Tech-Visuals, Bewegung und ein premium erster Eindruck.",
+    "impact.item3Title": "Fuer Anfragen gebaut",
+    "impact.item3Text": "Weniger Laerm, klarerer Weg zur Aktion.",
     "services.eyebrow": "Was wir bauen",
-    "services.title": "Du bekommst nicht nur eine neue Website, sondern eine staerkere Online-Verkaufsmaschine.",
+    "services.title": "Was wir bauen: Wirkung, Vertrauen, Anfragen.",
     "services.card1Title": "Premium Firmenwebsite",
-    "services.card1Text": "Ueberzeugende Struktur, starke erste Ansicht, klares Angebot und eine visuelle Sprache, die deine Marke professionell wirken laesst.",
+    "services.card1Text": "Starke erste Ansicht, klares Angebot, premium Markengefuehl.",
     "services.card2Title": "Website-Modernisierung",
-    "services.card2Text": "Aus alten, langsamen oder wenig vertrauenswuerdigen Seiten machen wir moderne, mobile und anfrageorientierte Erlebnisse.",
+    "services.card2Text": "Alte Seite zu moderner, schneller, mobiler Anfrage-Oberflaeche.",
     "services.card3Title": "Extravagante Interaktionen",
-    "services.card3Text": "Animierte Hero-Bereiche, feine Mikrointeraktionen, dynamische Inhaltsbloecke und hochwertige UI-Details.",
+    "services.card3Text": "Animierter Hero, Mikrointeraktionen, merkbare Tech-Details.",
     "services.card4Title": "Conversion-Strategie",
-    "services.card4Text": "CTA, Anfragefluss, Vertrauenselemente, Leistungsstruktur und Seitenrhythmus werden auf echte Anfragen ausgelegt.",
+    "services.card4Text": "Weniger Laerm, staerkerer CTA, klarerer Entscheidungsweg.",
     "proof.eyebrow": "Warum D.A.-Tech?",
     "proof.title": "Besucher sehen keinen Code. Sie fuehlen, ob ein Unternehmen vertrauenswuerdig ist.",
-    "proof.text": "DA Tech Websites konzentrieren sich auf drei Dinge: erster Eindruck, Geschwindigkeit und eine klare Business-Botschaft. Das Ergebnis ist eine Webpraesenz, die nicht nur online ist, sondern fuer dein Unternehmen arbeitet.",
+    "proof.text": "Eine Website muss nicht alles sagen. Sie muss den richtigen Kunden zum naechsten Schritt bewegen.",
     "proof.item1Title": "Strategisches Design",
-    "proof.item1Text": "Die Struktur folgt dem Entscheidungsweg des Kunden, nicht einer zufaelligen Menue-Reihenfolge.",
+    "proof.item1Text": "Wir fuehren Aufmerksamkeit dorthin, wo Entscheidungen entstehen.",
     "proof.item2Title": "Moderne technische Basis",
-    "proof.item2Text": "Schnelle, responsive, suchmaschinenfreundliche und leicht erweiterbare Oberflaechen.",
+    "proof.item2Text": "Schnelle, responsive, suchmaschinenfreundliche Basis.",
     "proof.item3Title": "Premium-Gefuehl",
-    "proof.item3Text": "Animation, Raum, Rhythmus und visueller Fokus heben die Markenwirkung sofort an.",
+    "proof.item3Text": "Animation, Raum und Fokus lassen die Marke hochwertiger wirken.",
     "showcase.eyebrow": "Extravagante Loesungen",
-    "showcase.title": "Details, die die Website im Kopf behalten lassen.",
+    "showcase.title": "Bewegung, Licht, Interaktion. Nur dort, wo es zaehlt.",
     "showcase.card1Title": "Live-Tech-Hintergrund",
-    "showcase.card1Text": "Ein interaktiver, bewegter Systemeffekt, der sofort digitale Kompetenz vermittelt.",
+    "showcase.card1Text": "Vermittelt digitale Kompetenz in der ersten Sekunde.",
     "showcase.card2Title": "Conversion-Module",
-    "showcase.card2Text": "Messbare, klare Elemente, die schnell zeigen, warum Besucher eine Anfrage stellen sollten.",
+    "showcase.card2Text": "Zeigt schnell, warum eine Anfrage sinnvoll ist.",
     "showcase.card3Title": "Entwicklerqualitaet",
-    "showcase.card3Text": "Saubere Struktur, schnelle Funktion und wartbarer Code statt kurzlebiger Show-Effekte.",
+    "showcase.card3Text": "Schnell, sauber strukturiert, keine kurzlebige Show.",
     "process.eyebrow": "So arbeiten wir",
-    "process.title": "Ein kurzer, fokussierter Prozess mit starkem Ergebnis.",
+    "process.title": "Vier Schritte. Kein Nebel.",
     "process.step1Title": "Audit und Ziel",
-    "process.step1Text": "Wir pruefen, warum die aktuelle Website nicht genug leistet und welches Business-Ziel die neue Seite erfuellen muss.",
+    "process.step1Text": "Was funktioniert nicht, und welches Ergebnis soll entstehen?",
     "process.step2Title": "Designrichtung",
-    "process.step2Text": "Wir entwickeln den ersten Eindruck, die Kernbotschaft, das visuelle System und den Besucherpfad.",
+    "process.step2Text": "Erster Eindruck, Botschaft, visuelle Richtung, CTA.",
     "process.step3Title": "Entwicklung",
-    "process.step3Text": "Wir bauen eine schnelle, moderne, mobile Website mit Animationen, Formularen und bei Bedarf Extra-Funktionen.",
+    "process.step3Text": "Schnelle, moderne, mobile Oberflaeche mit Extras.",
     "process.step4Title": "Feinschliff",
-    "process.step4Text": "Wir pruefen das gesamte Erlebnis und optimieren Rhythmus, Geschwindigkeit und Conversion-Punkte.",
+    "process.step4Text": "Rhythmus, Geschwindigkeit, Mobile View und Anfrageweg.",
     "contact.eyebrow": "Projekt starten",
     "contact.title": "Bereit fuer eine Website, die dein Unternehmen endlich stark repraesentiert?",
-    "contact.text": "Sag uns, was du brauchst: neue Website, Modernisierung, Landingpage oder kompletten Online-Auftritt. DA Tech baut eine Seite, die du Kunden mit Stolz zeigen kannst.",
+    "contact.text": "Sag uns in wenigen Saetzen, was du willst. Wir kommen mit einer klaren Richtung zurueck.",
     "form.name": "Name",
     "form.namePlaceholder": "Name oder Firma",
     "form.email": "E-Mail",
@@ -421,25 +505,58 @@ const translations = {
     "before.title": "So wird aus einer Template-Seite eine moderne Oberflaeche fuer neue Anfragen.",
     "before.oldLabel": "Alte Template-Seite",
     "before.newLabel": "Modernes DA Tech Erlebnis",
+    "cases.eyebrow": "Demo Transformation",
+    "cases.title": "Nicht mehr Text. Ein besserer erster Eindruck.",
+    "cases.card1Tag": "Alte Unternehmensseite",
+    "cases.card1Title": "Von alt wirkend zu premium Einstieg.",
+    "cases.card1Text": "Klares Angebot, schneller Kontakt, Mobile-first Struktur.",
+    "cases.card2Tag": "Landingpage",
+    "cases.card2Title": "Von verstreuter Botschaft zu klarem CTA.",
+    "cases.card2Text": "Besucher irren nicht herum: sehen, verstehen, klicken.",
+    "cases.card3Tag": "Website-Modernisierung",
+    "cases.card3Title": "Vom Template zum merkbaren Erlebnis.",
+    "cases.card3Text": "Vorher/Nachher, Neon-Tech-Stimmung, schnelle Mobile Experience.",
+    "cases.metricTrust": "staerkeres Vertrauensgefuehl",
+    "cases.metricPath": "klarerer Entscheidungsweg",
+    "cases.metricMobile": "Mobile-Audit-Ziel",
     "trust.eyebrow": "Vertrauenssystem",
-    "trust.title": "Wir liefern nicht nur Optik, sondern Entscheidungssicherheit.",
+    "trust.title": "Vertrauen schnell, ohne zu viel Erklaerung.",
     "trust.item1": "Transparenter Prozess und klare Meilensteine.",
     "trust.item2": "Mobile-first Darstellung fuer jeden Bildschirm.",
     "trust.item3": "SEO- und Speed-Grundlagen ab dem Start.",
     "trust.item4": "Ein System, das nach der Uebergabe weiter wachsen kann.",
+    "trust.note1": "Wir verschwinden nicht nach der Uebergabe.",
+    "trust.note2": "Wir denken zuerst mobil.",
+    "trust.note3": "Du bekommst kein Template, sondern eine Seite fuer ein Geschaeftsziel.",
     "packages.eyebrow": "Angebotsrichtungen",
-    "packages.title": "Waehle den Startpunkt, wir bauen die Strategie dazu.",
+    "packages.title": "Drei Startwege. Alle fuer Conversion gebaut.",
     "packages.startTitle": "Schnelle moderne Praesenz",
     "packages.startText": "Landingpage oder einfache Firmenseite mit starkem ersten Eindruck.",
+    "packages.startPoint1": "Premium-Struktur fuer eine Seite",
+    "packages.startPoint2": "Mobile-first Darstellung",
+    "packages.startPoint3": "CTA-Weg fuer Anfragen",
     "packages.modernTitle": "Premium-Oberflaeche aus alter Seite",
-    "packages.modernText": "Struktur, UX, Mobile View, Animation und Conversion-Pfad neu gedacht.",
+    "packages.modernText": "Die alte Seite behaelt den Kern, bekommt aber ein neues Erlebnis.",
+    "packages.modernPoint1": "Vorher/Nachher Modernisierungs-Audit",
+    "packages.modernPoint2": "Neue erste Ansicht und Leistungslogik",
+    "packages.modernPoint3": "Fokus auf Tempo, Vertrauen und Mobile Experience",
     "packages.premiumTitle": "Komplettes digitales Erlebnis",
     "packages.premiumText": "Individuelle mehrseitige Website mit Premium-Interaktionen und Brand-System.",
+    "packages.premiumPoint1": "Mehrseitiges Unternehmenssystem",
+    "packages.premiumPoint2": "Extravagante Animationen und Audit-Module",
+    "packages.premiumPoint3": "Mehrsprachiger skalierbarer Inhalt",
+    "packages.cta": "Das anfragen",
     "flow.summaryTitle": "DA Tech Empfehlung",
     "flow.summaryText": "Modernisierungs-Audit, premium erster Bildschirm und mobile-first Conversion-Pfad.",
+    "flow.summaryNew": "Premium erste Ansicht, klare Unternehmensstruktur und schneller Anfrageweg.",
+    "flow.summaryModern": "Vorher/Nachher Audit, neues visuelles System, Mobile-first Rebuild und Vertrauensbereiche.",
+    "flow.summaryLanding": "Eine Landingpage fuer ein Angebot mit starkem CTA-Rhythmus und Conversion-Bloecken.",
+    "flow.summaryAdvice": "Kurzer Strategie-Audit, danach Empfehlung fuer die beste Startrichtung.",
     "flow.prev": "Zurueck",
     "flow.next": "Weiter",
     "flow.send": "Anfrage starten",
+    "flow.success": "Der E-Mail-Entwurf ist bereit. Falls er sich nicht automatisch geoeffnet hat: hello@datech.hu",
+    "flow.missingEmail": "Gib eine E-Mail-Adresse ein, damit wir antworten koennen.",
     "about.eyebrow": "About us",
     "about.title": "DA Tech: eine moderne Website, die Kunden ueberzeugt.",
     "about.lead": "DA Tech erstellt moderne Websites und Website-Modernisierungen fuer Unternehmen, die online staerker wirken, schneller auftreten und mehr qualifizierte Anfragen gewinnen wollen.",
@@ -587,21 +704,71 @@ document.querySelectorAll(".lang-option").forEach((button) => {
   button.addEventListener("click", () => setLanguage(button.dataset.lang));
 });
 
-document.querySelectorAll(".nav-menu").forEach((menu) => {
-  const trigger = menu.querySelector(".nav-menu-button");
-  if (!trigger) return;
+document.querySelectorAll(".site-header").forEach((header) => {
+  const toggle = header.querySelector(".mobile-menu-toggle");
+  if (!toggle) return;
 
-  trigger.addEventListener("click", (event) => {
+  const closeMobileMenu = () => {
+    header.classList.remove("is-menu-open");
+    toggle.setAttribute("aria-expanded", "false");
+    header.querySelectorAll(".nav-menu.is-open").forEach((menu) => {
+      menu.classList.remove("is-open");
+      const trigger = menu.querySelector(".nav-menu-button");
+      if (trigger) trigger.setAttribute("aria-expanded", "false");
+    });
+  };
+
+  toggle.addEventListener("click", (event) => {
     event.stopPropagation();
-    menu.classList.toggle("is-open");
+    const isOpen = header.classList.toggle("is-menu-open");
+    toggle.setAttribute("aria-expanded", String(isOpen));
+    if (!isOpen) closeMobileMenu();
   });
 
-  menu.querySelectorAll(".nav-dropdown a").forEach((link) => {
-    link.addEventListener("click", () => menu.classList.remove("is-open"));
+  header.querySelectorAll(".nav a, .nav-cta, .lang-option").forEach((item) => {
+    item.addEventListener("click", closeMobileMenu);
   });
 
   document.addEventListener("click", (event) => {
-    if (!menu.contains(event.target)) menu.classList.remove("is-open");
+    if (!header.contains(event.target)) closeMobileMenu();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMobileMenu();
+  });
+});
+
+document.querySelectorAll(".nav-menu").forEach((menu) => {
+  const trigger = menu.querySelector(".nav-menu-button");
+  if (!trigger) return;
+  trigger.setAttribute("aria-expanded", "false");
+
+  trigger.addEventListener("click", (event) => {
+    event.stopPropagation();
+    menu.classList.remove("is-suppressed");
+    const isOpen = menu.classList.toggle("is-open");
+    trigger.setAttribute("aria-expanded", String(isOpen));
+    trigger.blur();
+  });
+
+  menu.addEventListener("mouseleave", () => {
+    menu.classList.remove("is-suppressed");
+  });
+
+  menu.querySelectorAll(".nav-dropdown a").forEach((link) => {
+    link.addEventListener("click", () => {
+      menu.classList.remove("is-open");
+      menu.classList.remove("is-suppressed");
+      trigger.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!menu.contains(event.target)) {
+      menu.classList.remove("is-open");
+      menu.classList.remove("is-suppressed");
+      trigger.setAttribute("aria-expanded", "false");
+    }
   });
 });
 
@@ -1593,6 +1760,51 @@ const flowPanels = [...document.querySelectorAll(".flow-panel")];
 const flowButtons = [...document.querySelectorAll(".flow-steps button")];
 const flowPrev = document.querySelector("#flowPrev");
 const flowNext = document.querySelector("#flowNext");
+const requestForm = document.querySelector(".request-flow");
+const projectSelect = requestForm ? requestForm.querySelector('select[name="project"]') : null;
+const flowRecommendation = document.querySelector("#flowRecommendation");
+const formStatus = document.querySelector("#formStatus");
+
+const projectRecommendationKeys = ["flow.summaryNew", "flow.summaryModern", "flow.summaryLanding", "flow.summaryAdvice"];
+
+function updateFlowRecommendation() {
+  if (!flowRecommendation) return;
+  const lang = window.localStorage.getItem("daTechLang") || "hu";
+  const dictionary = translations[lang] || translations.hu;
+  const selectedIndex = projectSelect ? projectSelect.selectedIndex : 0;
+  const key = projectRecommendationKeys[selectedIndex] || "flow.summaryText";
+  flowRecommendation.textContent = dictionary[key] || dictionary["flow.summaryText"];
+}
+
+function submitWebsiteRequest() {
+  if (!requestForm) return;
+  const lang = window.localStorage.getItem("daTechLang") || "hu";
+  const dictionary = translations[lang] || translations.hu;
+  const data = new FormData(requestForm);
+  const email = String(data.get("email") || "").trim();
+  if (!email) {
+    if (formStatus) formStatus.textContent = dictionary["flow.missingEmail"];
+    setFlowStep(2);
+    return;
+  }
+
+  const project = String(data.get("project") || "");
+  const name = String(data.get("name") || "").trim();
+  const message = String(data.get("message") || "").trim();
+  const body = [
+    "DA Tech website request",
+    "",
+    `Project: ${project}`,
+    `Name: ${name || "-"}`,
+    `Email: ${email}`,
+    "",
+    "Message:",
+    message || "-"
+  ].join("\n");
+
+  window.location.href = `mailto:hello@datech.hu?subject=${encodeURIComponent("DA Tech weboldal igénylés")}&body=${encodeURIComponent(body)}`;
+  if (formStatus) formStatus.textContent = dictionary["flow.success"];
+}
 
 function setFlowStep(nextStep) {
   if (!flowPanels.length) return;
@@ -1605,6 +1817,7 @@ function setFlowStep(nextStep) {
     const dictionary = translations[lang] || translations.hu;
     flowNext.textContent = flowStep === flowPanels.length - 1 ? dictionary["flow.send"] : dictionary["flow.next"];
   }
+  updateFlowRecommendation();
 }
 
 flowButtons.forEach((button) => {
@@ -1614,8 +1827,11 @@ if (flowPrev) flowPrev.addEventListener("click", () => setFlowStep(flowStep - 1)
 if (flowNext) {
   flowNext.addEventListener("click", () => {
     if (flowStep < flowPanels.length - 1) setFlowStep(flowStep + 1);
+    else submitWebsiteRequest();
   });
 }
+if (projectSelect) projectSelect.addEventListener("change", updateFlowRecommendation);
+if (requestForm) requestForm.addEventListener("submit", (event) => event.preventDefault());
 
 const revealObserver = "IntersectionObserver" in window
   ? new IntersectionObserver((entries) => {
