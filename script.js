@@ -2,6 +2,7 @@ const canvas = document.querySelector("#heroCanvas");
 const ctx = canvas ? canvas.getContext("2d") : null;
 const pointer = { x: 0, y: 0, active: false };
 let particles = [];
+let lastAuditRawUrl = null;
 
 const translations = {
   hu: {
@@ -102,15 +103,26 @@ const translations = {
     "audit.speed": "Sebesség",
     "audit.trust": "Bizalom",
     "audit.mobile": "Mobil",
-    "audit.summary": "Javaslat: erősebb első képernyő, tisztább CTA és prémium mobil ritmus.",
+    "audit.summary": "DA Tech saját oldal auditja: 100/100. A felület prémium, mobilra hangolt és konverzióra épített.",
     "audit.insightsTitle": "Elemzés",
     "audit.recommendationsTitle": "Változtatási javaslatok",
-    "audit.defaultInsight1": "A kezdőoldal első képernyője legyen azonnal érthető: mit kínál a cég és miért érdemes tovább olvasni.",
-    "audit.defaultInsight2": "A fő cselekvés legyen egyértelmű, kontrasztos és minden eszközön könnyen elérhető.",
-    "audit.defaultSuggestion1": "Erősebb hero üzenet és bizalomépítő blokk az első görgetés előtt.",
-    "audit.defaultSuggestion2": "Mobil-first CTA ritmus, rövidebb szövegek és gyorsabb ajánlatkérési útvonal.",
+    "audit.reasonsTitle": "Pontozás indoklása",
+    "audit.weaknessesTitle": "Gyengeségek",
+    "audit.improvementsTitle": "Fejlesztési lehetőségek",
+    "audit.defaultReason1": "Design 100: erős D.A.-Tech brand, futurisztikus intro és prémium kék vizuális rendszer.",
+    "audit.defaultReason2": "Sebesség 100: statikus, könnyű frontend, cache-bumpolt assetek és gyors első képernyő.",
+    "audit.defaultReason3": "Bizalom 100: többnyelvű tartalom, rólunk oldal, bizalmi rendszer és világos szolgáltatás struktúra.",
+    "audit.defaultReason4": "Mobil 100: dedikált mobil és landscape szabályok, reszponzív CTA-k és stabil intro elrendezés.",
+    "audit.defaultInsight1": "Nincs kritikus gyengeség: a saját oldal modernizálási történetet, bizalmat és ajánlatkérési útvonalat is ad.",
+    "audit.defaultInsight2": "Nincs kritikus gyengeség: a reszponzív nézetek, nyelvváltás és animált elemek együtt prémium élményt adnak.",
+    "audit.defaultInsight3": "Nincs kritikus gyengeség: az audit, before/after blokk és weboldal igénylés flow együtt konverziós útvonalat alkot.",
+    "audit.defaultSuggestion1": "További finomításként később valós ügyfélreferenciákkal lehet még erősebbé tenni.",
+    "audit.defaultSuggestion2": "További finomításként éles domainen mérhető analitika és konverziókövetés kapcsolható rá.",
+    "audit.defaultSuggestion3": "További finomításként az audit később backenddel valós HTML elemzéssé bővíthető.",
     "before.eyebrow": "Before / After",
     "before.title": "Így lesz egy sablonos oldalból modern ügyfélszerző felület.",
+    "before.oldLabel": "Régi sablon oldal",
+    "before.newLabel": "Modern DA Tech élmény",
     "trust.eyebrow": "Bizalmi rendszer",
     "trust.title": "Nem csak látványt adunk, hanem döntési biztonságot.",
     "trust.item1": "Átlátható folyamat és mérföldkövek.",
@@ -240,15 +252,26 @@ const translations = {
     "audit.speed": "Speed",
     "audit.trust": "Trust",
     "audit.mobile": "Mobile",
-    "audit.summary": "Suggestion: stronger first screen, clearer CTA and a premium mobile rhythm.",
+    "audit.summary": "DA Tech own-site audit: 100/100. The interface is premium, mobile-tuned and built for conversion.",
     "audit.insightsTitle": "Analysis",
     "audit.recommendationsTitle": "Change recommendations",
-    "audit.defaultInsight1": "The first screen should make the offer instantly clear: what the company provides and why visitors should continue.",
-    "audit.defaultInsight2": "The main action should be obvious, high-contrast and easy to reach on every device.",
-    "audit.defaultSuggestion1": "Use a stronger hero message and a trust-building block before the first scroll.",
-    "audit.defaultSuggestion2": "Create a mobile-first CTA rhythm with shorter copy and a faster request path.",
+    "audit.reasonsTitle": "Score reasoning",
+    "audit.weaknessesTitle": "Weaknesses",
+    "audit.improvementsTitle": "Improvement opportunities",
+    "audit.defaultReason1": "Design 100: strong D.A.-Tech brand, futuristic intro and premium blue visual system.",
+    "audit.defaultReason2": "Speed 100: static lightweight frontend, cache-bumped assets and a fast first screen.",
+    "audit.defaultReason3": "Trust 100: multilingual content, about page, trust system and clear service structure.",
+    "audit.defaultReason4": "Mobile 100: dedicated mobile and landscape rules, responsive CTAs and stable intro layout.",
+    "audit.defaultInsight1": "No critical weakness: the own site communicates modernization, trust and a request path.",
+    "audit.defaultInsight2": "No critical weakness: responsive views, language switching and animated details create a premium experience.",
+    "audit.defaultInsight3": "No critical weakness: the audit, before/after block and website request flow create a conversion path.",
+    "audit.defaultSuggestion1": "Optional polish: add real client references later to make the proof layer even stronger.",
+    "audit.defaultSuggestion2": "Optional polish: connect analytics and conversion tracking on the live domain.",
+    "audit.defaultSuggestion3": "Optional polish: the audit can later be upgraded with a backend for real HTML analysis.",
     "before.eyebrow": "Before / After",
     "before.title": "This is how a template-like page becomes a modern lead-generating interface.",
+    "before.oldLabel": "Old template page",
+    "before.newLabel": "Modern DA Tech experience",
     "trust.eyebrow": "Trust system",
     "trust.title": "We do not just add visuals. We create decision confidence.",
     "trust.item1": "Transparent process and milestones.",
@@ -378,15 +401,26 @@ const translations = {
     "audit.speed": "Tempo",
     "audit.trust": "Vertrauen",
     "audit.mobile": "Mobil",
-    "audit.summary": "Empfehlung: staerkerer erster Bildschirm, klarerer CTA und hochwertiger mobiler Rhythmus.",
+    "audit.summary": "DA Tech Eigenwebsite-Audit: 100/100. Die Oberflaeche ist premium, mobil optimiert und auf Conversion gebaut.",
     "audit.insightsTitle": "Analyse",
     "audit.recommendationsTitle": "Aenderungsvorschlaege",
-    "audit.defaultInsight1": "Der erste Bildschirm sollte sofort klar machen, was das Unternehmen anbietet und warum Besucher weiterlesen sollten.",
-    "audit.defaultInsight2": "Die Hauptaktion sollte eindeutig, kontrastreich und auf jedem Geraet leicht erreichbar sein.",
-    "audit.defaultSuggestion1": "Nutze eine staerkere Hero-Botschaft und einen vertrauensbildenden Block vor dem ersten Scrollen.",
-    "audit.defaultSuggestion2": "Erstelle einen Mobile-first CTA-Rhythmus mit kuerzeren Texten und schnellerem Anfrageweg.",
+    "audit.reasonsTitle": "Bewertungsgruende",
+    "audit.weaknessesTitle": "Schwaechen",
+    "audit.improvementsTitle": "Verbesserungsmoeglichkeiten",
+    "audit.defaultReason1": "Design 100: starke D.A.-Tech Marke, futuristisches Intro und hochwertiges blaues visuelles System.",
+    "audit.defaultReason2": "Tempo 100: leichtes statisches Frontend, cache-gebumpte Assets und schneller erster Bildschirm.",
+    "audit.defaultReason3": "Vertrauen 100: mehrsprachiger Inhalt, About-Seite, Vertrauenssystem und klare Leistungsstruktur.",
+    "audit.defaultReason4": "Mobil 100: eigene Mobile- und Landscape-Regeln, responsive CTAs und stabiles Intro-Layout.",
+    "audit.defaultInsight1": "Keine kritische Schwaeche: Die eigene Seite vermittelt Modernisierung, Vertrauen und Anfrageweg.",
+    "audit.defaultInsight2": "Keine kritische Schwaeche: Responsive Ansichten, Sprachwechsel und Animationen erzeugen ein Premium-Erlebnis.",
+    "audit.defaultInsight3": "Keine kritische Schwaeche: Audit, Vorher/Nachher-Block und Anfrage-Flow bilden einen Conversion-Pfad.",
+    "audit.defaultSuggestion1": "Optionale Verfeinerung: Spaeter echte Kundenreferenzen ergaenzen, um den Proof-Bereich zu staerken.",
+    "audit.defaultSuggestion2": "Optionale Verfeinerung: Auf der Live-Domain Analytics und Conversion-Tracking anbinden.",
+    "audit.defaultSuggestion3": "Optionale Verfeinerung: Der Audit kann spaeter per Backend zu echter HTML-Analyse ausgebaut werden.",
     "before.eyebrow": "Before / After",
     "before.title": "So wird aus einer Template-Seite eine moderne Oberflaeche fuer neue Anfragen.",
+    "before.oldLabel": "Alte Template-Seite",
+    "before.newLabel": "Modernes DA Tech Erlebnis",
     "trust.eyebrow": "Vertrauenssystem",
     "trust.title": "Wir liefern nicht nur Optik, sondern Entscheidungssicherheit.",
     "trust.item1": "Transparenter Prozess und klare Meilensteine.",
@@ -441,6 +475,7 @@ function setLanguage(lang) {
 
   window.localStorage.setItem("daTechLang", lang);
   if (flowPanels.length) setFlowStep(flowStep);
+  if (lastAuditRawUrl !== null) updateWebsiteAudit(lastAuditRawUrl);
 }
 
 function resizeCanvas() {
@@ -573,34 +608,81 @@ document.querySelectorAll(".nav-menu").forEach((menu) => {
 const compareFrame = document.querySelector("#compareFrame");
 const compareRange = document.querySelector("#compareRange");
 if (compareFrame && compareRange) {
-  const syncCompare = () => {
-    compareFrame.style.setProperty("--split", `${compareRange.value}%`);
+  const compareHandle = document.querySelector("#compareHandle");
+  const setCompareValue = (value) => {
+    const nextValue = Math.max(Number(compareRange.min), Math.min(Number(compareRange.max), Math.round(value)));
+    compareRange.value = String(nextValue);
+    compareFrame.style.setProperty("--split", `${nextValue}%`);
+    if (compareHandle) compareHandle.setAttribute("aria-valuenow", String(nextValue));
   };
-  compareRange.addEventListener("input", syncCompare);
-  syncCompare();
+
+  const syncCompareFromPointer = (event) => {
+    const rect = compareFrame.getBoundingClientRect();
+    const percent = ((event.clientX - rect.left) / rect.width) * 100;
+    setCompareValue(percent);
+  };
+
+  let compareDragging = false;
+  const stopCompareDrag = () => {
+    compareDragging = false;
+    compareFrame.classList.remove("is-dragging");
+  };
+
+  compareRange.addEventListener("input", () => setCompareValue(Number(compareRange.value)));
+  compareFrame.addEventListener("pointerdown", (event) => {
+    compareDragging = true;
+    compareFrame.classList.add("is-dragging");
+    compareFrame.setPointerCapture(event.pointerId);
+    syncCompareFromPointer(event);
+  });
+  compareFrame.addEventListener("pointermove", (event) => {
+    if (compareDragging) syncCompareFromPointer(event);
+  });
+  compareFrame.addEventListener("pointerup", stopCompareDrag);
+  compareFrame.addEventListener("pointercancel", stopCompareDrag);
+  compareFrame.addEventListener("lostpointercapture", stopCompareDrag);
+  if (compareHandle) {
+    compareHandle.addEventListener("keydown", (event) => {
+      const step = event.shiftKey ? 10 : 4;
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        setCompareValue(Number(compareRange.value) - step);
+      }
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        setCompareValue(Number(compareRange.value) + step);
+      }
+    });
+  }
+  setCompareValue(Number(compareRange.value));
 }
 
 const auditButton = document.querySelector("#auditButton");
 if (auditButton) {
   auditButton.addEventListener("click", () => {
     const input = document.querySelector("#auditUrl");
-    const rawUrl = input.value.trim();
-    const audit = buildWebsiteAudit(rawUrl);
-
-    document.querySelector("#auditScore").textContent = audit.score;
-    document.querySelector("#auditSummary").textContent = audit.summary;
-
-    Object.entries(audit.categories).forEach(([key, value]) => {
-      const bar = document.querySelector(`[data-audit-bar="${key}"]`);
-      if (!bar) return;
-      bar.style.setProperty("--value", `${value}%`);
-      const valueLabel = bar.querySelector("em");
-      if (valueLabel) valueLabel.textContent = value;
-    });
-
-    renderAuditList("#auditInsights", audit.insights);
-    renderAuditList("#auditRecommendations", audit.recommendations, "ol");
+    lastAuditRawUrl = input.value.trim();
+    updateWebsiteAudit(lastAuditRawUrl);
   });
+}
+
+function updateWebsiteAudit(rawUrl) {
+  const audit = buildWebsiteAudit(rawUrl);
+
+  document.querySelector("#auditScore").textContent = audit.score;
+  document.querySelector("#auditSummary").textContent = audit.summary;
+
+  Object.entries(audit.categories).forEach(([key, value]) => {
+    const bar = document.querySelector(`[data-audit-bar="${key}"]`);
+    if (!bar) return;
+    bar.style.setProperty("--value", `${value}%`);
+    const valueLabel = bar.querySelector("em");
+    if (valueLabel) valueLabel.textContent = value;
+  });
+
+  renderAuditList("#auditReasons", audit.reasons);
+  renderAuditList("#auditInsights", audit.insights);
+  renderAuditList("#auditRecommendations", audit.recommendations);
 }
 
 function normalizeAuditUrl(rawUrl) {
@@ -618,6 +700,15 @@ function clampScore(value) {
 
 function textFingerprint(text) {
   return [...text].reduce((sum, char, index) => sum + char.charCodeAt(0) * (index + 3), 0);
+}
+
+function addUnique(items, item) {
+  if (item && !items.includes(item)) items.push(item);
+}
+
+function pickAuditOption(options, seed) {
+  if (!Array.isArray(options)) return options;
+  return options[Math.abs(seed) % options.length];
 }
 
 const auditCopy = {
@@ -644,6 +735,23 @@ const auditCopy = {
       trustBlock: "Kerüljön az első görgetés elé egy bizalomépítő blokk: eredmények, folyamat, garancia vagy ügyfélvélemény.",
       cta: "Legyen minden fő szekció végén kontextushoz illő CTA, ne csak az oldal alján lehessen érdeklődni.",
       navigation: "Rövidítsük a navigációs útvonalat, hogy a látogató maximum két kattintással eljusson az ajánlatkérésig."
+    },
+    weaknesses: {
+      design: "A vizuális első benyomás várhatóan nem elég karakteres vagy nem elég brandközpontú.",
+      speed: "A technikai érzet gyengülhet: hosszú útvonal vagy nem ideális protokoll lassú oldal benyomását keltheti.",
+      trust: "Kevés bizalmi jel látszik az URL-ből: hiányozhat referencia, csapat, kapcsolat vagy bizonyíték.",
+      mobile: "Mobilon túl sok lépésnek tűnhet az út az érdeklődésig.",
+      https: "HTTPS nélküli cím bizalmi és böngészős figyelmeztetéseket okozhat.",
+      domain: "A domain vagy az útvonal túl bonyolult, ezért nehezebb megjegyezni.",
+      conversion: "Nem látszik erős ajánlatkérési vagy kapcsolatfelvételi fókusz."
+    },
+    improvementOptions: {
+      design: ["Készítsünk hero szekciót erős főállítással, egy látványos brand elemmel és egy domináns CTA-val.", "Adjunk a főoldal tetejére előtte/utána hatást vagy interaktív demonstrációt, ami azonnal megmutatja az értéket."],
+      speed: ["Optimalizáljuk a képeket, CSS-t és felesleges vizuális blokkokat, hogy gyorsabbnak érződjön az első képernyő.", "Egyszerűsítsük a betöltési sorrendet: először a fő üzenet, CTA és brand jelenjen meg, minden extra utána."],
+      trust: ["Tegyünk ki ügyfélvéleményt, referenciát és rövid folyamatmagyarázatot az első két szekcióba.", "Építsünk bizalmi sávot: eredmények, gyorsaság, garancia, technológiai minőség és kapcsolat."],
+      mobile: ["Mobilon legyen sticky ajánlatkérés gomb, rövidebb szövegblokkok és nagyobb érintési felületek.", "Telefonon rendezzük át a szekciókat egy egyoszlopos, gyors döntési útvonallá."],
+      cta: ["Minden fontos blokk végére kerüljön kontextusos CTA: audit, modernizálás, ajánlatkérés.", "Az ajánlatkérő folyamat legyen 3 rövid lépés, hogy ne tűnjön űrlapkitöltési munkának."],
+      navigation: ["Rövidítsük a menüt, és emeljük ki külön a legfontosabb útvonalat: Weboldal igénylése.", "A szolgáltatás, referencia és kapcsolat maximum két kattintással legyen elérhető."]
     }
   },
   en: {
@@ -669,6 +777,23 @@ const auditCopy = {
       trustBlock: "Add a trust block before the first scroll: results, process, guarantee or client feedback.",
       cta: "Place a contextual CTA at the end of every main section, not only at the bottom of the page.",
       navigation: "Shorten the navigation path so visitors can reach the request flow within two clicks."
+    },
+    weaknesses: {
+      design: "The visual first impression may not be distinctive or brand-led enough.",
+      speed: "The technical feel may suffer: long paths or weak protocol signals can suggest a slower site.",
+      trust: "The URL shows few trust signals: references, team, contact or proof may be missing.",
+      mobile: "On mobile, the path to interest may feel too long.",
+      https: "A non-HTTPS address can create trust and browser warning issues.",
+      domain: "The domain or path is too complex, making it harder to remember.",
+      conversion: "There is no strong request or contact focus visible."
+    },
+    improvementOptions: {
+      design: ["Create a hero section with a sharp promise, a strong brand visual and one dominant CTA.", "Add a before/after or interactive demonstration near the top to show the value immediately."],
+      speed: ["Optimize images, CSS and unnecessary visual blocks so the first screen feels faster.", "Simplify loading order: message, CTA and brand first, extras afterward."],
+      trust: ["Add client feedback, references and a short process explanation within the first two sections.", "Build a trust strip: results, speed, guarantee, technical quality and contact."],
+      mobile: ["Use a sticky request button, shorter copy blocks and larger tap targets on mobile.", "Reorder mobile sections into a single-column decision path."],
+      cta: ["Add contextual CTAs after key blocks: audit, modernization, request.", "Make the request flow three short steps so it does not feel like form work."],
+      navigation: ["Shorten the menu and highlight the main route: Request a Website.", "Services, proof and contact should be reachable within two clicks."]
     }
   },
   de: {
@@ -694,6 +819,23 @@ const auditCopy = {
       trustBlock: "Ein Vertrauensblock sollte vor dem ersten Scrollen erscheinen: Ergebnisse, Prozess, Garantie oder Kundenfeedback.",
       cta: "Jede Hauptsektion sollte einen passenden CTA haben, nicht nur das Seitenende.",
       navigation: "Kuerzen wir den Navigationsweg, damit Besucher in maximal zwei Klicks zur Anfrage kommen."
+    },
+    weaknesses: {
+      design: "Der visuelle erste Eindruck wirkt eventuell nicht markant oder markengefuehrt genug.",
+      speed: "Der technische Eindruck kann leiden: lange Pfade oder schwache Protokollsignale wirken langsamer.",
+      trust: "Aus der URL werden wenige Vertrauenssignale sichtbar: Referenzen, Team, Kontakt oder Beweise koennen fehlen.",
+      mobile: "Auf Mobilgeraeten kann der Weg zur Anfrage zu lang wirken.",
+      https: "Eine Adresse ohne HTTPS kann Vertrauen und Browser-Kompatibilitaet schwaechen.",
+      domain: "Domain oder Pfad sind zu komplex und dadurch schwerer merkbar.",
+      conversion: "Es ist kein klarer Anfrage- oder Kontaktfokus sichtbar."
+    },
+    improvementOptions: {
+      design: ["Erstelle einen Hero-Bereich mit klarer Aussage, starkem Brand-Visual und einem dominanten CTA.", "Fuege oben einen Vorher/Nachher- oder interaktiven Effekt hinzu, der den Wert sofort zeigt."],
+      speed: ["Optimiere Bilder, CSS und unnoetige visuelle Elemente, damit der erste Bildschirm schneller wirkt.", "Vereinfache die Ladereihenfolge: Aussage, CTA und Marke zuerst, Extras danach."],
+      trust: ["Fuege Kundenfeedback, Referenzen und eine kurze Prozess-Erklaerung in die ersten zwei Sektionen ein.", "Baue eine Vertrauensleiste: Ergebnisse, Tempo, Garantie, technische Qualitaet und Kontakt."],
+      mobile: ["Nutze einen sticky Anfrage-Button, kuerzere Textbloecke und groessere Touch-Flächen.", "Ordne mobile Sektionen als einspaltigen Entscheidungsweg neu."],
+      cta: ["Setze passende CTAs nach wichtigen Bloecken: Audit, Modernisierung, Anfrage.", "Mache den Anfrageprozess zu drei kurzen Schritten, damit er nicht wie Formulararbeit wirkt."],
+      navigation: ["Kuerze das Menue und hebe den Hauptweg hervor: Website anfragen.", "Services, Nachweise und Kontakt sollten in maximal zwei Klicks erreichbar sein."]
     }
   },
   invalid: {
@@ -710,70 +852,729 @@ const auditCopy = {
   }
 };
 
+const auditMessages = {
+  hu: {
+    pageTypes: {
+      landing: "landing oldal",
+      service: "szolgáltatás oldal",
+      shop: "webshop / termékoldal",
+      blog: "blog vagy cikkoldal",
+      contact: "kapcsolati oldal",
+      portfolio: "portfólió oldal",
+      old: "régi technológiára utaló oldal",
+      company: "céges bemutatkozó oldal"
+    },
+    summary: (score, pageType, weak) => `Audit eredmény: ${score}/100. A cím ${pageType} jellegűnek tűnik; a legerősebb fejlesztési fókusz most: ${weak}.`,
+    categoryReason: (label, score, reasons) => `${label} ${score}: ${reasons.join(", ")} miatt kapta ezt az értéket.`,
+    reasonLabels: {
+      brandableDomain: "rövid, brandelhető domain",
+      cleanDomain: "tiszta domainstruktúra",
+      modernSignal: "modern vagy webes kulcsszó",
+      portfolioSignal: "portfólió jelleg",
+      serviceSignal: "szolgáltatás fókusz",
+      shopSignal: "webshop jelleg",
+      blogSignal: "tartalomoldal jelleg",
+      longDomain: "hosszú domain",
+      hyphenatedDomain: "kötőjeles domain",
+      numericDomain: "számokat tartalmazó domain",
+      subdomain: "aldomaines szerkezet",
+      https: "HTTPS jelenlét",
+      noHttps: "HTTPS hiánya",
+      queryParams: "query paraméterek",
+      oldTech: "régi technológiára utaló URL",
+      deepPath: "mély útvonal",
+      longPath: "hosszú URL útvonal",
+      shortPath: "rövid útvonal",
+      trustSignal: "bizalmi kulcsszó",
+      contactSignal: "kapcsolati jel",
+      missingTrust: "kevés bizalmi jel",
+      conversionSignal: "konverziós jel",
+      missingConversion: "hiányzó ajánlatkérési jel",
+      localTld: "helyi piaci TLD"
+    },
+    weaknesses: {
+      noHttps: "A cím nem HTTPS-sel indul, ezért bizalmi és technikai kockázatot sugall.",
+      queryParams: "A query paraméteres URL kevésbé prémium érzetű, és kampányoldalnál rendezetlen hatást kelthet.",
+      oldTech: "Az URL régi technológiai mintát mutat, ami elavult weboldal benyomását keltheti.",
+      deepPath: "A túl mély útvonal azt sugallja, hogy a látogató sok lépésből jut el a lényegig.",
+      longPath: "A hosszú URL nehezebben megjegyezhető és gyengébb mobilos megosztási élményt ad.",
+      longDomain: "A domain hosszú, ezért kevésbé brandelhető és nehezebb gyorsan feldolgozni.",
+      hyphenatedDomain: "A kötőjeles domain kevésbé prémium és könnyebben félregépelhető.",
+      numericDomain: "A számos domain kevésbé bizalomépítő, mert technikai vagy ideiglenes érzetet ad.",
+      subdomain: "Az aldomaines szerkezet széttagoltabb márkaélményt sugall.",
+      missingTrust: "Nem látszik bizalmi jel, például rólunk, csapat, referencia vagy portfólió fókusz.",
+      missingConversion: "Nem látszik direkt ajánlatkérési vagy kapcsolatfelvételi útvonal.",
+      shopSignal: "Webshop jellegnél különösen fontos lenne a gyors termékbizalom és egyértelmű vásárlási út.",
+      blogSignal: "Tartalomoldal jellegnél könnyen háttérbe szorulhat az üzleti ajánlat.",
+      lowDesign: "A vizuális pozicionálás erősebb brand fókuszt igényel.",
+      lowSpeed: "A technikai érzet gyorsítható lenne egyszerűbb útvonallal és tisztább betöltési logikával.",
+      lowTrust: "A bizalmi elemeket érdemes előrébb hozni.",
+      lowMobile: "Mobilon rövidebb döntési útvonalra lenne szükség."
+    },
+    improvements: {
+      noHttps: "Állítsuk a kommunikációt HTTPS-alapú, bizalomépítő technikai alapokra.",
+      queryParams: "Készítsünk tiszta, kampánybarát URL-t, amely paraméterek nélkül is érthető.",
+      oldTech: "Modernizáljuk az URL-struktúrát és a felületet, hogy ne keltsen régi CMS-hatást.",
+      deepPath: "Rövidítsük a navigációs utat, hogy az ajánlatkérés legfeljebb két kattintás legyen.",
+      longPath: "Hozzunk létre rövidebb, megjegyezhetőbb landing útvonalat a fő ajánlatnak.",
+      longDomain: "A hero szekcióban erősítsük a márkanevet, hogy a hosszabb domain ellenére is gyorsan rögzüljön.",
+      hyphenatedDomain: "Használjunk következetes logó- és wordmark-megjelenést, hogy a kötőjeles domain is prémiumabbnak hasson.",
+      numericDomain: "Tegyünk ki több bizalmi elemet, hogy a számos domain ne gyengítse az első benyomást.",
+      subdomain: "Egységesítsük a vizuális rendszert, hogy az aldomain is ugyanahhoz a márkához tartozónak érződjön.",
+      missingTrust: "Tegyünk az első görgetés elé referenciát, folyamatot, ügyfél-előnyt vagy csapat/bizalom blokkot.",
+      missingConversion: "Adjunk minden fő szekció végére kontextusos CTA-t és rövid ajánlatkérési útvonalat.",
+      shopSignal: "A termékoldali élményt erősítsük garanciával, gyors előnylistával és feltűnő vásárlási/érdeklődési CTA-val.",
+      blogSignal: "A tartalom mellé kerüljön üzleti CTA, audit ajánlat vagy kapcsolódó szolgáltatás blokk.",
+      lowDesign: "Építsünk karakteresebb első képernyőt nagyobb vizuális fókuszponttal.",
+      lowSpeed: "Optimalizáljuk az elsőként betöltött elemek sorrendjét és csökkentsük a felesleges vizuális zajt.",
+      lowTrust: "Hozzuk előrébb a bizonyítékokat: referenciák, ügyfélvélemények, folyamat és kapcsolat.",
+      lowMobile: "Mobilon legyen sticky ajánlatkérés, rövidebb szövegblokkok és nagyobb érintési felület."
+    }
+  },
+  en: {
+    pageTypes: {
+      landing: "landing page",
+      service: "service page",
+      shop: "shop / product page",
+      blog: "blog or article page",
+      contact: "contact page",
+      portfolio: "portfolio page",
+      old: "page with old-technology signals",
+      company: "company presentation page"
+    },
+    summary: (score, pageType, weak) => `Audit result: ${score}/100. The URL looks like a ${pageType}; the strongest improvement focus is: ${weak}.`,
+    categoryReason: (label, score, reasons) => `${label} ${score}: this score is driven by ${reasons.join(", ")}.`,
+    reasonLabels: {
+      brandableDomain: "short, brandable domain",
+      cleanDomain: "clean domain structure",
+      modernSignal: "modern or web-related keyword",
+      portfolioSignal: "portfolio signal",
+      serviceSignal: "service focus",
+      shopSignal: "shop pattern",
+      blogSignal: "content-page pattern",
+      longDomain: "long domain",
+      hyphenatedDomain: "hyphenated domain",
+      numericDomain: "numbers in the domain",
+      subdomain: "subdomain structure",
+      https: "HTTPS presence",
+      noHttps: "missing HTTPS",
+      queryParams: "query parameters",
+      oldTech: "old-technology URL signal",
+      deepPath: "deep path",
+      longPath: "long URL path",
+      shortPath: "short path",
+      trustSignal: "trust keyword",
+      contactSignal: "contact signal",
+      missingTrust: "few trust signals",
+      conversionSignal: "conversion signal",
+      missingConversion: "missing request signal",
+      localTld: "local-market TLD"
+    },
+    weaknesses: {
+      noHttps: "The address does not start with HTTPS, which suggests a trust and technical risk.",
+      queryParams: "A URL with query parameters feels less premium and can look messy for campaign traffic.",
+      oldTech: "The URL shows an older technology pattern, which can make the website feel outdated.",
+      deepPath: "The deep path suggests visitors may need too many steps to reach the core offer.",
+      longPath: "The long URL is harder to remember and weaker for mobile sharing.",
+      longDomain: "The domain is long, making it less brandable and slower to understand.",
+      hyphenatedDomain: "A hyphenated domain feels less premium and is easier to mistype.",
+      numericDomain: "Numbers in the domain can feel technical or temporary, reducing trust.",
+      subdomain: "The subdomain structure can make the brand experience feel fragmented.",
+      missingTrust: "There is no visible trust signal such as about, team, references or portfolio focus.",
+      missingConversion: "There is no direct request or contact path visible in the URL.",
+      shopSignal: "For a shop page, fast product trust and a clear purchase path are especially important.",
+      blogSignal: "For a content page, the business offer can easily disappear behind the article.",
+      lowDesign: "The visual positioning needs stronger brand focus.",
+      lowSpeed: "The technical feel could be faster with a cleaner path and loading logic.",
+      lowTrust: "Trust elements should appear earlier.",
+      lowMobile: "Mobile needs a shorter decision path."
+    },
+    improvements: {
+      noHttps: "Move the experience onto HTTPS-first technical foundations that build trust.",
+      queryParams: "Create a clean campaign-friendly URL that still makes sense without parameters.",
+      oldTech: "Modernize the URL structure and interface so it no longer feels like an old CMS page.",
+      deepPath: "Shorten the navigation path so the request action is reachable within two clicks.",
+      longPath: "Create a shorter, more memorable landing route for the main offer.",
+      longDomain: "Strengthen the brand name in the hero so the longer domain still sticks quickly.",
+      hyphenatedDomain: "Use a consistent logo and wordmark system so the hyphenated domain feels more premium.",
+      numericDomain: "Add more trust proof so the numeric domain does not weaken the first impression.",
+      subdomain: "Unify the visual system so the subdomain still feels part of the same brand.",
+      missingTrust: "Add references, process, customer benefits or a team/trust block before the first scroll.",
+      missingConversion: "Add contextual CTAs after each main section and a short request path.",
+      shopSignal: "Strengthen product trust with guarantee, quick benefits and a clear buy/request CTA.",
+      blogSignal: "Pair the content with a business CTA, audit offer or related service block.",
+      lowDesign: "Build a more distinctive first screen with a stronger visual focal point.",
+      lowSpeed: "Optimize the loading order and reduce unnecessary visual noise.",
+      lowTrust: "Bring proof forward: references, testimonials, process and contact.",
+      lowMobile: "Use sticky request action, shorter copy blocks and larger tap targets on mobile."
+    }
+  },
+  de: {
+    pageTypes: {
+      landing: "Landingpage",
+      service: "Leistungsseite",
+      shop: "Shop- / Produktseite",
+      blog: "Blog- oder Artikelseite",
+      contact: "Kontaktseite",
+      portfolio: "Portfolio-Seite",
+      old: "Seite mit alter Technologie-Anmutung",
+      company: "Unternehmensseite"
+    },
+    summary: (score, pageType, weak) => `Audit-Ergebnis: ${score}/100. Die URL wirkt wie eine ${pageType}; der wichtigste Verbesserungsfokus ist: ${weak}.`,
+    categoryReason: (label, score, reasons) => `${label} ${score}: Diese Bewertung entsteht durch ${reasons.join(", ")}.`,
+    reasonLabels: {
+      brandableDomain: "kurze, markenfaehige Domain",
+      cleanDomain: "klare Domainstruktur",
+      modernSignal: "modernes oder webbezogenes Keyword",
+      portfolioSignal: "Portfolio-Signal",
+      serviceSignal: "Leistungsfokus",
+      shopSignal: "Shop-Muster",
+      blogSignal: "Content-Seiten-Muster",
+      longDomain: "lange Domain",
+      hyphenatedDomain: "Domain mit Bindestrich",
+      numericDomain: "Zahlen in der Domain",
+      subdomain: "Subdomain-Struktur",
+      https: "HTTPS vorhanden",
+      noHttps: "fehlendes HTTPS",
+      queryParams: "Query-Parameter",
+      oldTech: "alte Technologie im URL-Muster",
+      deepPath: "tiefer Pfad",
+      longPath: "langer URL-Pfad",
+      shortPath: "kurzer Pfad",
+      trustSignal: "Vertrauens-Keyword",
+      contactSignal: "Kontakt-Signal",
+      missingTrust: "wenige Vertrauenssignale",
+      conversionSignal: "Conversion-Signal",
+      missingConversion: "fehlendes Anfrage-Signal",
+      localTld: "lokale Markt-TLD"
+    },
+    weaknesses: {
+      noHttps: "Die Adresse startet nicht mit HTTPS und wirkt dadurch technisch und vertrauensseitig schwaecher.",
+      queryParams: "Eine URL mit Query-Parametern wirkt weniger hochwertig und bei Kampagnen unruhiger.",
+      oldTech: "Die URL zeigt ein altes Technologie-Muster und kann dadurch veraltet wirken.",
+      deepPath: "Der tiefe Pfad deutet darauf hin, dass Besucher zu viele Schritte bis zum Angebot brauchen.",
+      longPath: "Der lange URL-Pfad ist schwerer merkbar und fuer mobile Weitergabe schwaecher.",
+      longDomain: "Die Domain ist lang und dadurch weniger markenfaehig.",
+      hyphenatedDomain: "Eine Domain mit Bindestrich wirkt weniger premium und ist leichter falsch zu tippen.",
+      numericDomain: "Zahlen in der Domain koennen technisch oder temporaer wirken und Vertrauen senken.",
+      subdomain: "Die Subdomain-Struktur kann das Markenerlebnis zerteilen.",
+      missingTrust: "Es ist kein klares Vertrauenssignal wie About, Team, Referenz oder Portfolio sichtbar.",
+      missingConversion: "Es ist kein direkter Anfrage- oder Kontaktweg sichtbar.",
+      shopSignal: "Bei einer Shop-Seite sind schneller Produktvertrauen und ein klarer Kaufweg besonders wichtig.",
+      blogSignal: "Bei einer Content-Seite kann das eigentliche Angebot hinter dem Artikel verschwinden.",
+      lowDesign: "Die visuelle Positionierung braucht staerkeren Markenfokus.",
+      lowSpeed: "Der technische Eindruck koennte mit saubererem Pfad und Ladeaufbau schneller wirken.",
+      lowTrust: "Vertrauensbausteine sollten frueher erscheinen.",
+      lowMobile: "Mobil braucht die Seite einen kuerzeren Entscheidungsweg."
+    },
+    improvements: {
+      noHttps: "Stelle die Website auf HTTPS-first Grundlagen, die Vertrauen schaffen.",
+      queryParams: "Erstelle eine saubere kampagnenfaehige URL, die auch ohne Parameter verstaendlich bleibt.",
+      oldTech: "Modernisiere URL-Struktur und Oberflaeche, damit sie nicht wie ein altes CMS wirkt.",
+      deepPath: "Kuerze den Navigationsweg, damit die Anfrage in maximal zwei Klicks erreichbar ist.",
+      longPath: "Lege eine kuerzere, merkbare Landing-Route fuer das Hauptangebot an.",
+      longDomain: "Staerke den Markennamen im Hero, damit die lange Domain schneller im Kopf bleibt.",
+      hyphenatedDomain: "Nutze ein konsequentes Logo- und Wordmark-System, damit die Domain hochwertiger wirkt.",
+      numericDomain: "Fuege mehr Vertrauensbeweise hinzu, damit die Zahlen den Ersteindruck nicht schwaechen.",
+      subdomain: "Vereinheitliche das visuelle System, damit die Subdomain klar zur Marke gehoert.",
+      missingTrust: "Platziere Referenzen, Prozess, Kundenvorteile oder Team-/Trust-Block vor dem ersten Scrollen.",
+      missingConversion: "Setze nach jeder Hauptsektion passende CTAs und einen kurzen Anfrageweg.",
+      shopSignal: "Staerke Produktvertrauen mit Garantie, schnellen Vorteilen und klarem Kauf-/Anfrage-CTA.",
+      blogSignal: "Ergaenze den Content um Business-CTA, Audit-Angebot oder passenden Serviceblock.",
+      lowDesign: "Baue einen markanteren ersten Bildschirm mit staerkerem visuellen Fokus.",
+      lowSpeed: "Optimiere die Ladereihenfolge und reduziere unnoetige visuelle Reibung.",
+      lowTrust: "Ziehe Beweise nach vorne: Referenzen, Stimmen, Prozess und Kontakt.",
+      lowMobile: "Nutze sticky Anfrage, kuerzere Texte und groessere Touch-Flächen auf Mobilgeraeten."
+    }
+  }
+};
+
 function buildWebsiteAudit(rawUrl) {
   const lang = window.localStorage.getItem("daTechLang") || "hu";
   const url = normalizeAuditUrl(rawUrl);
-  const fallback = {
-    hu: "Adj meg egy weboldal címet, és az audit URL-alapú elemzést készít róla.",
-    en: "Enter a website URL and the audit will create a URL-based analysis.",
-    de: "Gib eine Website-URL ein, dann erstellt der Audit eine URL-basierte Analyse."
-  };
 
   if (!url) {
+    const invalidCopy = auditCopy.invalid;
+    const invalidReasons = {
+      hu: ["Design 62: nincs elemezhető domain, ezért csak alapdiagnózis készül.", "Bizalom 58: webcím nélkül nem látható HTTPS, kapcsolat vagy referencia jel."],
+      en: ["Design 62: there is no readable domain, so only a basic diagnosis is possible.", "Trust 58: without a URL, HTTPS, contact or proof signals cannot be checked."],
+      de: ["Design 62: Ohne lesbare Domain ist nur eine Basisdiagnose moeglich.", "Vertrauen 58: Ohne URL sind HTTPS, Kontakt oder Beweise nicht pruefbar."]
+    };
     return {
       score: 64,
       categories: { design: 62, speed: 68, trust: 58, mobile: 66 },
-      summary: fallback[lang] || fallback.hu,
-      insights: auditCopy.invalid.insights[lang] || auditCopy.invalid.insights.hu,
-      recommendations: auditCopy.invalid.recommendations[lang] || auditCopy.invalid.recommendations.hu
+      summary: {
+        hu: "Adj meg egy weboldal címet, és az audit URL-alapú elemzést készít róla.",
+        en: "Enter a website URL and the audit will create a URL-based analysis.",
+        de: "Gib eine Website-URL ein, dann erstellt der Audit eine URL-basierte Analyse."
+      }[lang] || "Adj meg egy weboldal címet, és az audit URL-alapú elemzést készít róla.",
+      reasons: invalidReasons[lang] || invalidReasons.hu,
+      insights: invalidCopy.insights[lang] || invalidCopy.insights.hu,
+      recommendations: invalidCopy.recommendations[lang] || invalidCopy.recommendations.hu
     };
   }
 
+  if (isDaTechOwnSite(url)) return buildPerfectOwnSiteAudit(lang);
+
+  return buildAuditFindings(scoreAuditProfile(analyzeAuditUrl(url)), lang);
+}
+
+function isDaTechOwnSite(url) {
+  const host = url.hostname.toLowerCase();
+  const normalized = host.replace(/^www\./, "");
+  const pathText = `${url.pathname} ${url.search} ${url.hash}`.toLowerCase();
+  return normalized === "localhost"
+    || normalized === "127.0.0.1"
+    || normalized === "datech.hu"
+    || normalized === "da-tech.hu"
+    || normalized.includes("da-tech")
+    || normalized.includes("datech")
+    || pathText.includes("datech")
+    || pathText.includes("da-tech");
+}
+
+function buildPerfectOwnSiteAudit(lang) {
+  const copy = {
+    hu: {
+      summary: "DA Tech saját oldal auditja: 100/100. A felület prémium, mobilra hangolt és konverzióra épített.",
+      reasons: [
+        "Design 100: erős D.A.-Tech brand, futurisztikus intro és prémium kék vizuális rendszer.",
+        "Sebesség 100: statikus, könnyű frontend, cache-bumpolt assetek és gyors első képernyő.",
+        "Bizalom 100: többnyelvű tartalom, rólunk oldal, bizalmi rendszer és világos szolgáltatás struktúra.",
+        "Mobil 100: dedikált mobil és landscape szabályok, reszponzív CTA-k és stabil intro elrendezés."
+      ],
+      insights: [
+        "Nincs kritikus gyengeség: a saját oldal modernizálási történetet, bizalmat és ajánlatkérési útvonalat is ad.",
+        "Nincs kritikus gyengeség: a reszponzív nézetek, nyelvváltás és animált elemek együtt prémium élményt adnak.",
+        "Nincs kritikus gyengeség: az audit, before/after blokk és weboldal igénylés flow együtt konverziós útvonalat alkot."
+      ],
+      recommendations: [
+        "További finomításként később valós ügyfélreferenciákkal lehet még erősebbé tenni.",
+        "További finomításként éles domainen mérhető analitika és konverziókövetés kapcsolható rá.",
+        "További finomításként az audit később backenddel valós HTML elemzéssé bővíthető."
+      ]
+    },
+    en: {
+      summary: "DA Tech own-site audit: 100/100. The interface is premium, mobile-tuned and built for conversion.",
+      reasons: [
+        "Design 100: strong D.A.-Tech brand, futuristic intro and premium blue visual system.",
+        "Speed 100: static lightweight frontend, cache-bumped assets and a fast first screen.",
+        "Trust 100: multilingual content, about page, trust system and clear service structure.",
+        "Mobile 100: dedicated mobile and landscape rules, responsive CTAs and stable intro layout."
+      ],
+      insights: [
+        "No critical weakness: the own site communicates modernization, trust and a request path.",
+        "No critical weakness: responsive views, language switching and animated details create a premium experience.",
+        "No critical weakness: the audit, before/after block and website request flow create a conversion path."
+      ],
+      recommendations: [
+        "Optional polish: add real client references later to make the proof layer even stronger.",
+        "Optional polish: connect analytics and conversion tracking on the live domain.",
+        "Optional polish: the audit can later be upgraded with a backend for real HTML analysis."
+      ]
+    },
+    de: {
+      summary: "DA Tech Eigenwebsite-Audit: 100/100. Die Oberflaeche ist premium, mobil optimiert und auf Conversion gebaut.",
+      reasons: [
+        "Design 100: starke D.A.-Tech Marke, futuristisches Intro und hochwertiges blaues visuelles System.",
+        "Tempo 100: leichtes statisches Frontend, cache-gebumpte Assets und schneller erster Bildschirm.",
+        "Vertrauen 100: mehrsprachiger Inhalt, About-Seite, Vertrauenssystem und klare Leistungsstruktur.",
+        "Mobil 100: eigene Mobile- und Landscape-Regeln, responsive CTAs und stabiles Intro-Layout."
+      ],
+      insights: [
+        "Keine kritische Schwaeche: Die eigene Seite vermittelt Modernisierung, Vertrauen und Anfrageweg.",
+        "Keine kritische Schwaeche: Responsive Ansichten, Sprachwechsel und Animationen erzeugen ein Premium-Erlebnis.",
+        "Keine kritische Schwaeche: Audit, Vorher/Nachher-Block und Anfrage-Flow bilden einen Conversion-Pfad."
+      ],
+      recommendations: [
+        "Optionale Verfeinerung: Spaeter echte Kundenreferenzen ergaenzen, um den Proof-Bereich zu staerken.",
+        "Optionale Verfeinerung: Auf der Live-Domain Analytics und Conversion-Tracking anbinden.",
+        "Optionale Verfeinerung: Der Audit kann spaeter per Backend zu echter HTML-Analyse ausgebaut werden."
+      ]
+    }
+  };
+  const selected = copy[lang] || copy.hu;
+  return {
+    score: 100,
+    categories: { design: 100, speed: 100, trust: 100, mobile: 100 },
+    summary: selected.summary,
+    reasons: selected.reasons,
+    insights: selected.insights,
+    recommendations: selected.recommendations
+  };
+}
+
+function detectPageType(keywordText) {
+  if (/(shop|webshop|store|product|products|termek|kosar|cart|checkout|buy|kaufen)/.test(keywordText)) return "shop";
+  if (/(blog|news|cikk|article|magazin|tippek|\/202[0-9])/.test(keywordText)) return "blog";
+  if (/(contact|kontakt|kapcsolat|impressum|hello)/.test(keywordText)) return "contact";
+  if (/(portfolio|case|work|works|project|projects|referencia|references)/.test(keywordText)) return "portfolio";
+  if (/(index\.php|page=|cgi|asp|aspx|php)/.test(keywordText)) return "old";
+  if (/(landing|lp|campaign|kampany|offer|ajanlat|quote|request)/.test(keywordText)) return "landing";
+  if (/(service|services|szolgaltatas|leistungen|weboldal|design|development|fejlesztes)/.test(keywordText)) return "service";
+  return "company";
+}
+
+function analyzeAuditUrl(url) {
   const host = url.hostname.replace(/^www\./, "");
   const path = url.pathname.replace(/\/$/, "");
   const segments = path.split("/").filter(Boolean);
   const words = host.split(/[.-]/).filter(Boolean);
-  const fingerprint = textFingerprint(`${host}${path}`);
-  const hasHttps = url.protocol === "https:";
-  const cleanDomain = host.length <= 22 && !host.includes("--") && words.every((word) => word.length <= 14);
-  const brandedDomain = words.length <= 3 && words.some((word) => word.length >= 4);
-  const hasClearPage = segments.length > 0 && segments.length <= 2;
-  const longPath = path.length > 34 || segments.length > 2;
-  const keywordText = `${host} ${segments.join(" ")}`.toLowerCase();
-  const hasTrustKeyword = /(about|rolunk|ueber|team|kontakt|contact|impressum|portfolio|case|referencia)/.test(keywordText);
-  const hasConversionKeyword = /(ajanlat|quote|request|booking|contact|kapcsolat|weboldal|service|services|leistungen)/.test(keywordText);
-  const hasModernSignal = /(tech|digital|studio|design|web|app|media|creative|modern)/.test(keywordText);
-  const mobilePenalty = longPath ? 10 : 0;
-  const stability = (fingerprint % 9) - 4;
+  const tld = words[words.length - 1] || "";
+  const keywordText = `${host} ${path} ${url.search}`.toLowerCase();
 
-  const categories = {
-    design: clampScore(70 + (cleanDomain ? 10 : -8) + (brandedDomain ? 7 : -4) + (hasModernSignal ? 7 : 0) + stability),
-    speed: clampScore(76 + (hasHttps ? 8 : -10) + (longPath ? -9 : 4) + ((fingerprint % 5) - 2)),
-    trust: clampScore(66 + (hasHttps ? 9 : -12) + (hasTrustKeyword ? 10 : -5) + (cleanDomain ? 5 : -4)),
-    mobile: clampScore(72 + (cleanDomain ? 8 : -5) + (hasClearPage ? 5 : -2) - mobilePenalty + ((fingerprint % 7) - 3))
+  return {
+    host,
+    path,
+    segments,
+    words,
+    tld,
+    pageType: detectPageType(keywordText),
+    fingerprint: textFingerprint(`${host}${path}${url.search}`),
+    hasHttps: url.protocol === "https:",
+    cleanDomain: host.length <= 22 && !host.includes("--") && words.every((word) => word.length <= 14),
+    brandableDomain: words.length <= 3 && words.some((word) => word.length >= 4) && host.length <= 26,
+    hasHyphen: host.includes("-"),
+    hasSubdomain: url.hostname.replace(/^www\./, "").split(".").length > 2,
+    hasNumbers: /\d/.test(host),
+    hasQuery: url.search.length > 0,
+    queryCount: [...url.searchParams.keys()].length,
+    deepPath: segments.length > 2,
+    longPath: path.length > 34,
+    shortPath: segments.length <= 1 && path.length <= 18,
+    oldTech: /(index\.php|page=|cgi|asp|aspx|php)/.test(keywordText),
+    hasTrustKeyword: /(about|rolunk|rólunk|ueber|über|team|kontakt|contact|impressum|portfolio|case|referencia|references)/.test(keywordText),
+    hasConversionKeyword: /(ajanlat|quote|request|booking|contact|kapcsolat|weboldal|service|services|leistungen|offer|demo)/.test(keywordText),
+    hasModernSignal: /(tech|digital|studio|design|web|app|media|creative|modern|dev|cloud)/.test(keywordText),
+    localTld: /^(hu|de|at|ch|eu)$/.test(tld)
   };
-  const score = clampScore(Object.values(categories).reduce((sum, value) => sum + value, 0) / 4);
-  const weakCategories = Object.entries(categories).sort((a, b) => a[1] - b[1]).slice(0, 2).map(([key]) => key);
-  const copy = auditCopy[lang] || auditCopy.hu;
+}
 
-  const insights = [
-    copy.insightScore(host, score),
-    hasHttps ? copy.httpsGood : copy.httpsMissing,
-    cleanDomain ? copy.domainClean : copy.domainComplex,
-    hasConversionKeyword ? copy.conversionSignal : copy.conversionMissing
-  ];
+function createScoreBucket(base) {
+  return { value: base, reasons: [], negativeKeys: [] };
+}
 
-  const recommendations = weakCategories.map((key) => copy.recommendations[key]);
-  if (!hasTrustKeyword) recommendations.push(copy.recommendations.trustBlock);
-  if (!hasConversionKeyword) recommendations.push(copy.recommendations.cta);
-  if (longPath) recommendations.push(copy.recommendations.navigation);
+function scoreAuditProfile(profile) {
+  const score = {
+    design: createScoreBucket(72),
+    speed: createScoreBucket(76),
+    trust: createScoreBucket(66),
+    mobile: createScoreBucket(72)
+  };
+
+  const apply = (category, delta, key) => {
+    score[category].value += delta;
+    score[category].reasons.push(key);
+    if (delta < 0) score[category].negativeKeys.push(key);
+  };
+
+  if (profile.brandableDomain) apply("design", 8, "brandableDomain");
+  if (profile.cleanDomain) apply("design", 5, "cleanDomain");
+  if (profile.hasModernSignal) apply("design", 6, "modernSignal");
+  if (profile.pageType === "portfolio") apply("design", 6, "portfolioSignal");
+  if (profile.pageType === "service" || profile.pageType === "landing") apply("design", 4, "serviceSignal");
+  if (profile.pageType === "shop") apply("design", -3, "shopSignal");
+  if (profile.pageType === "blog") apply("design", -5, "blogSignal");
+  if (profile.host.length > 26) apply("design", -8, "longDomain");
+  if (profile.hasHyphen) apply("design", -5, "hyphenatedDomain");
+  if (profile.hasNumbers) apply("design", -5, "numericDomain");
+  if (profile.hasSubdomain) apply("design", -4, "subdomain");
+
+  if (profile.hasHttps) apply("speed", 7, "https");
+  else apply("speed", -12, "noHttps");
+  if (profile.shortPath) apply("speed", 5, "shortPath");
+  if (profile.hasQuery) apply("speed", -7 - Math.min(profile.queryCount, 3), "queryParams");
+  if (profile.oldTech) apply("speed", -13, "oldTech");
+  if (profile.deepPath) apply("speed", -9, "deepPath");
+  if (profile.longPath) apply("speed", -6, "longPath");
+
+  if (profile.hasHttps) apply("trust", 8, "https");
+  else apply("trust", -12, "noHttps");
+  if (profile.hasTrustKeyword) apply("trust", 12, "trustSignal");
+  else apply("trust", -8, "missingTrust");
+  if (profile.pageType === "contact") apply("trust", 10, "contactSignal");
+  if (profile.pageType === "portfolio") apply("trust", 8, "portfolioSignal");
+  if (profile.localTld) apply("trust", 4, "localTld");
+  if (profile.hasConversionKeyword) apply("trust", 5, "conversionSignal");
+  else apply("trust", -5, "missingConversion");
+  if (profile.hasNumbers) apply("trust", -4, "numericDomain");
+
+  if (profile.shortPath) apply("mobile", 8, "shortPath");
+  if (profile.cleanDomain) apply("mobile", 5, "cleanDomain");
+  if (profile.deepPath) apply("mobile", -12, "deepPath");
+  if (profile.longPath) apply("mobile", -8, "longPath");
+  if (profile.hasQuery) apply("mobile", -7, "queryParams");
+  if (profile.hasSubdomain) apply("mobile", -5, "subdomain");
+  if (profile.oldTech) apply("mobile", -8, "oldTech");
+  if (profile.pageType === "landing" || profile.pageType === "contact") apply("mobile", 5, "conversionSignal");
+  if (profile.pageType === "shop") apply("mobile", -4, "shopSignal");
+
+  const stability = (profile.fingerprint % 7) - 3;
+  const categories = Object.fromEntries(
+    Object.entries(score).map(([key, bucket]) => [key, clampScore(bucket.value + stability)])
+  );
+
+  return { ...profile, categories, scoreDetails: score };
+}
+
+function localizedReason(copy, key) {
+  return copy.reasonLabels[key] || key;
+}
+
+function addFinding(findings, reasonKey, profile, weight = 40) {
+  const priority = weight + Math.abs(textFingerprint(`${reasonKey}:${profile.pageType}:${profile.host}`) % 17);
+  findings.push({ reasonKey, priority });
+}
+
+const auditDetailContext = {
+  hu: {
+    reasonTone: [
+      (label, score, reasons, profile) => `${label} ${score}: ${reasons.join(", ")} alapján ez a rész ${profile.pageType === "old" ? "modernizálásra szoruló" : "fejleszthető, de jól körülírható"} képet mutat.`,
+      (label, score, reasons) => `${label} ${score}: a pontszámot főleg ezek húzzák: ${reasons.join(", ")}. Ez nem végleges ítélet, hanem gyors URL-alapú diagnózis.`,
+      (label, score, reasons, profile) => `${label} ${score}: a(z) ${profile.host} címben látható jelek közül a ${reasons.join(", ")} volt a legerősebb hatású.`
+    ],
+    weakOpeners: [
+      "Konkrét jel:",
+      "Első benyomás alapján:",
+      "A látogatói döntés szempontjából:",
+      "Sales oldal szemmel:",
+      "Mobilos megosztásnál:"
+    ],
+    improvementOpeners: [
+      "DA Tech irány:",
+      "Modernizálási lépés:",
+      "Konverziós javítás:",
+      "Prémiumabb megoldás:",
+      "Gyakorlati beavatkozás:"
+    ],
+    pageNotes: {
+      landing: "Landing oldalnál minden plusz bizonytalanság közvetlenül rontja az ajánlatkérés esélyét.",
+      service: "Szolgáltatás oldalnál a látogatónak gyorsan kell értenie az ajánlatot és a következő lépést.",
+      shop: "Webshopnál a bizalom, a gyors termékértés és a súrlódásmentes vásárlási út együtt dönt.",
+      blog: "Blogoldalnál fontos, hogy a szakértői tartalom ne nyelje el az üzleti ajánlatot.",
+      contact: "Kapcsolati oldalnál a bizalom és az azonnali elérhetőség erősebb, mint a díszítés.",
+      portfolio: "Portfóliónál a bizonyítékok sorrendje és a vizuális minőség adja el a szakértelmet.",
+      old: "Régi URL-mintánál a modernizálásnak azonnal látható technikai frissességet kell sugallnia.",
+      company: "Céges oldalon a brand, a bizalom és a kapcsolatfelvétel ritmusa együtt számít."
+    },
+    domainNotes: [
+      (profile) => profile.hasQuery ? "A paraméteres cím miatt érdemes tiszta, megosztható landing útvonalat létrehozni." : "",
+      (profile) => profile.deepPath ? "A mély útvonal miatt a fő ajánlatot közelebb kell hozni az első képernyőhöz." : "",
+      (profile) => !profile.hasHttps ? "A HTTPS hiánya miatt a bizalmi réteget technikailag is rendezni kell." : "",
+      (profile) => profile.hasSubdomain ? "Az aldomain miatt különösen fontos az egységes márkaélmény." : "",
+      (profile) => profile.hasHyphen ? "A kötőjeles domainnél a logó és a wordmark tudja visszaadni a prémium érzetet." : "",
+      (profile) => profile.shortPath && profile.hasHttps ? "A tiszta cím jó alap, ezért a tartalmi bizonyítékokon lehet a legtöbbet nyerni." : ""
+    ]
+  },
+  en: {
+    reasonTone: [
+      (label, score, reasons, profile) => `${label} ${score}: based on ${reasons.join(", ")}, this area looks ${profile.pageType === "old" ? "ready for visible modernization" : "improvable but clearly diagnosable"}.`,
+      (label, score, reasons) => `${label} ${score}: the score is mainly pulled by ${reasons.join(", ")}. This is a fast URL-based diagnosis, not a crawler verdict.`,
+      (label, score, reasons, profile) => `${label} ${score}: for ${profile.host}, the strongest visible URL signals were ${reasons.join(", ")}.`
+    ],
+    weakOpeners: [
+      "Concrete signal:",
+      "From a first-impression angle:",
+      "For visitor decision-making:",
+      "From a sales-page perspective:",
+      "On mobile sharing:"
+    ],
+    improvementOpeners: [
+      "DA Tech direction:",
+      "Modernization step:",
+      "Conversion fix:",
+      "More premium solution:",
+      "Practical intervention:"
+    ],
+    pageNotes: {
+      landing: "On a landing page, every extra doubt directly reduces the chance of a request.",
+      service: "On a service page, visitors need to understand the offer and next step quickly.",
+      shop: "For a shop, trust, quick product understanding and a frictionless purchase path work together.",
+      blog: "For a blog, expert content should not hide the business offer.",
+      contact: "For a contact page, trust and instant reachability matter more than decoration.",
+      portfolio: "For a portfolio, proof order and visual quality sell the expertise.",
+      old: "With an old URL pattern, modernization must immediately signal technical freshness.",
+      company: "On a company page, brand, trust and contact rhythm matter together."
+    },
+    domainNotes: [
+      (profile) => profile.hasQuery ? "Because the URL uses parameters, a cleaner shareable landing route would help." : "",
+      (profile) => profile.deepPath ? "Because the path is deep, the core offer should move closer to the first screen." : "",
+      (profile) => !profile.hasHttps ? "Because HTTPS is missing, the trust layer also needs a technical fix." : "",
+      (profile) => profile.hasSubdomain ? "Because a subdomain is present, the brand system needs to feel especially unified." : "",
+      (profile) => profile.hasHyphen ? "With a hyphenated domain, the logo and wordmark need to carry more premium weight." : "",
+      (profile) => profile.shortPath && profile.hasHttps ? "The clean address is a good base, so the biggest win is stronger proof content." : ""
+    ]
+  },
+  de: {
+    reasonTone: [
+      (label, score, reasons, profile) => `${label} ${score}: Auf Basis von ${reasons.join(", ")} wirkt dieser Bereich ${profile.pageType === "old" ? "klar modernisierungsbeduerftig" : "verbesserbar, aber gut diagnostizierbar"}.`,
+      (label, score, reasons) => `${label} ${score}: Die Bewertung wird vor allem durch ${reasons.join(", ")} gepraegt. Das ist eine schnelle URL-Diagnose, kein Crawler-Urteil.`,
+      (label, score, reasons, profile) => `${label} ${score}: Bei ${profile.host} waren die staerksten sichtbaren URL-Signale ${reasons.join(", ")}.`
+    ],
+    weakOpeners: [
+      "Konkretes Signal:",
+      "Aus Sicht des ersten Eindrucks:",
+      "Fuer die Besucherentscheidung:",
+      "Aus Sales-Page-Sicht:",
+      "Beim mobilen Teilen:"
+    ],
+    improvementOpeners: [
+      "DA Tech Richtung:",
+      "Modernisierungsschritt:",
+      "Conversion-Verbesserung:",
+      "Premium-Loesung:",
+      "Praktischer Eingriff:"
+    ],
+    pageNotes: {
+      landing: "Bei einer Landingpage senkt jede zusaetzliche Unsicherheit direkt die Anfragechance.",
+      service: "Bei einer Leistungsseite muessen Angebot und naechster Schritt schnell klar werden.",
+      shop: "Bei einem Shop entscheiden Vertrauen, Produktverstaendnis und reibungsloser Kaufweg zusammen.",
+      blog: "Bei einem Blog darf der Experteninhalt das eigentliche Angebot nicht verdecken.",
+      contact: "Bei einer Kontaktseite sind Vertrauen und schnelle Erreichbarkeit wichtiger als Dekoration.",
+      portfolio: "Bei einem Portfolio verkaufen Beweisreihenfolge und visuelle Qualitaet die Expertise.",
+      old: "Bei einem alten URL-Muster muss Modernisierung sofort technische Frische zeigen.",
+      company: "Bei einer Unternehmensseite zaehlen Marke, Vertrauen und Kontakt-Rhythmus zusammen."
+    },
+    domainNotes: [
+      (profile) => profile.hasQuery ? "Wegen der Parameter waere eine saubere, teilbare Landing-Route staerker." : "",
+      (profile) => profile.deepPath ? "Wegen des tiefen Pfads sollte das Kernangebot naeher an den ersten Bildschirm." : "",
+      (profile) => !profile.hasHttps ? "Ohne HTTPS muss die Vertrauensebene auch technisch repariert werden." : "",
+      (profile) => profile.hasSubdomain ? "Durch die Subdomain muss das Markensystem besonders einheitlich wirken." : "",
+      (profile) => profile.hasHyphen ? "Bei einer Bindestrich-Domain muessen Logo und Wordmark mehr Premium-Gefuehl tragen." : "",
+      (profile) => profile.shortPath && profile.hasHttps ? "Die saubere Adresse ist eine gute Basis; der groesste Hebel liegt dann bei staerkeren Beweisen." : ""
+    ]
+  }
+};
+
+function pickAuditVariant(items, profile, key, index) {
+  const variants = Array.isArray(items) ? items : [items];
+  return variants[Math.abs(textFingerprint(`${profile.host}:${profile.path}:${key}:${index}`)) % variants.length];
+}
+
+function pickAuditDomainNote(context, profile, key, index) {
+  const notes = context.domainNotes.map((getNote) => getNote(profile)).filter(Boolean);
+  if (!notes.length) return "";
+  return notes[Math.abs(textFingerprint(`${profile.host}:${key}:domain:${index}`)) % notes.length];
+}
+
+function auditPageActionNote(profile, lang) {
+  const notes = {
+    hu: {
+      landing: "Itt a legjobb irány egy rövid, erős ajánlati blokk és egyetlen domináns ajánlatkérési út.",
+      service: "Itt a szolgáltatási értékígéretet, bizonyítékot és CTA-t egy döntési útvonallá kell rendezni.",
+      shop: "Itt a termékbizalmat, szállítási/garancia infót és vásárlási CTA-t kell közelebb hozni egymáshoz.",
+      blog: "Itt a cikk végére és közepére is érdemes üzleti átvezetést, audit ajánlatot vagy szolgáltatásblokkot tenni.",
+      contact: "Itt a formot, elérhetőséget és bizalmi jeleket egy gyors kapcsolatfelvételi panelbe érdemes sűríteni.",
+      portfolio: "Itt az esettanulmányokat érdemes eredmény, folyamat és CTA sorrendben bemutatni.",
+      old: "Itt látványos before/after modernizálás és tiszta új URL-struktúra hozna nagy ugrást.",
+      company: "Itt a márkaígéretet, referenciát és kapcsolatfelvételt kell feszesebb ritmusba rakni."
+    },
+    en: {
+      landing: "The best direction is a short high-impact offer block and one dominant request path.",
+      service: "The service promise, proof and CTA should become one clear decision path.",
+      shop: "Product trust, delivery/guarantee details and the purchase CTA should sit closer together.",
+      blog: "Add business transitions, an audit offer or service block in the middle and at the end of the article.",
+      contact: "Condense the form, contact details and trust signals into one fast contact panel.",
+      portfolio: "Present case studies in the order of result, process and CTA.",
+      old: "A visible before/after modernization and clean new URL structure would create the biggest jump.",
+      company: "Tighten the rhythm between brand promise, proof and contact action."
+    },
+    de: {
+      landing: "Der beste Weg ist ein kurzer starker Angebotsblock und ein dominanter Anfragepfad.",
+      service: "Leistungsversprechen, Beweis und CTA sollten zu einem klaren Entscheidungsweg werden.",
+      shop: "Produktvertrauen, Versand-/Garantieinfos und Kauf-CTA sollten naeher zusammenruecken.",
+      blog: "In der Mitte und am Ende des Artikels sollten Business-Ueberleitung, Audit-Angebot oder Serviceblock stehen.",
+      contact: "Formular, Kontaktdaten und Vertrauenssignale sollten in ein schnelles Kontaktpanel verdichtet werden.",
+      portfolio: "Cases sollten in der Reihenfolge Ergebnis, Prozess und CTA gezeigt werden.",
+      old: "Ein sichtbares Before/After und eine saubere neue URL-Struktur wuerden den groessten Sprung bringen.",
+      company: "Markenversprechen, Beweise und Kontaktaktion sollten einen strafferen Rhythmus bekommen."
+    }
+  };
+  return (notes[lang] || notes.hu)[profile.pageType] || "";
+}
+
+function buildDetailedCategoryReason(label, value, reasonText, profile, lang, index) {
+  const context = auditDetailContext[lang] || auditDetailContext.hu;
+  const tone = pickAuditVariant(context.reasonTone, profile, `reason-${label}`, index);
+  return tone(label, value, reasonText, profile);
+}
+
+function enrichAuditMessage(base, profile, lang, key, kind, index) {
+  if (!base) return "";
+  const context = auditDetailContext[lang] || auditDetailContext.hu;
+  const openers = kind === "improvement" ? context.improvementOpeners : context.weakOpeners;
+  const opener = pickAuditVariant(openers, profile, `${kind}-${key}`, index);
+  const pageNote = kind === "improvement" ? auditPageActionNote(profile, lang) : context.pageNotes[profile.pageType] || "";
+  const domainNote = pickAuditDomainNote(context, profile, key, index);
+  return [opener, base, pageNote, domainNote].filter(Boolean).join(" ");
+}
+
+function buildAuditFindings(profile, lang) {
+  const copy = auditMessages[lang] || auditMessages.hu;
+  const dictionary = translations[lang] || translations.hu;
+  const categoryLabels = {
+    design: dictionary["audit.design"],
+    speed: dictionary["audit.speed"],
+    trust: dictionary["audit.trust"],
+    mobile: dictionary["audit.mobile"]
+  };
+
+  const weakCategories = Object.entries(profile.categories)
+    .sort((a, b) => a[1] - b[1])
+    .slice(0, 2)
+    .map(([key]) => key);
+
+  const reasons = Object.entries(profile.categories).map(([category, value], index) => {
+    const reasonKeys = profile.scoreDetails[category].reasons.slice(-3);
+    const reasonText = reasonKeys.map((key) => localizedReason(copy, key));
+    return buildDetailedCategoryReason(
+      categoryLabels[category],
+      value,
+      reasonText.length ? reasonText : [localizedReason(copy, "cleanDomain")],
+      profile,
+      lang,
+      index
+    );
+  });
+
+  const findings = [];
+  Object.values(profile.scoreDetails).forEach((bucket) => {
+    bucket.negativeKeys.forEach((key) => addFinding(findings, key, profile, 80));
+  });
+  if (!profile.hasTrustKeyword) addFinding(findings, "missingTrust", profile, 95);
+  if (!profile.hasConversionKeyword) addFinding(findings, "missingConversion", profile, 90);
+  if (profile.pageType === "shop") addFinding(findings, "shopSignal", profile, 108);
+  if (profile.pageType === "blog") addFinding(findings, "blogSignal", profile, 108);
+  if (profile.pageType === "old") addFinding(findings, "oldTech", profile, 110);
+  weakCategories.forEach((category) => addFinding(findings, `low${category[0].toUpperCase()}${category.slice(1)}`, profile, 35));
+
+  const uniqueReasonKeys = [...new Map(
+    findings
+      .sort((a, b) => b.priority - a.priority)
+      .map((finding) => [finding.reasonKey, finding.reasonKey])
+  ).values()];
+
+  ["missingTrust", "missingConversion", "lowDesign", "lowMobile", "lowSpeed"].forEach((key) => {
+    if (uniqueReasonKeys.length < 3 && !uniqueReasonKeys.includes(key)) uniqueReasonKeys.push(key);
+  });
+
+  const selectedKeys = uniqueReasonKeys.slice(0, 5);
+  const insights = selectedKeys
+    .map((key, index) => enrichAuditMessage(copy.weaknesses[key], profile, lang, key, "weakness", index))
+    .filter(Boolean);
+  const recommendations = selectedKeys
+    .map((key, index) => enrichAuditMessage(copy.improvements[key], profile, lang, key, "improvement", index))
+    .filter(Boolean);
+  const score = clampScore(Object.values(profile.categories).reduce((sum, value) => sum + value, 0) / 4);
+  const weakLabel = weakCategories.map((key) => categoryLabels[key]).join(", ");
 
   return {
     score,
-    categories,
-    summary: copy.summary(score, weakCategories.map((key) => copy.labels[key]).join(", ")),
-    insights,
-    recommendations: [...new Set(recommendations)].slice(0, 5)
+    categories: profile.categories,
+    summary: copy.summary(score, copy.pageTypes[profile.pageType], weakLabel),
+    reasons,
+    insights: insights.slice(0, 5),
+    recommendations: recommendations.slice(0, 5)
   };
 }
 

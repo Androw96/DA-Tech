@@ -8,17 +8,36 @@
       name="description"
       content="DA Tech modern, gyors és meggyőző weboldalakat készít cégeknek, akik több érdeklődőt, jobb megjelenést és erősebb online bizalmat szeretnének."
     >
-    <link rel="icon" type="image/png" sizes="256x256" href="assets/favicon-256.png?v=cinematic-intro-15">
-    <link rel="shortcut icon" type="image/png" href="assets/favicon-256.png?v=cinematic-intro-15">
-    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=cinematic-intro-15">
+    <link rel="icon" type="image/png" sizes="256x256" href="assets/favicon-256.png?v=cinematic-intro-22">
+    <link rel="shortcut icon" type="image/png" href="assets/favicon-256.png?v=cinematic-intro-22">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=cinematic-intro-22">
     <meta property="og:title" content="D.A.-Tech | Modern weboldalak">
     <meta property="og:description" content="Modern weboldalak és weboldal-modernizálás cégeknek, akik több ügyfelet akarnak az első benyomásból.">
     <meta property="og:image" content="assets/da-tech-wordmark-wide.png">
     <meta name="theme-color" content="#050816">
+    <script>
+      (() => {
+        try {
+          const params = new URLSearchParams(window.location.search);
+          const shouldSkipIntro = params.has("skipIntro")
+            || window.location.hash === "#top"
+            || window.sessionStorage.getItem("daTechIntroSeen") === "1";
+
+          if (shouldSkipIntro) {
+            document.documentElement.classList.add("skip-intro");
+            window.sessionStorage.setItem("daTechIntroSeen", "1");
+          } else {
+            window.sessionStorage.setItem("daTechIntroSeen", "1");
+          }
+        } catch {
+          document.documentElement.classList.add("skip-intro");
+        }
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=cinematic-intro-15">
+    <link rel="stylesheet" href="styles.css?v=cinematic-intro-22">
   </head>
   <body>
     <div class="noise" aria-hidden="true"></div>
@@ -76,7 +95,7 @@
       </div>
     </section>
     <header class="site-header">
-      <a class="brand" href="index.html#top" aria-label="DA Tech kezdőlap">
+      <a class="brand" href="#top" aria-label="DA Tech kezdőlap">
         <img class="brand-logo" src="assets/da-tech-logo-mark.png" alt="DA Tech">
       </a>
       <nav class="nav" aria-label="Fő navigáció">
@@ -185,30 +204,41 @@
               <button class="button button-primary" type="button" id="auditButton" data-i18n="audit.button">Audit indítása</button>
             </div>
             <p data-i18n="audit.note">A modul URL-alapú gyorsdiagnózist ad: design, sebesség, bizalom és mobilélmény alapján.</p>
-          </div>
-          <div class="audit-result" aria-live="polite">
-            <div class="audit-score"><span id="auditScore">82</span><small>/100</small></div>
-            <div class="audit-bars">
-              <span data-audit-bar="design" style="--value: 74%"><strong data-i18n="audit.design">Design</strong><em>74</em></span>
-              <span data-audit-bar="speed" style="--value: 88%"><strong data-i18n="audit.speed">Sebesség</strong><em>88</em></span>
-              <span data-audit-bar="trust" style="--value: 79%"><strong data-i18n="audit.trust">Bizalom</strong><em>79</em></span>
-              <span data-audit-bar="mobile" style="--value: 92%"><strong data-i18n="audit.mobile">Mobil</strong><em>92</em></span>
-            </div>
-            <p id="auditSummary" data-i18n="audit.summary">Javaslat: erősebb első képernyő, tisztább CTA és prémium mobil ritmus.</p>
-            <div class="audit-insights">
-              <strong data-i18n="audit.insightsTitle">Elemzés</strong>
+            <div class="audit-insights audit-weaknesses">
+              <strong data-i18n="audit.weaknessesTitle">Gyengeségek</strong>
               <ul id="auditInsights">
-                <li data-i18n="audit.defaultInsight1">A kezdőoldal első képernyője legyen azonnal érthető: mit kínál a cég és miért érdemes tovább olvasni.</li>
-                <li data-i18n="audit.defaultInsight2">A fő cselekvés legyen egyértelmű, kontrasztos és minden eszközön könnyen elérhető.</li>
+                <li data-i18n="audit.defaultInsight1">Nincs kritikus gyengeség: a saját oldal modernizálási történetet, bizalmat és ajánlatkérési útvonalat is ad.</li>
+                <li data-i18n="audit.defaultInsight2">Nincs kritikus gyengeség: a reszponzív nézetek, nyelvváltás és animált elemek együtt prémium élményt adnak.</li>
+                <li data-i18n="audit.defaultInsight3">Nincs kritikus gyengeség: az audit, before/after blokk és weboldal igénylés flow együtt konverziós útvonalat alkot.</li>
               </ul>
             </div>
-            <div class="audit-recommendations">
-              <strong data-i18n="audit.recommendationsTitle">Változtatási javaslatok</strong>
+            <div class="audit-recommendations audit-improvements">
+              <strong data-i18n="audit.improvementsTitle">Fejlesztési lehetőségek</strong>
               <ol id="auditRecommendations">
-                <li data-i18n="audit.defaultSuggestion1">Erősebb hero üzenet és bizalomépítő blokk az első görgetés előtt.</li>
-                <li data-i18n="audit.defaultSuggestion2">Mobil-first CTA ritmus, rövidebb szövegek és gyorsabb ajánlatkérési útvonal.</li>
+                <li data-i18n="audit.defaultSuggestion1">További finomításként később valós ügyfélreferenciákkal lehet még erősebbé tenni.</li>
+                <li data-i18n="audit.defaultSuggestion2">További finomításként éles domainen mérhető analitika és konverziókövetés kapcsolható rá.</li>
+                <li data-i18n="audit.defaultSuggestion3">További finomításként az audit később backenddel valós HTML elemzéssé bővíthető.</li>
               </ol>
             </div>
+          </div>
+          <div class="audit-result" aria-live="polite">
+            <div class="audit-score"><span id="auditScore">100</span><small>/100</small></div>
+            <div class="audit-reasons">
+              <strong data-i18n="audit.reasonsTitle">Pontozás indoklása</strong>
+              <ul id="auditReasons">
+                <li data-i18n="audit.defaultReason1">Design 100: erős D.A.-Tech brand, futurisztikus intro és prémium kék vizuális rendszer.</li>
+                <li data-i18n="audit.defaultReason2">Sebesség 100: statikus, könnyű frontend, cache-bumpolt assetek és gyors első képernyő.</li>
+                <li data-i18n="audit.defaultReason3">Bizalom 100: többnyelvű tartalom, rólunk oldal, bizalmi rendszer és világos szolgáltatás struktúra.</li>
+                <li data-i18n="audit.defaultReason4">Mobil 100: dedikált mobil és landscape szabályok, reszponzív CTA-k és stabil intro elrendezés.</li>
+              </ul>
+            </div>
+            <div class="audit-bars">
+              <span data-audit-bar="design" style="--value: 100%"><strong data-i18n="audit.design">Design</strong><em>100</em></span>
+              <span data-audit-bar="speed" style="--value: 100%"><strong data-i18n="audit.speed">Sebesség</strong><em>100</em></span>
+              <span data-audit-bar="trust" style="--value: 100%"><strong data-i18n="audit.trust">Bizalom</strong><em>100</em></span>
+              <span data-audit-bar="mobile" style="--value: 100%"><strong data-i18n="audit.mobile">Mobil</strong><em>100</em></span>
+            </div>
+            <p id="auditSummary" data-i18n="audit.summary">DA Tech saját oldal auditja: 100/100. A felület prémium, mobilra hangolt és konverzióra épített.</p>
           </div>
         </div>
       </section>
@@ -219,22 +249,34 @@
           <h2 id="before-after-title" data-i18n="before.title">Így lesz egy sablonos oldalból modern ügyfélszerző felület.</h2>
         </div>
         <div class="compare-frame" id="compareFrame">
+          <div class="compare-label compare-label-old" data-i18n="before.oldLabel">Régi sablon oldal</div>
+          <div class="compare-label compare-label-new" data-i18n="before.newLabel">Modern DA Tech élmény</div>
           <div class="compare-site compare-old" aria-hidden="true">
-            <div class="compare-browser"></div>
+            <div class="compare-browser"><span></span><span></span><span></span></div>
             <div class="old-logo"></div>
+            <div class="old-nav"><span></span><span></span><span></span></div>
             <div class="old-line"></div>
+            <div class="old-subline"></div>
             <div class="old-box"></div>
             <div class="old-copy"></div>
+            <div class="old-card one"></div>
+            <div class="old-card two"></div>
+            <div class="old-card three"></div>
           </div>
           <div class="compare-site compare-new" aria-hidden="true">
-            <div class="compare-browser"></div>
+            <div class="compare-browser"><span></span><span></span><span></span></div>
             <img src="assets/da-tech-wordmark-cropped.png" alt="">
             <div class="new-glow"></div>
+            <div class="new-nav"></div>
+            <div class="new-line"></div>
+            <div class="new-cta"></div>
             <div class="new-card one"></div>
             <div class="new-card two"></div>
+            <div class="new-card three"></div>
+            <div class="new-grid"></div>
           </div>
-          <input class="compare-range" id="compareRange" type="range" min="20" max="80" value="52" aria-label="Before after összehasonlítás">
-          <div class="compare-handle" id="compareHandle" aria-hidden="true"></div>
+          <input class="compare-range" id="compareRange" type="range" min="8" max="92" value="52" aria-label="Before after összehasonlítás">
+          <div class="compare-handle" id="compareHandle" role="slider" tabindex="0" aria-valuemin="8" aria-valuemax="92" aria-valuenow="52" aria-label="Before after összehasonlítás"></div>
         </div>
       </section>
 
@@ -450,6 +492,6 @@
       <span>hello@datech.hu</span>
     </footer>
 
-    <script src="script.js?v=cinematic-intro-15"></script>
+    <script src="script.js?v=cinematic-intro-22"></script>
   </body>
 </html>
