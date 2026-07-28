@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weboldal igénylése | DA Tech</title>
+    <meta name="description" content="DA Tech weboldal igénylés: írd meg, mire van szükséged, és visszajövünk egy tiszta iránnyal.">
+    <link rel="icon" type="image/png" sizes="256x256" href="assets/favicon-256.png?v=cinematic-intro-70">
+    <link rel="shortcut icon" type="image/png" href="assets/favicon-256.png?v=cinematic-intro-70">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=cinematic-intro-70">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=cinematic-intro-70">
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="brand" href="index.html?skipIntro=1" aria-label="DA Tech kezdőlap"><img class="brand-logo" src="assets/da-tech-logo-mark.png" alt="DA Tech"></a>
+      <button class="mobile-menu-toggle" type="button" aria-label="Menü megnyitása" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="nav" aria-label="Fő navigáció"><a href="about.html" data-i18n="nav.about">Rólunk</a><a href="prices.html" data-i18n="nav.prices">Árak</a><a href="audit.html" data-i18n="nav.audit">Weboldal értékelő</a><div class="nav-menu"><button class="nav-menu-button" type="button" data-i18n="nav.methods">Szolgáltatásaink</button><div class="nav-dropdown"><a href="weboldal-keszites.html" data-i18n="nav.methodBuild">Weboldal készítés</a><a href="weboldal-modernizalas.html" data-i18n="nav.methodExtravagant">Weboldal modernizálás</a><a href="extra-megoldasok.html" data-i18n="nav.methodProcess">Extravagáns megoldások</a></div></div><a href="why-us.html" data-i18n="nav.why">Miért mi?</a></nav>
+      <div class="header-actions"><a class="nav-cta" href="contact.html" data-i18n="nav.cta">Weboldal igénylése</a><div class="language-switcher" aria-label="Nyelv választás"><button class="lang-option active" type="button" data-lang="hu">HU</button><button class="lang-option" type="button" data-lang="en">EN</button><button class="lang-option" type="button" data-lang="de">DE</button></div></div>
+    </header>
+    <main>
+      <section class="section contact standalone-contact">
+        <div class="contact-copy">
+          <p class="eyebrow" data-i18n="contact.eyebrow">Indítsuk el</p>
+          <h1 data-i18n="contact.title">Készen állsz egy weboldalra, ami végre komolyan képviseli a céged?</h1>
+          <p data-i18n="contact.text">Írd meg pár mondatban, mit szeretnél. Mi visszajövünk egy tiszta iránnyal.</p>
+        </div>
+        <form class="contact-form request-flow">
+          <div class="flow-steps" aria-label="Weboldal igénylés lépések"><button class="active" type="button" data-step="0">01</button><button type="button" data-step="1">02</button><button type="button" data-step="2">03</button></div>
+          <div class="flow-panel active"><label><span data-i18n="form.project">Mire van szükséged?</span><select name="project"><option data-i18n="form.optionNew">Új weboldal</option><option data-i18n="form.optionModern">Weboldal modernizálás</option><option data-i18n="form.optionLanding">Landing page</option><option data-i18n="form.optionAdvice">Nem tudom, kérek tanácsot</option></select></label></div>
+          <div class="flow-panel"><label><span data-i18n="form.message">Röviden a projektről</span><textarea name="message" rows="4" placeholder="Mi a cél, mi nem működik most, milyen hatást szeretnél?" data-i18n-placeholder="form.messagePlaceholder"></textarea></label></div>
+          <div class="flow-panel"><label><span data-i18n="form.name">Név</span><input type="text" name="name" placeholder="Név vagy cégnév" data-i18n-placeholder="form.namePlaceholder"></label><label><span data-i18n="form.email">E-mail</span><input type="email" name="email" placeholder="hello@ceged.hu" data-i18n-placeholder="form.emailPlaceholder"></label><label class="consent-check"><input type="checkbox" name="privacyConsent"><span><span data-i18n="form.privacyConsent">Elfogadom az adatkezelési tájékoztatót, és hozzájárulok, hogy a DA Tech az ajánlatkérésemre válaszoljon.</span> <a href="privacy.html" data-i18n="form.privacyLink">Adatkezelési tájékoztató</a></span></label></div>
+          <div class="flow-summary"><strong data-i18n="flow.summaryTitle">DA Tech javaslat</strong><span id="flowRecommendation" data-i18n="flow.summaryText">Modernizálási audit, prémium első képernyő és mobil-first konverziós útvonal.</span></div>
+          <p class="legal-microcopy" data-i18n="form.privacyMicrocopy">Az adatokat csak az ajánlatkérés megválaszolására használjuk. Marketing emailt külön hozzájárulás nélkül nem küldünk.</p>
+          <p class="form-status" id="formStatus" aria-live="polite"></p>
+          <div class="flow-actions"><button class="button button-secondary" type="button" id="flowPrev" data-i18n="flow.prev">Vissza</button><button class="button button-primary" type="button" id="flowNext" data-i18n="flow.next">Tovább</button></div>
+        </form>
+      </section>
+    </main>
+    <footer class="footer"><span>© 2026 D.A.-Tech</span><span data-i18n="footer.tagline">Modern weboldalak és weboldal modernizálás</span><nav class="footer-links" aria-label="Jogi linkek"><a href="privacy.html" data-i18n="footer.privacy">Adatkezelés</a><a href="cookies.html" data-i18n="footer.cookies">Cookie-k</a><a href="impressum.html" data-i18n="footer.impressum">Impresszum</a><a href="terms.html" data-i18n="footer.terms">Szolgáltatási feltételek</a></nav><span>hello@datech.hu</span></footer>
+    <script src="script.js?v=cinematic-intro-70"></script>
+  </body>
+</html>

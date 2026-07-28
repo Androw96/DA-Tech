@@ -8,9 +8,9 @@
       name="description"
       content="DA Tech modern, gyors és meggyőző weboldalakat készít cégeknek, akik több érdeklődőt, jobb megjelenést és erősebb online bizalmat szeretnének."
     >
-    <link rel="icon" type="image/png" sizes="256x256" href="assets/favicon-256.png?v=cinematic-intro-37">
-    <link rel="shortcut icon" type="image/png" href="assets/favicon-256.png?v=cinematic-intro-37">
-    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=cinematic-intro-37">
+    <link rel="icon" type="image/png" sizes="256x256" href="assets/favicon-256.png?v=cinematic-intro-70">
+    <link rel="shortcut icon" type="image/png" href="assets/favicon-256.png?v=cinematic-intro-70">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=cinematic-intro-70">
     <meta property="og:title" content="D.A.-Tech | Modern weboldalak">
     <meta property="og:description" content="Modern weboldalak és weboldal-modernizálás cégeknek, akik több ügyfelet akarnak az első benyomásból.">
     <meta property="og:image" content="assets/da-tech-wordmark-wide.png">
@@ -43,7 +43,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=cinematic-intro-37">
+    <link rel="stylesheet" href="styles.css?v=cinematic-intro-70">
   </head>
   <body>
     <div class="noise" aria-hidden="true"></div>
@@ -101,7 +101,7 @@
       </div>
     </section>
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="DA Tech kezdőlap">
+      <a class="brand" href="index.html?skipIntro=1" aria-label="DA Tech kezdőlap">
         <img class="brand-logo" src="assets/da-tech-logo-mark.png" alt="DA Tech">
       </a>
       <button class="mobile-menu-toggle" type="button" aria-label="Menü megnyitása" aria-expanded="false">
@@ -111,18 +111,19 @@
       </button>
       <nav class="nav" aria-label="Fő navigáció">
         <a href="about.html" data-i18n="nav.about">Rólunk</a>
+        <a href="prices.html" data-i18n="nav.prices">Árak</a><a href="audit.html" data-i18n="nav.audit">Weboldal értékelő</a>
         <div class="nav-menu">
-          <button class="nav-menu-button" type="button" data-i18n="nav.methods">Módszereink</button>
+          <button class="nav-menu-button" type="button" data-i18n="nav.methods">Szolgáltatásaink</button>
           <div class="nav-dropdown">
-            <a href="#services" data-i18n="nav.methodBuild">Amit felépítünk</a>
-            <a href="#showcase" data-i18n="nav.methodExtravagant">Extravagáns megoldások</a>
-            <a href="#process" data-i18n="nav.methodProcess">Így dolgozunk</a>
+            <a href="weboldal-keszites.html" data-i18n="nav.methodBuild">Weboldal készítés</a>
+            <a href="weboldal-modernizalas.html" data-i18n="nav.methodExtravagant">Weboldal modernizálás</a>
+            <a href="extra-megoldasok.html" data-i18n="nav.methodProcess">Extravagáns megoldások</a>
           </div>
         </div>
-        <a href="#proof" data-i18n="nav.why">Miért mi?</a>
+        <a href="why-us.html" data-i18n="nav.why">Miért mi?</a>
       </nav>
       <div class="header-actions">
-        <a class="nav-cta" href="#contact" data-i18n="nav.cta">Weboldal igénylése</a>
+        <a class="nav-cta" href="contact.html" data-i18n="nav.cta">Weboldal igénylése</a>
         <div class="language-switcher" aria-label="Nyelv választás">
           <button class="lang-option active" type="button" data-lang="hu">HU</button>
           <button class="lang-option" type="button" data-lang="en">EN</button>
@@ -144,8 +145,8 @@
             Régi, sablonos vagy gyenge weboldalból prémium digitális élményt építünk. Gyors. Mobilra hangolt. Ügyfélszerzésre tervezett.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#contact" data-i18n="hero.primary">Weboldalt igénylek</a>
-            <a class="button button-secondary" href="#services" data-i18n="hero.secondary">Mit tudunk építeni?</a>
+            <a class="button button-primary" href="contact.html" data-i18n="hero.primary">Weboldalt igénylek</a>
+            <a class="button button-secondary" href="services.html" data-i18n="hero.secondary">Mit tudunk építeni?</a>
           </div>
           <div class="signal-row" aria-label="DA Tech fő előnyei">
             <span><strong>0.8s</strong> <span data-i18n="hero.signalSpeed">célzott betöltési érzet</span></span>
@@ -200,43 +201,57 @@
         </div>
       </section>
 
-      <section class="impact-strip" aria-label="DA Tech gyors előnyök">
-        <article>
-          <span>01</span>
-          <strong data-i18n="impact.item1Title">5 mp alatt érthető</strong>
-          <p data-i18n="impact.item1Text">A látogató azonnal tudja, miért maradjon.</p>
-        </article>
-        <article>
-          <span>02</span>
-          <strong data-i18n="impact.item2Title">Nem néz ki sablonnak</strong>
-          <p data-i18n="impact.item2Text">Tech vizuál, mozgás, prémium első benyomás.</p>
-        </article>
-        <article>
-          <span>03</span>
-          <strong data-i18n="impact.item3Title">Ajánlatkérésre vezet</strong>
-          <p data-i18n="impact.item3Text">Kevesebb zavar, tisztább döntési út.</p>
-        </article>
+      <section id="services" class="section services services-featured">
+        <div class="section-heading service-intro">
+          <p class="eyebrow" data-i18n="services.eyebrow">Szolgáltatások</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <span class="service-icon service-icon-screen" aria-hidden="true"></span>
+            <h3 data-i18n="services.card1Title">Weboldal készítés</h3>
+            <p data-i18n="services.card1Text">Modern, gyors, sallangmentes céges weboldalak és landing oldalak, amelyek telefonon is prémium első benyomást adnak.</p>
+            <a href="weboldal-keszites.html" class="service-link" data-i18n="services.card1Link">Weboldal készítés részletei</a>
+          </article>
+          <article class="service-card">
+            <span class="service-icon service-icon-refresh" aria-hidden="true"></span>
+            <h3 data-i18n="services.card2Title">Weboldal modernizálás</h3>
+            <p data-i18n="services.card2Text">Régi, sablonos vagy széteső oldalból átlátható, mobilbarát, bizalomépítő felületet készítünk.</p>
+            <a href="weboldal-modernizalas.html" class="service-link" data-i18n="services.card2Link">Modernizálás részletei</a>
+          </article>
+          <article class="service-card">
+            <span class="service-icon service-icon-pin" aria-hidden="true"></span>
+            <h3 data-i18n="services.card3Title">Extravagáns webes megoldások</h3>
+            <p data-i18n="services.card3Text">Animált intro, before/after élmény, audit modul, mikrointerakciók és olyan részletek, amelyek miatt a márka emlékezetes marad.</p>
+            <a href="extra-megoldasok.html" class="service-link" data-i18n="services.card3Link">Extra megoldások részletei</a>
+          </article>
+        </div>
+        <div class="service-help">
+          <h3 data-i18n="services.helpTitle">Nem tudod, melyikre van szükséged?</h3>
+          <p data-i18n="services.helpText">A legtöbb projekt kombináció: új első képernyő, mobilos rendbetétel, ajánlatkérési útvonal és egy kis extra wow-faktor. Írd meg, hol tartasz most, és javaslunk egy tiszta irányt.</p>
+          <a href="contact.html" data-i18n="services.helpLink">Kérek javaslatot</a>
+        </div>
       </section>
 
-      <section class="section audit-lab reveal-on-scroll" aria-labelledby="audit-title">
+      <section class="section audit-lab audit-empty reveal-on-scroll" aria-labelledby="audit-title">
         <div class="section-heading">
-          <p class="eyebrow" data-i18n="audit.eyebrow">Gyors weboldal audit</p>
-          <h2 id="audit-title" data-i18n="audit.title">Nézd meg, mit modernizálnánk először.</h2>
+          <p class="eyebrow" data-i18n="audit.eyebrow">Weboldal értékelő</p>
+          <h2 id="audit-title" data-i18n="audit.title">Kiértékeljük a weboldaladat!</h2>
         </div>
         <div class="audit-shell">
           <div class="audit-input-panel">
             <label for="auditUrl" data-i18n="audit.label">Weboldalad címe</label>
             <div class="audit-controls">
               <input id="auditUrl" type="url" placeholder="https://ceged.hu" data-i18n-placeholder="audit.placeholder">
-              <button class="button button-primary" type="button" id="auditButton" data-i18n="audit.button">Audit indítása</button>
+              <button class="button button-primary" type="button" id="auditButton" data-i18n="audit.button">Értékelés indítása</button>
             </div>
-            <p data-i18n="audit.note">A modul URL-alapú gyorsdiagnózist ad: design, sebesség, bizalom és mobilélmény alapján.</p>
+            <p data-i18n="audit.note">Az értékelő élő PageSpeed/Lighthouse mobilmérést kér le: teljesítmény, SEO, technikai bizalom és mobilélmény alapján.</p>
+            <p class="legal-microcopy" data-i18n="audit.disclaimer">Élő külső mérés alapján készül; ha a mérés nem elérhető, URL-alapú fallback elemzést mutat.</p>
             <div class="audit-insights audit-weaknesses">
               <strong data-i18n="audit.weaknessesTitle">Gyengeségek</strong>
               <ul id="auditInsights">
                 <li data-i18n="audit.defaultInsight1">Nincs kritikus gyengeség: a saját oldal modernizálási történetet, bizalmat és ajánlatkérési útvonalat is ad.</li>
                 <li data-i18n="audit.defaultInsight2">Nincs kritikus gyengeség: a reszponzív nézetek, nyelvváltás és animált elemek együtt prémium élményt adnak.</li>
-                <li data-i18n="audit.defaultInsight3">Nincs kritikus gyengeség: az audit, before/after blokk és weboldal igénylés flow együtt konverziós útvonalat alkot.</li>
+                <li data-i18n="audit.defaultInsight3">Nincs kritikus gyengeség: az értékelő, before/after blokk és weboldal igénylés flow együtt konverziós útvonalat alkot.</li>
               </ul>
             </div>
             <div class="audit-recommendations audit-improvements">
@@ -244,12 +259,13 @@
               <ol id="auditRecommendations">
                 <li data-i18n="audit.defaultSuggestion1">További finomításként később valós ügyfélreferenciákkal lehet még erősebbé tenni.</li>
                 <li data-i18n="audit.defaultSuggestion2">További finomításként éles domainen mérhető analitika és konverziókövetés kapcsolható rá.</li>
-                <li data-i18n="audit.defaultSuggestion3">További finomításként az audit később backenddel valós HTML elemzéssé bővíthető.</li>
+                <li data-i18n="audit.defaultSuggestion3">További finomításként az értékelő később backenddel valós HTML elemzéssé bővíthető.</li>
               </ol>
             </div>
           </div>
           <div class="audit-result" aria-live="polite">
             <div class="audit-score"><span id="auditScore">100</span><small>/100</small></div>
+            <div class="audit-diagnostics" id="auditDiagnostics" hidden></div>
             <div class="audit-reasons">
               <strong data-i18n="audit.reasonsTitle">Pontozás indoklása</strong>
               <ul id="auditReasons">
@@ -265,45 +281,8 @@
               <span data-audit-bar="trust" style="--value: 100%"><strong data-i18n="audit.trust">Bizalom</strong><em>100</em></span>
               <span data-audit-bar="mobile" style="--value: 100%"><strong data-i18n="audit.mobile">Mobil</strong><em>100</em></span>
             </div>
-            <p id="auditSummary" data-i18n="audit.summary">DA Tech saját oldal auditja: 100/100. A felület prémium, mobilra hangolt és konverzióra épített.</p>
+            <p id="auditSummary" data-i18n="audit.summary">DA Tech saját oldal értékelése: 100/100. A felület prémium, mobilra hangolt és konverzióra épített.</p>
           </div>
-        </div>
-      </section>
-
-      <section class="section before-after reveal-on-scroll" aria-labelledby="before-after-title">
-        <div class="section-heading">
-          <p class="eyebrow" data-i18n="before.eyebrow">Before / After</p>
-          <h2 id="before-after-title" data-i18n="before.title">Így lesz egy sablonos oldalból modern ügyfélszerző felület.</h2>
-        </div>
-        <div class="compare-frame" id="compareFrame">
-          <div class="compare-site compare-old" aria-hidden="true">
-            <div class="compare-label compare-label-old" data-i18n="before.oldLabel">Régi sablon oldal</div>
-            <div class="compare-browser"><span></span><span></span><span></span></div>
-            <div class="old-logo"></div>
-            <div class="old-nav"><span></span><span></span><span></span></div>
-            <div class="old-line"></div>
-            <div class="old-subline"></div>
-            <div class="old-box"></div>
-            <div class="old-copy"></div>
-            <div class="old-card one"></div>
-            <div class="old-card two"></div>
-            <div class="old-card three"></div>
-          </div>
-          <div class="compare-site compare-new" aria-hidden="true">
-            <div class="compare-label compare-label-new" data-i18n="before.newLabel">Modern DA Tech élmény</div>
-            <div class="compare-browser"><span></span><span></span><span></span></div>
-            <img src="assets/da-tech-wordmark-cropped.png" alt="">
-            <div class="new-glow"></div>
-            <div class="new-nav"></div>
-            <div class="new-line"></div>
-            <div class="new-cta"></div>
-            <div class="new-card one"></div>
-            <div class="new-card two"></div>
-            <div class="new-card three"></div>
-            <div class="new-grid"></div>
-          </div>
-          <input class="compare-range" id="compareRange" type="range" min="8" max="92" value="52" aria-label="Before after összehasonlítás">
-          <div class="compare-handle" id="compareHandle" role="slider" tabindex="0" aria-valuemin="8" aria-valuemax="92" aria-valuenow="52" aria-label="Before after összehasonlítás"></div>
         </div>
       </section>
 
@@ -334,41 +313,12 @@
         </div>
       </section>
 
-      <section id="services" class="section services">
-        <div class="section-heading">
-          <p class="eyebrow" data-i18n="services.eyebrow">Amit felépítünk</p>
-          <h2 data-i18n="services.title">Amit építünk: látvány, bizalom, ajánlatkérés.</h2>
-        </div>
-        <div class="service-grid">
-          <article class="service-card">
-            <span class="card-number">01</span>
-            <h3 data-i18n="services.card1Title">Prémium céges weboldal</h3>
-            <p data-i18n="services.card1Text">Erős első képernyő, tiszta ajánlat, prémium márkaérzet.</p>
-          </article>
-          <article class="service-card">
-            <span class="card-number">02</span>
-            <h3 data-i18n="services.card2Title">Weboldal modernizálás</h3>
-            <p data-i18n="services.card2Text">Régi oldalból modern, gyors, mobilbarát ügyfélszerző felület.</p>
-          </article>
-          <article class="service-card">
-            <span class="card-number">03</span>
-            <h3 data-i18n="services.card3Title">Extravagáns interakciók</h3>
-            <p data-i18n="services.card3Text">Animált hero, mikrointerakciók, emlékezetes tech részletek.</p>
-          </article>
-          <article class="service-card">
-            <span class="card-number">04</span>
-            <h3 data-i18n="services.card4Title">Konverziós stratégia</h3>
-            <p data-i18n="services.card4Text">Kevesebb zaj, erősebb CTA, tisztább döntési út.</p>
-          </article>
-        </div>
-      </section>
-
       <section id="proof" class="section proof">
         <div class="proof-copy">
           <p class="eyebrow" data-i18n="proof.eyebrow">Miért a D.A.-Tech?</p>
-          <h2 data-i18n="proof.title">A látogató nem kódot lát. Ő azt érzi, hogy ez a cég megbízható-e.</h2>
+          <h2 data-i18n="proof.title">Számunkra nincs lehetetlen.</h2>
           <p data-i18n="proof.text">
-            Az oldalnak nem mindent elmondania kell. El kell érnie, hogy a jó ügyfél tovább akarjon lépni.
+            Ha az ötlet üzletileg értékes, megkeressük hozzá a megoldást: designban, technológiában és ügyfélszerző útvonalban is.
           </p>
         </div>
         <div class="proof-stack">
@@ -434,6 +384,15 @@
             <h3 data-i18n="showcase.card3Title">Fejlesztői minőség</h3>
             <p data-i18n="showcase.card3Text">Gyors működés, tiszta struktúra, nem egyszer használatos show.</p>
           </article>
+          <article>
+            <div class="visual visual-logo-reveal" aria-hidden="true">
+              <strong data-i18n="showcase.card4Logo">A Logód</strong>
+              <span></span>
+              <span></span>
+            </div>
+            <h3 data-i18n="showcase.card4Title">Logó reveal élmény</h3>
+            <p data-i18n="showcase.card4Text">A márka nem csak megjelenik: fényből, mozgásból és fókuszból épül fel, hogy emlékezzenek rá.</p>
+          </article>
         </div>
       </section>
 
@@ -481,7 +440,7 @@
               <li data-i18n="packages.startPoint2">Mobil-first megjelenés</li>
               <li data-i18n="packages.startPoint3">Ajánlatkérési CTA útvonal</li>
             </ul>
-            <a href="#contact" data-i18n="packages.cta">Ezt kérem</a>
+            <a href="contact.html" data-i18n="packages.cta">Ezt kérem</a>
           </article>
           <article class="featured">
             <span>Modernize</span>
@@ -492,7 +451,7 @@
               <li data-i18n="packages.modernPoint2">Új első képernyő és szolgáltatás logika</li>
               <li data-i18n="packages.modernPoint3">Sebesség, bizalom és mobil élmény fókusz</li>
             </ul>
-            <a href="#contact" data-i18n="packages.cta">Ezt kérem</a>
+            <a href="contact.html" data-i18n="packages.cta">Ezt kérem</a>
           </article>
           <article>
             <span>Premium Build</span>
@@ -503,7 +462,7 @@
               <li data-i18n="packages.premiumPoint2">Extravagáns animációk és audit modulok</li>
               <li data-i18n="packages.premiumPoint3">Többnyelvű, skálázható tartalom</li>
             </ul>
-            <a href="#contact" data-i18n="packages.cta">Ezt kérem</a>
+            <a href="contact.html" data-i18n="packages.cta">Ezt kérem</a>
           </article>
         </div>
       </section>
@@ -548,11 +507,19 @@
               <span data-i18n="form.email">E-mail</span>
               <input type="email" name="email" placeholder="hello@ceged.hu" data-i18n-placeholder="form.emailPlaceholder">
             </label>
+            <label class="consent-check">
+              <input type="checkbox" name="privacyConsent">
+              <span>
+                <span data-i18n="form.privacyConsent">Elfogadom az adatkezelési tájékoztatót, és hozzájárulok, hogy a DA Tech az ajánlatkérésemre válaszoljon.</span>
+                <a href="privacy.html" data-i18n="form.privacyLink">Adatkezelési tájékoztató</a>
+              </span>
+            </label>
           </div>
           <div class="flow-summary">
             <strong data-i18n="flow.summaryTitle">DA Tech javaslat</strong>
             <span id="flowRecommendation" data-i18n="flow.summaryText">Modernizálási audit, prémium első képernyő és mobil-first konverziós útvonal.</span>
           </div>
+          <p class="legal-microcopy" data-i18n="form.privacyMicrocopy">Az adatokat csak az ajánlatkérés megválaszolására használjuk. Marketing emailt külön hozzájárulás nélkül nem küldünk.</p>
           <p class="form-status" id="formStatus" aria-live="polite"></p>
           <div class="flow-actions">
             <button class="button button-secondary" type="button" id="flowPrev" data-i18n="flow.prev">Vissza</button>
@@ -563,11 +530,28 @@
     </main>
 
     <footer class="footer">
-      <span>DA Tech</span>
+      <span>© 2026 D.A.-Tech</span>
       <span data-i18n="footer.tagline">Modern weboldalak és weboldal modernizálás</span>
+      <nav class="footer-links" aria-label="Jogi linkek">
+        <a href="privacy.html" data-i18n="footer.privacy">Adatkezelés</a>
+        <a href="cookies.html" data-i18n="footer.cookies">Cookie-k</a>
+        <a href="impressum.html" data-i18n="footer.impressum">Impresszum</a>
+        <a href="terms.html" data-i18n="footer.terms">Szolgáltatási feltételek</a>
+      </nav>
       <span>hello@datech.hu</span>
     </footer>
 
-    <script src="script.js?v=cinematic-intro-37"></script>
+    <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie tájékoztató">
+      <div>
+        <strong data-i18n="cookie.title">Adatvédelem és cookie-k</strong>
+        <p data-i18n="cookie.text">Jelenleg csak működéshez szükséges tárolást használunk. Analitika vagy marketing cookie csak külön hozzájárulás után kerülhetne be.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="button button-secondary" type="button" data-cookie-choice="reject" data-i18n="cookie.reject">Elutasítom</button>
+        <button class="button button-primary" type="button" data-cookie-choice="accept" data-i18n="cookie.accept">Elfogadom</button>
+      </div>
+    </div>
+
+    <script src="script.js?v=cinematic-intro-70"></script>
   </body>
 </html>

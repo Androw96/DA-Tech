@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weboldal értékelő | DA Tech</title>
+    <meta name="description" content="DA Tech weboldal értékelő: élő PageSpeed/Lighthouse mérés, pontozás, gyengeségek és fejlesztési javaslatok egy helyen.">
+    <link rel="icon" type="image/png" sizes="256x256" href="assets/favicon-256.png?v=cinematic-intro-70">
+    <link rel="shortcut icon" type="image/png" href="assets/favicon-256.png?v=cinematic-intro-70">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=cinematic-intro-70">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=cinematic-intro-70">
+  </head>
+  <body class="audit-page">
+    <div class="noise" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="brand" href="index.html?skipIntro=1" aria-label="DA Tech kezdőlap">
+        <img class="brand-logo" src="assets/da-tech-logo-mark.png" alt="DA Tech">
+      </a>
+      <button class="mobile-menu-toggle" type="button" aria-label="Menü megnyitása" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav" aria-label="Fő navigáció">
+        <a href="about.html" data-i18n="nav.about">Rólunk</a>
+        <a href="prices.html" data-i18n="nav.prices">Árak</a>
+        <a href="audit.html" data-i18n="nav.audit">Weboldal értékelő</a>
+        <div class="nav-menu">
+          <button class="nav-menu-button" type="button" data-i18n="nav.methods">Szolgáltatásaink</button>
+          <div class="nav-dropdown">
+            <a href="weboldal-keszites.html" data-i18n="nav.methodBuild">Weboldal készítés</a>
+            <a href="weboldal-modernizalas.html" data-i18n="nav.methodExtravagant">Weboldal modernizálás</a>
+            <a href="extra-megoldasok.html" data-i18n="nav.methodProcess">Extravagáns megoldások</a>
+          </div>
+        </div>
+        <a href="why-us.html" data-i18n="nav.why">Miért mi?</a>
+      </nav>
+      <div class="header-actions">
+        <a class="nav-cta" href="contact.html" data-i18n="nav.cta">Weboldal igénylése</a>
+        <div class="language-switcher" aria-label="Nyelv választás">
+          <button class="lang-option active" type="button" data-lang="hu">HU</button>
+          <button class="lang-option" type="button" data-lang="en">EN</button>
+          <button class="lang-option" type="button" data-lang="de">DE</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="audit-page-hero" aria-labelledby="audit-page-title">
+        <p class="eyebrow" data-i18n="audit.eyebrow">Weboldal értékelő</p>
+        <h1 id="audit-page-title" data-i18n="auditPage.title">Weboldal értékelő, ami konkrét hibákat keres.</h1>
+        <p data-i18n="auditPage.lead">Add meg a weboldalad címét, és a rendszer élő PageSpeed/Lighthouse mérést próbál indítani. Ha a külső mérés nem érhető el, URL-alapú előauditot ad, hogy akkor is legyen induló diagnózis.</p>
+      </section>
+
+      <section class="section audit-lab audit-empty audit-page-tool" aria-labelledby="audit-title">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="audit.eyebrow">Weboldal értékelő</p>
+          <h2 id="audit-title" data-i18n="audit.title">Kiértékeljük a weboldaladat!</h2>
+          <p data-i18n="auditPage.tip">Tipp: teljes URL-t adj meg, például https://ceged.hu. Az eredmény pontozást, indoklást, gyengeségeket és fejlesztési javaslatokat ad.</p>
+        </div>
+        <div class="audit-shell">
+          <div class="audit-input-panel">
+            <label for="auditUrl" data-i18n="audit.label">Weboldalad címe</label>
+            <div class="audit-controls">
+              <input id="auditUrl" type="url" placeholder="https://ceged.hu" data-i18n-placeholder="audit.placeholder">
+              <button class="button button-primary" type="button" id="auditButton" data-i18n="audit.button">Értékelés indítása</button>
+            </div>
+            <p data-i18n="audit.note">Az értékelő élő PageSpeed/Lighthouse mobilmérést kér le: teljesítmény, SEO, technikai bizalom és mobilélmény alapján.</p>
+            <p class="legal-microcopy" data-i18n="audit.disclaimer">Élő külső mérés alapján készül; ha a mérés nem elérhető, URL-alapú fallback elemzést mutat.</p>
+            <div class="audit-insights audit-weaknesses">
+              <strong data-i18n="audit.weaknessesTitle">Gyengeségek</strong>
+              <ul id="auditInsights">
+                <li data-i18n="audit.defaultInsight1">Nincs kritikus gyengeség: a saját oldal modernizálási történetet, bizalmat és ajánlatkérési útvonalat is ad.</li>
+                <li data-i18n="audit.defaultInsight2">Nincs kritikus gyengeség: a reszponzív nézetek, nyelvváltás és animált elemek együtt prémium élményt adnak.</li>
+                <li data-i18n="audit.defaultInsight3">Nincs kritikus gyengeség: az értékelő, before/after blokk és weboldal igénylés flow együtt konverziós útvonalat alkot.</li>
+              </ul>
+            </div>
+            <div class="audit-recommendations audit-improvements">
+              <strong data-i18n="audit.improvementsTitle">Fejlesztési lehetőségek</strong>
+              <ol id="auditRecommendations">
+                <li data-i18n="audit.defaultSuggestion1">További finomításként később valós ügyfélreferenciákkal lehet még erősebbé tenni.</li>
+                <li data-i18n="audit.defaultSuggestion2">További finomításként éles domainen mérhető analitika és konverziókövetés kapcsolható rá.</li>
+                <li data-i18n="audit.defaultSuggestion3">További finomításként az értékelő később backenddel valós HTML elemzéssé bővíthető.</li>
+              </ol>
+            </div>
+          </div>
+          <div class="audit-result" aria-live="polite">
+            <div class="audit-score"><span id="auditScore">100</span><small>/100</small></div>
+            <div class="audit-diagnostics" id="auditDiagnostics" hidden></div>
+            <div class="audit-reasons">
+              <strong data-i18n="audit.reasonsTitle">Pontozás indoklása</strong>
+              <ul id="auditReasons">
+                <li data-i18n="audit.defaultReason1">Design 100: erős D.A.-Tech brand, futurisztikus intro és prémium kék vizuális rendszer.</li>
+                <li data-i18n="audit.defaultReason2">Sebesség 100: statikus, könnyű frontend, cache-bumpolt assetek és gyors első képernyő.</li>
+                <li data-i18n="audit.defaultReason3">Bizalom 100: többnyelvű tartalom, rólunk oldal, bizalmi rendszer és világos szolgáltatás struktúra.</li>
+                <li data-i18n="audit.defaultReason4">Mobil 100: dedikált mobil és landscape szabályok, reszponzív CTA-k és stabil intro elrendezés.</li>
+              </ul>
+            </div>
+            <div class="audit-bars">
+              <span data-audit-bar="design" style="--value: 100%"><strong data-i18n="audit.design">Design</strong><em>100</em></span>
+              <span data-audit-bar="speed" style="--value: 100%"><strong data-i18n="audit.speed">Sebesség</strong><em>100</em></span>
+              <span data-audit-bar="trust" style="--value: 100%"><strong data-i18n="audit.trust">Bizalom</strong><em>100</em></span>
+              <span data-audit-bar="mobile" style="--value: 100%"><strong data-i18n="audit.mobile">Mobil</strong><em>100</em></span>
+            </div>
+            <p id="auditSummary" data-i18n="audit.summary">DA Tech saját oldal értékelése: 100/100. A felület prémium, mobilra hangolt és konverzióra épített.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>© 2026 D.A.-Tech</span>
+      <span data-i18n="footer.tagline">Modern weboldalak és weboldal modernizálás</span>
+      <nav class="footer-links" aria-label="Jogi linkek">
+        <a href="privacy.html" data-i18n="footer.privacy">Adatkezelés</a>
+        <a href="cookies.html" data-i18n="footer.cookies">Cookie-k</a>
+        <a href="impressum.html" data-i18n="footer.impressum">Impresszum</a>
+        <a href="terms.html" data-i18n="footer.terms">Szolgáltatási feltételek</a>
+      </nav>
+      <span>hello@datech.hu</span>
+    </footer>
+
+    <script src="script.js?v=cinematic-intro-70"></script>
+  </body>
+</html>
