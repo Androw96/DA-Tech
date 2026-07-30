@@ -545,11 +545,17 @@ textarea {
 
 .about-shell {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.8fr);
+  grid-template-columns: minmax(0, 0.82fr) minmax(360px, 0.92fr);
   gap: clamp(28px, 5vw, 72px);
   align-items: center;
   width: min(var(--max), 100%);
   margin: 0 auto;
+}
+
+.about-hero h1 {
+  max-width: 760px;
+  font-size: clamp(2.8rem, 5.6vw, 5.8rem);
+  line-height: 0.94;
 }
 
 .about-logo {
@@ -573,24 +579,97 @@ textarea {
 }
 
 .about-grid {
+  position: relative;
   display: grid;
-  gap: 14px;
+  gap: 16px;
+}
+
+.about-grid::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  bottom: 28px;
+  left: 18px;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(106, 166, 255, 0.58), transparent);
+  box-shadow: 0 0 22px rgba(31, 99, 255, 0.35);
 }
 
 .about-card {
-  padding: 22px;
-  border: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+  padding: 24px 24px 24px 64px;
+  border: 1px solid rgba(106, 166, 255, 0.24);
   border-radius: var(--radius);
-  background: rgba(7, 16, 36, 0.72);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(31, 99, 255, 0.22), transparent 12rem),
+    linear-gradient(135deg, rgba(10, 25, 58, 0.86), rgba(4, 9, 23, 0.76));
+  box-shadow: 0 18px 54px rgba(0, 0, 0, 0.22), inset 0 0 0 1px rgba(255, 255, 255, 0.035);
+  animation: bulletReveal 680ms ease both;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.about-card::before {
+  content: "0" counter(about-card);
+  position: absolute;
+  top: 24px;
+  left: 18px;
+  z-index: 2;
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid rgba(106, 166, 255, 0.42);
+  border-radius: 999px;
+  color: #dbe8ff;
+  background: rgba(31, 99, 255, 0.18);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 900;
+  box-shadow: 0 0 22px rgba(31, 99, 255, 0.28);
+  animation: bulletMarkerPulse 2.8s ease-in-out infinite;
+}
+
+.about-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 18px 0 64px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(106, 166, 255, 0.72), transparent);
+  opacity: 0.72;
+}
+
+.about-grid {
+  counter-reset: about-card;
+}
+
+.about-card {
+  counter-increment: about-card;
+}
+
+.about-card:nth-child(2) {
+  animation-delay: 100ms;
+}
+
+.about-card:nth-child(3) {
+  animation-delay: 200ms;
+}
+
+.about-card:hover {
+  border-color: rgba(164, 203, 255, 0.48);
+  box-shadow: 0 22px 70px rgba(31, 99, 255, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  transform: translateX(6px);
 }
 
 .about-card h3 {
   color: var(--text);
+  font-size: clamp(1.12rem, 1.6vw, 1.42rem);
 }
 
 .about-card p {
+  margin-top: 10px;
   color: var(--muted);
-  line-height: 1.7;
+  line-height: 1.66;
 }
 
 .intro-showcase {
@@ -650,6 +729,10 @@ textarea {
   font-size: 0.82rem;
   font-weight: 700;
   text-transform: uppercase;
+}
+
+body:not(.home-page) .eyebrow {
+  display: none;
 }
 
 h1,
