@@ -243,6 +243,9 @@ const translations = {
     "flow.next": "Tovább",
     "flow.send": "Igénylés indítása",
     "flow.success": "Kész az email vázlat. Ha nem nyílt meg automatikusan, írj nekünk: hello@datech.hu",
+    "flow.sending": "Küldés folyamatban...",
+    "flow.endpointSuccess": "Köszönjük, megkaptuk az ajánlatkérést. Hamarosan jelentkezünk.",
+    "flow.endpointError": "Az automatikus küldés most nem sikerült, ezért megnyitjuk az email vázlatot.",
     "flow.missingEmail": "Adj meg egy e-mail címet, hogy tudjuk hova válaszoljunk.",
     "flow.missingConsent": "Az ajánlatkéréshez kérlek fogadd el az adatkezelési tájékoztatót.",
     "about.eyebrow": "About us",
@@ -548,6 +551,9 @@ const translations = {
     "flow.next": "Next",
     "flow.send": "Start request",
     "flow.success": "The email draft is ready. If it did not open automatically, write to us: hello@datech.hu",
+    "flow.sending": "Sending...",
+    "flow.endpointSuccess": "Thank you, we received your request. We will get back to you soon.",
+    "flow.endpointError": "Automatic sending did not work, so we are opening the email draft instead.",
     "flow.missingEmail": "Add an email address so we know where to reply.",
     "flow.missingConsent": "Please accept the privacy notice to send the website request.",
     "about.eyebrow": "About us",
@@ -853,6 +859,9 @@ const translations = {
     "flow.next": "Weiter",
     "flow.send": "Anfrage starten",
     "flow.success": "Der E-Mail-Entwurf ist bereit. Falls er sich nicht automatisch geoeffnet hat: hello@datech.hu",
+    "flow.sending": "Wird gesendet...",
+    "flow.endpointSuccess": "Danke, wir haben deine Anfrage erhalten. Wir melden uns bald.",
+    "flow.endpointError": "Das automatische Senden hat nicht funktioniert, daher oeffnen wir den E-Mail-Entwurf.",
     "flow.missingEmail": "Gib eine E-Mail-Adresse ein, damit wir antworten koennen.",
     "flow.missingConsent": "Bitte akzeptiere die Datenschutzhinweise, um die Website-Anfrage zu senden.",
     "about.eyebrow": "About us",
@@ -2864,12 +2873,44 @@ function updateFlowRecommendation() {
   flowRecommendation.textContent = dictionary[key] || dictionary["flow.summaryText"];
 }
 
-function submitWebsiteRequest() {
+function buildRequestPayload(data) {
+  return {
+    project: String(data.get("project") || ""),
+    name: String(data.get("name") || "").trim(),
+    email: String(data.get("email") || "").trim(),
+    message: String(data.get("message") || "").trim(),
+    source: window.location.href,
+    language: window.localStorage.getItem("daTechLang") || "hu",
+    createdAt: new Date().toISOString()
+  };
+}
+
+function openRequestEmail(payload, dictionary) {
+  const body = [
+    "DA Tech website request",
+    "",
+    `Project: ${payload.project}`,
+    `Name: ${payload.name || "-"}`,
+    `Email: ${payload.email}`,
+    "",
+    "Message:",
+    payload.message || "-",
+    "",
+    `Source: ${payload.source}`,
+    `Language: ${payload.language}`
+  ].join("\n");
+
+  window.location.href = `mailto:hello@datech.hu?subject=${encodeURIComponent("DA Tech weboldal igénylés")}&body=${encodeURIComponent(body)}`;
+  if (formStatus) formStatus.textContent = dictionary["flow.success"];
+}
+
+async function submitWebsiteRequest() {
   if (!requestForm) return;
   const lang = window.localStorage.getItem("daTechLang") || "hu";
   const dictionary = translations[lang] || translations.hu;
   const data = new FormData(requestForm);
-  const email = String(data.get("email") || "").trim();
+  const payload = buildRequestPayload(data);
+  const email = payload.email;
   const consent = data.get("privacyConsent") === "on";
   if (!email) {
     if (formStatus) formStatus.textContent = dictionary["flow.missingEmail"];
@@ -2882,22 +2923,30 @@ function submitWebsiteRequest() {
     return;
   }
 
-  const project = String(data.get("project") || "");
-  const name = String(data.get("name") || "").trim();
-  const message = String(data.get("message") || "").trim();
-  const body = [
-    "DA Tech website request",
-    "",
-    `Project: ${project}`,
-    `Name: ${name || "-"}`,
-    `Email: ${email}`,
-    "",
-    "Message:",
-    message || "-"
-  ].join("\n");
+  const endpoint = window.DA_TECH_FORM_ENDPOINT || "";
+  if (!endpoint) {
+    openRequestEmail(payload, dictionary);
+    return;
+  }
 
-  window.location.href = `mailto:hello@datech.hu?subject=${encodeURIComponent("DA Tech weboldal igénylés")}&body=${encodeURIComponent(body)}`;
-  if (formStatus) formStatus.textContent = dictionary["flow.success"];
+  if (formStatus) formStatus.textContent = dictionary["flow.sending"];
+  if (flowNext) flowNext.disabled = true;
+  try {
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    if (!response.ok) throw new Error(`Form endpoint ${response.status}`);
+    if (formStatus) formStatus.textContent = dictionary["flow.endpointSuccess"];
+    requestForm.reset();
+    setFlowStep(0);
+  } catch {
+    if (formStatus) formStatus.textContent = dictionary["flow.endpointError"];
+    openRequestEmail(payload, dictionary);
+  } finally {
+    if (flowNext) flowNext.disabled = false;
+  }
 }
 
 function setFlowStep(nextStep) {
@@ -2936,8 +2985,40 @@ if (cookieBanner) {
     button.addEventListener("click", () => {
       window.localStorage.setItem("daTechCookieChoice", button.dataset.cookieChoice || "reject");
       cookieBanner.classList.add("is-hidden");
+      if (button.dataset.cookieChoice === "accept") loadOptionalAnalytics();
     });
   });
+}
+
+function loadOptionalAnalytics() {
+  if (window.localStorage.getItem("daTechCookieChoice") !== "accept") return;
+  if (document.querySelector("[data-da-tech-analytics]")) return;
+
+  const plausibleDomain = window.DA_TECH_PLAUSIBLE_DOMAIN || "";
+  if (plausibleDomain) {
+    const script = document.createElement("script");
+    script.defer = true;
+    script.dataset.daTechAnalytics = "plausible";
+    script.dataset.domain = plausibleDomain;
+    script.src = "https://plausible.io/js/script.js";
+    document.head.appendChild(script);
+    return;
+  }
+
+  const googleAnalyticsId = window.DA_TECH_GA_ID || "";
+  if (googleAnalyticsId) {
+    const loader = document.createElement("script");
+    loader.async = true;
+    loader.dataset.daTechAnalytics = "ga";
+    loader.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(googleAnalyticsId)}`;
+    document.head.appendChild(loader);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function gtag() {
+      window.dataLayer.push(arguments);
+    };
+    window.gtag("js", new Date());
+    window.gtag("config", googleAnalyticsId, { anonymize_ip: true });
+  }
 }
 
 const revealObserver = "IntersectionObserver" in window
@@ -2954,6 +3035,7 @@ document.querySelectorAll(".reveal-on-scroll").forEach((element) => {
 });
 
 ensureFloatingRequestButton();
+loadOptionalAnalytics();
 setLanguage(window.localStorage.getItem("daTechLang") || "hu");
 setFlowStep(0);
 if (canvas && ctx) {
