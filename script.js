@@ -969,7 +969,7 @@ function ensureFloatingRequestButton() {
 
   const button = document.createElement("a");
   button.className = "floating-request-cta";
-  button.href = "contact.html";
+  button.href = "index.html?skipIntro=1#contact";
   button.dataset.i18n = "floating.cta";
   button.setAttribute("aria-label", "Ajánlatkérés");
   button.textContent = "Ajánlatkérés";
