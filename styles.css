@@ -5628,3 +5628,107 @@ h3 {
     width: min(100% - 20px, var(--max)) !important;
   }
 }
+
+/* About page layout lock: keeps the standalone page from inheriting older hero/grid experiments. */
+.about-page .about-hero {
+  display: block;
+  width: 100%;
+  min-height: auto;
+  padding: 150px clamp(18px, 5vw, 64px) 72px;
+  overflow: hidden;
+}
+
+.about-page .about-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.78fr);
+  gap: clamp(28px, 5vw, 68px);
+  align-items: center;
+  width: min(100%, var(--max));
+  margin: 0 auto;
+}
+
+.about-page .about-logo {
+  display: block;
+  width: min(100%, 430px);
+  height: auto;
+  margin-bottom: 22px;
+}
+
+.about-page .about-hero h1 {
+  max-width: 760px;
+  font-size: clamp(2.55rem, 5vw, 5rem);
+  line-height: 0.98;
+}
+
+.about-page .about-lead {
+  max-width: 680px;
+}
+
+.about-page .about-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.about-page .about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  width: 100%;
+  min-width: 0;
+}
+
+.about-page .about-card {
+  width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 980px) {
+  .about-page .about-hero {
+    width: 100% !important;
+    padding-top: 124px !important;
+    padding-bottom: 52px !important;
+  }
+
+  .about-page .about-shell {
+    grid-template-columns: 1fr !important;
+    width: min(100% - 32px, var(--max)) !important;
+    gap: 24px !important;
+  }
+
+  .about-page .about-logo {
+    width: min(78vw, 360px) !important;
+  }
+
+  .about-page .about-hero h1 {
+    font-size: clamp(2.25rem, 8.8vw, 3.9rem) !important;
+    line-height: 1.03 !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .about-page .about-hero {
+    padding-top: 104px !important;
+    padding-bottom: 38px !important;
+  }
+
+  .about-page .about-shell {
+    width: min(100% - 22px, var(--max)) !important;
+    gap: 18px !important;
+  }
+
+  .about-page .about-logo {
+    width: min(72vw, 260px) !important;
+    margin-bottom: 14px !important;
+  }
+
+  .about-page .about-hero h1 {
+    font-size: clamp(2rem, 10vw, 2.8rem) !important;
+  }
+
+  .about-page .about-actions {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+  }
+}
