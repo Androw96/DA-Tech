@@ -1,5 +1,8 @@
 const canvas = document.querySelector("#heroCanvas");
-const ctx = canvas ? canvas.getContext("2d") : null;
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const isSmallViewport = window.matchMedia("(max-width: 760px)").matches;
+const shouldRunHeroCanvas = Boolean(canvas) && !prefersReducedMotion && !isSmallViewport;
+const ctx = shouldRunHeroCanvas ? canvas.getContext("2d") : null;
 const pointer = { x: 0, y: 0, active: false };
 let particles = [];
 let lastAuditRawUrl = null;
@@ -3038,7 +3041,7 @@ ensureFloatingRequestButton();
 loadOptionalAnalytics();
 setLanguage(window.localStorage.getItem("daTechLang") || "hu");
 setFlowStep(0);
-if (canvas && ctx) {
+if (shouldRunHeroCanvas && canvas && ctx) {
   resizeCanvas();
   draw();
   window.addEventListener("resize", resizeCanvas);
