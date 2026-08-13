@@ -245,7 +245,7 @@ const translations = {
     "flow.prev": "Vissza",
     "flow.next": "Tovább",
     "flow.send": "Igénylés indítása",
-    "flow.success": "Kész az email vázlat. Ha nem nyílt meg automatikusan, írj nekünk: hello@datech.hu",
+    "flow.success": "Kész az email vázlat. Ha nem nyílt meg automatikusan, írj nekünk: hello@da-technology.eu",
     "flow.sending": "Küldés folyamatban...",
     "flow.endpointSuccess": "Köszönjük, megkaptuk az ajánlatkérést. Hamarosan jelentkezünk.",
     "flow.endpointError": "Az automatikus küldés most nem sikerült, ezért megnyitjuk az email vázlatot.",
@@ -553,7 +553,7 @@ const translations = {
     "flow.prev": "Back",
     "flow.next": "Next",
     "flow.send": "Start request",
-    "flow.success": "The email draft is ready. If it did not open automatically, write to us: hello@datech.hu",
+    "flow.success": "The email draft is ready. If it did not open automatically, write to us: hello@da-technology.eu",
     "flow.sending": "Sending...",
     "flow.endpointSuccess": "Thank you, we received your request. We will get back to you soon.",
     "flow.endpointError": "Automatic sending did not work, so we are opening the email draft instead.",
@@ -861,7 +861,7 @@ const translations = {
     "flow.prev": "Zurueck",
     "flow.next": "Weiter",
     "flow.send": "Anfrage starten",
-    "flow.success": "Der E-Mail-Entwurf ist bereit. Falls er sich nicht automatisch geoeffnet hat: hello@datech.hu",
+    "flow.success": "Der E-Mail-Entwurf ist bereit. Falls er sich nicht automatisch geoeffnet hat: hello@da-technology.eu",
     "flow.sending": "Wird gesendet...",
     "flow.endpointSuccess": "Danke, wir haben deine Anfrage erhalten. Wir melden uns bald.",
     "flow.endpointError": "Das automatische Senden hat nicht funktioniert, daher oeffnen wir den E-Mail-Entwurf.",
@@ -2903,7 +2903,7 @@ function openRequestEmail(payload, dictionary) {
     `Language: ${payload.language}`
   ].join("\n");
 
-  window.location.href = `mailto:hello@datech.hu?subject=${encodeURIComponent("DA Tech weboldal igénylés")}&body=${encodeURIComponent(body)}`;
+  window.location.href = `mailto:hello@da-technology.eu?subject=${encodeURIComponent("DA Tech weboldal igénylés")}&body=${encodeURIComponent(body)}`;
   if (formStatus) formStatus.textContent = dictionary["flow.success"];
 }
 
