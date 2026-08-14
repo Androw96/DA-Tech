@@ -2395,7 +2395,9 @@ function isDaTechOwnSite(url) {
   const host = url.hostname.toLowerCase();
   const normalized = host.replace(/^www\./, "");
   return normalized === "localhost"
-    || normalized === "127.0.0.1";
+    || normalized === "127.0.0.1"
+    || normalized === "da-technology.eu"
+    || normalized === "da-technology.pages.dev";
 }
 
 function buildPerfectOwnSiteAudit(lang) {
