@@ -3039,7 +3039,17 @@ document.querySelectorAll(".reveal-on-scroll").forEach((element) => {
   else element.classList.add("is-visible");
 });
 
+function releaseIntroGatedUi() {
+  document.documentElement.classList.remove("intro-pending");
+  document.documentElement.classList.add("intro-ready");
+}
+
 ensureFloatingRequestButton();
+if (document.documentElement.classList.contains("intro-pending")) {
+  window.setTimeout(releaseIntroGatedUi, 5050);
+} else {
+  releaseIntroGatedUi();
+}
 loadOptionalAnalytics();
 setLanguage(window.localStorage.getItem("daTechLang") || "hu");
 setFlowStep(0);

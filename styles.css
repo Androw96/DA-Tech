@@ -406,6 +406,13 @@ textarea {
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
+.intro-pending .floating-request-cta,
+.intro-pending .cookie-banner {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .floating-request-cta::after {
   content: "";
   width: 8px;
