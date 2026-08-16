@@ -245,14 +245,12 @@ const translations = {
     "flow.prev": "Vissza",
     "flow.next": "Tovább",
     "flow.send": "Igénylés indítása",
-    "flow.success": "Kész az email vázlat. Ha nem nyílt meg automatikusan, írj nekünk: hello@da-technology.eu",
+    "flow.success": "Elküldve.",
     "flow.sending": "Küldés folyamatban...",
     "flow.endpointSuccess": "Köszönjük, megkaptuk az ajánlatkérést. Hamarosan jelentkezünk.",
-    "flow.endpointError": "Az automatikus küldés most nem sikerült, ezért megnyitjuk az email vázlatot.",
+    "flow.endpointError": "A küldés most nem sikerült. Kérlek próbáld újra pár perc múlva.",
     "popup.sentTitle": "Ajánlatkérés elküldve!",
     "popup.sentText": "Köszönjük, megkaptuk az üzeneted. Hamarosan jelentkezünk a megadott email címen.",
-    "popup.draftTitle": "Email vázlat megnyitva",
-    "popup.draftText": "Az automatikus küldés helyett megnyitottuk az email vázlatot. Küldd el onnan, és megkapjuk az ajánlatkérést.",
     "popup.close": "Rendben",
     "flow.missingEmail": "Adj meg egy e-mail címet, hogy tudjuk hova válaszoljunk.",
     "flow.missingConsent": "Az ajánlatkéréshez kérlek fogadd el az adatkezelési tájékoztatót.",
@@ -558,14 +556,12 @@ const translations = {
     "flow.prev": "Back",
     "flow.next": "Next",
     "flow.send": "Start request",
-    "flow.success": "The email draft is ready. If it did not open automatically, write to us: hello@da-technology.eu",
+    "flow.success": "Sent.",
     "flow.sending": "Sending...",
     "flow.endpointSuccess": "Thank you, we received your request. We will get back to you soon.",
-    "flow.endpointError": "Automatic sending did not work, so we are opening the email draft instead.",
+    "flow.endpointError": "Sending did not work right now. Please try again in a few minutes.",
     "popup.sentTitle": "Request sent!",
     "popup.sentText": "Thank you, we received your message. We will get back to you at the email address you provided.",
-    "popup.draftTitle": "Email draft opened",
-    "popup.draftText": "Automatic sending was not available, so we opened an email draft. Send it from there and we will receive your request.",
     "popup.close": "Got it",
     "flow.missingEmail": "Add an email address so we know where to reply.",
     "flow.missingConsent": "Please accept the privacy notice to send the website request.",
@@ -871,14 +867,12 @@ const translations = {
     "flow.prev": "Zurueck",
     "flow.next": "Weiter",
     "flow.send": "Anfrage starten",
-    "flow.success": "Der E-Mail-Entwurf ist bereit. Falls er sich nicht automatisch geoeffnet hat: hello@da-technology.eu",
+    "flow.success": "Gesendet.",
     "flow.sending": "Wird gesendet...",
     "flow.endpointSuccess": "Danke, wir haben deine Anfrage erhalten. Wir melden uns bald.",
-    "flow.endpointError": "Das automatische Senden hat nicht funktioniert, daher oeffnen wir den E-Mail-Entwurf.",
+    "flow.endpointError": "Das Senden hat gerade nicht funktioniert. Bitte versuche es in ein paar Minuten erneut.",
     "popup.sentTitle": "Anfrage gesendet!",
     "popup.sentText": "Danke, wir haben deine Nachricht erhalten. Wir melden uns an der angegebenen E-Mail-Adresse.",
-    "popup.draftTitle": "E-Mail-Entwurf geoeffnet",
-    "popup.draftText": "Das automatische Senden war nicht verfuegbar, daher haben wir einen E-Mail-Entwurf geoeffnet. Sende ihn dort ab, damit wir deine Anfrage erhalten.",
     "popup.close": "Verstanden",
     "flow.missingEmail": "Gib eine E-Mail-Adresse ein, damit wir antworten koennen.",
     "flow.missingConsent": "Bitte akzeptiere die Datenschutzhinweise, um die Website-Anfrage zu senden.",
@@ -2971,26 +2965,6 @@ function showFormPopup(title, text, dictionary) {
   if (actionButton) actionButton.focus({ preventScroll: true });
 }
 
-function openRequestEmail(payload, dictionary) {
-  const body = [
-    "DA Tech website request",
-    "",
-    `Project: ${payload.project}`,
-    `Name: ${payload.name || "-"}`,
-    `Email: ${payload.email}`,
-    "",
-    "Message:",
-    payload.message || "-",
-    "",
-    `Source: ${payload.source}`,
-    `Language: ${payload.language}`
-  ].join("\n");
-
-  window.location.href = `mailto:hello@da-technology.eu?subject=${encodeURIComponent("DA Tech weboldal igénylés")}&body=${encodeURIComponent(body)}`;
-  if (formStatus) formStatus.textContent = dictionary["flow.success"];
-  showFormPopup(dictionary["popup.draftTitle"], dictionary["popup.draftText"], dictionary);
-}
-
 async function submitWebsiteRequest() {
   if (!requestForm) return;
   const lang = window.localStorage.getItem("daTechLang") || "hu";
@@ -3013,7 +2987,7 @@ async function submitWebsiteRequest() {
   const endpoint = window.DA_TECH_FORM_ENDPOINT
     || (window.location.protocol === "http:" || window.location.protocol === "https:" ? "/api/request" : "");
   if (!endpoint) {
-    openRequestEmail(payload, dictionary);
+    if (formStatus) formStatus.textContent = dictionary["flow.endpointError"];
     return;
   }
 
@@ -3032,7 +3006,6 @@ async function submitWebsiteRequest() {
     setFlowStep(0);
   } catch {
     if (formStatus) formStatus.textContent = dictionary["flow.endpointError"];
-    openRequestEmail(payload, dictionary);
   } finally {
     if (flowNext) flowNext.disabled = false;
   }
