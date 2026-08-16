@@ -1,0 +1,124 @@
+const JSON_HEADERS = {
+  "Content-Type": "application/json; charset=utf-8",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type"
+};
+
+function jsonResponse(body, status = 200) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: JSON_HEADERS
+  });
+}
+
+function clean(value, maxLength = 2000) {
+  return String(value || "").trim().slice(0, maxLength);
+}
+
+function isEmail(value) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function buildEmailHtml(payload) {
+  const rows = [
+    ["Projekt", payload.project],
+    ["Név", payload.name || "-"],
+    ["Email", payload.email],
+    ["Nyelv", payload.language],
+    ["Forrás", payload.source]
+  ];
+
+  const tableRows = rows.map(([label, value]) => `
+    <tr>
+      <td style="padding:8px 12px;border-bottom:1px solid #dbe8ff;color:#314256;font-weight:700;">${label}</td>
+      <td style="padding:8px 12px;border-bottom:1px solid #dbe8ff;color:#071225;">${value}</td>
+    </tr>
+  `).join("");
+
+  return `
+    <div style="font-family:Inter,Arial,sans-serif;background:#eef5ff;padding:24px;color:#071225;">
+      <div style="max-width:680px;margin:0 auto;background:#ffffff;border:1px solid #dbe8ff;border-radius:8px;overflow:hidden;">
+        <div style="padding:22px 24px;background:linear-gradient(135deg,#071126,#1f63ff);color:#ffffff;">
+          <p style="margin:0 0 6px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;">D.A.-Tech</p>
+          <h1 style="margin:0;font-size:24px;line-height:1.2;">Új weboldal ajánlatkérés érkezett</h1>
+        </div>
+        <div style="padding:22px 24px;">
+          <table style="width:100%;border-collapse:collapse;margin-bottom:22px;">${tableRows}</table>
+          <h2 style="font-size:16px;margin:0 0 10px;">Üzenet</h2>
+          <p style="white-space:pre-wrap;line-height:1.6;margin:0;color:#314256;">${payload.message || "-"}</p>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+export async function onRequestOptions() {
+  return new Response(null, { status: 204, headers: JSON_HEADERS });
+}
+
+export async function onRequestPost({ request, env }) {
+  let body;
+  try {
+    body = await request.json();
+  } catch {
+    return jsonResponse({ ok: false, error: "invalid_json" }, 400);
+  }
+
+  const payload = {
+    project: clean(body.project, 180),
+    name: clean(body.name, 180),
+    email: clean(body.email, 240),
+    message: clean(body.message, 5000),
+    source: clean(body.source, 500),
+    language: clean(body.language, 12),
+    createdAt: new Date().toISOString()
+  };
+
+  if (!isEmail(payload.email)) {
+    return jsonResponse({ ok: false, error: "missing_email" }, 400);
+  }
+
+  if (!env.RESEND_API_KEY) {
+    return jsonResponse({ ok: false, error: "missing_resend_api_key" }, 503);
+  }
+
+  const to = env.REQUEST_TO_EMAIL || "digital.architecture.tech@gmail.com";
+  const from = env.REQUEST_FROM_EMAIL || "D.A.-Tech <hello@da-technology.eu>";
+
+  const resendResponse = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${env.RESEND_API_KEY}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      from,
+      to,
+      reply_to: payload.email,
+      subject: `Új DA Tech ajánlatkérés: ${payload.project || "weboldal"}`,
+      html: buildEmailHtml(payload),
+      text: [
+        "Új DA Tech ajánlatkérés",
+        "",
+        `Projekt: ${payload.project}`,
+        `Név: ${payload.name || "-"}`,
+        `Email: ${payload.email}`,
+        "",
+        "Üzenet:",
+        payload.message || "-",
+        "",
+        `Forrás: ${payload.source}`,
+        `Nyelv: ${payload.language}`,
+        `Időpont: ${payload.createdAt}`
+      ].join("\n")
+    })
+  });
+
+  if (!resendResponse.ok) {
+    const errorText = await resendResponse.text();
+    console.error("Resend email failed", errorText);
+    return jsonResponse({ ok: false, error: "email_send_failed" }, 502);
+  }
+
+  return jsonResponse({ ok: true });
+}

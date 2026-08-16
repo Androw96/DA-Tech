@@ -2929,7 +2929,8 @@ async function submitWebsiteRequest() {
     return;
   }
 
-  const endpoint = window.DA_TECH_FORM_ENDPOINT || "";
+  const endpoint = window.DA_TECH_FORM_ENDPOINT
+    || (window.location.protocol === "http:" || window.location.protocol === "https:" ? "/api/request" : "");
   if (!endpoint) {
     openRequestEmail(payload, dictionary);
     return;
