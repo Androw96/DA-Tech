@@ -6152,6 +6152,99 @@ h3 {
   box-shadow: 0 20px 52px rgba(31, 99, 255, 0.34);
 }
 
+.form-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 220;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background:
+    radial-gradient(circle at 50% 36%, rgba(31, 99, 255, 0.2), transparent 28rem),
+    rgba(2, 7, 19, 0.66);
+  backdrop-filter: blur(12px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.form-popup[hidden] {
+  display: none;
+}
+
+.form-popup.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.form-popup-card {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  width: min(100%, 460px);
+  padding: clamp(24px, 5vw, 34px);
+  border: 1px solid rgba(255, 255, 255, 0.74);
+  border-radius: 8px;
+  color: #071225;
+  text-align: center;
+  background:
+    radial-gradient(circle at 78% 0%, rgba(31, 99, 255, 0.18), transparent 14rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(225, 238, 255, 0.94));
+  box-shadow:
+    0 34px 100px rgba(2, 7, 19, 0.42),
+    0 0 70px rgba(31, 99, 255, 0.28),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.68);
+  transform: translateY(14px) scale(0.98);
+  transition: transform 220ms ease;
+}
+
+.form-popup.is-visible .form-popup-card {
+  transform: translateY(0) scale(1);
+}
+
+.form-popup-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(31, 99, 255, 0.18);
+  border-radius: 999px;
+  color: #15315b;
+  background: rgba(255, 255, 255, 0.58);
+  cursor: pointer;
+}
+
+.form-popup-icon {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 16px;
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: 1.55rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #0f5cd6, #1f63ff 56%, #6aa6ff);
+  box-shadow: 0 18px 46px rgba(31, 99, 255, 0.36);
+}
+
+.form-popup-card strong {
+  color: #071225;
+  font-size: clamp(1.45rem, 4vw, 2rem);
+  line-height: 1.1;
+}
+
+.form-popup-card p {
+  max-width: 34rem;
+  margin: 12px 0 22px;
+  color: #314256;
+  font-weight: 700;
+  line-height: 1.65;
+}
+
 @media (max-width: 980px) {
   .contact-page .standalone-contact {
     background:

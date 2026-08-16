@@ -249,6 +249,11 @@ const translations = {
     "flow.sending": "Küldés folyamatban...",
     "flow.endpointSuccess": "Köszönjük, megkaptuk az ajánlatkérést. Hamarosan jelentkezünk.",
     "flow.endpointError": "Az automatikus küldés most nem sikerült, ezért megnyitjuk az email vázlatot.",
+    "popup.sentTitle": "Ajánlatkérés elküldve!",
+    "popup.sentText": "Köszönjük, megkaptuk az üzeneted. Hamarosan jelentkezünk a megadott email címen.",
+    "popup.draftTitle": "Email vázlat megnyitva",
+    "popup.draftText": "Az automatikus küldés helyett megnyitottuk az email vázlatot. Küldd el onnan, és megkapjuk az ajánlatkérést.",
+    "popup.close": "Rendben",
     "flow.missingEmail": "Adj meg egy e-mail címet, hogy tudjuk hova válaszoljunk.",
     "flow.missingConsent": "Az ajánlatkéréshez kérlek fogadd el az adatkezelési tájékoztatót.",
     "about.eyebrow": "About us",
@@ -557,6 +562,11 @@ const translations = {
     "flow.sending": "Sending...",
     "flow.endpointSuccess": "Thank you, we received your request. We will get back to you soon.",
     "flow.endpointError": "Automatic sending did not work, so we are opening the email draft instead.",
+    "popup.sentTitle": "Request sent!",
+    "popup.sentText": "Thank you, we received your message. We will get back to you at the email address you provided.",
+    "popup.draftTitle": "Email draft opened",
+    "popup.draftText": "Automatic sending was not available, so we opened an email draft. Send it from there and we will receive your request.",
+    "popup.close": "Got it",
     "flow.missingEmail": "Add an email address so we know where to reply.",
     "flow.missingConsent": "Please accept the privacy notice to send the website request.",
     "about.eyebrow": "About us",
@@ -865,6 +875,11 @@ const translations = {
     "flow.sending": "Wird gesendet...",
     "flow.endpointSuccess": "Danke, wir haben deine Anfrage erhalten. Wir melden uns bald.",
     "flow.endpointError": "Das automatische Senden hat nicht funktioniert, daher oeffnen wir den E-Mail-Entwurf.",
+    "popup.sentTitle": "Anfrage gesendet!",
+    "popup.sentText": "Danke, wir haben deine Nachricht erhalten. Wir melden uns an der angegebenen E-Mail-Adresse.",
+    "popup.draftTitle": "E-Mail-Entwurf geoeffnet",
+    "popup.draftText": "Das automatische Senden war nicht verfuegbar, daher haben wir einen E-Mail-Entwurf geoeffnet. Sende ihn dort ab, damit wir deine Anfrage erhalten.",
+    "popup.close": "Verstanden",
     "flow.missingEmail": "Gib eine E-Mail-Adresse ein, damit wir antworten koennen.",
     "flow.missingConsent": "Bitte akzeptiere die Datenschutzhinweise, um die Website-Anfrage zu senden.",
     "about.eyebrow": "About us",
@@ -2891,6 +2906,71 @@ function buildRequestPayload(data) {
   };
 }
 
+let formPopupHideTimer = null;
+
+function ensureFormPopup(dictionary) {
+  let popup = document.querySelector(".form-popup");
+  if (popup) return popup;
+
+  popup = document.createElement("div");
+  popup.className = "form-popup";
+  popup.hidden = true;
+  popup.setAttribute("role", "dialog");
+  popup.setAttribute("aria-modal", "true");
+  popup.setAttribute("aria-live", "polite");
+  popup.innerHTML = `
+    <div class="form-popup-card" role="document">
+      <button class="form-popup-close" type="button" aria-label="${dictionary["popup.close"] || "Close"}">x</button>
+      <span class="form-popup-icon" aria-hidden="true">✓</span>
+      <strong data-popup-title></strong>
+      <p data-popup-text></p>
+      <button class="button button-primary form-popup-action" type="button">${dictionary["popup.close"] || "Close"}</button>
+    </div>
+  `;
+  document.body.appendChild(popup);
+
+  const closePopup = () => {
+    popup.classList.remove("is-visible");
+    window.clearTimeout(formPopupHideTimer);
+    formPopupHideTimer = window.setTimeout(() => {
+      popup.hidden = true;
+    }, 180);
+  };
+
+  popup.addEventListener("click", (event) => {
+    if (
+      event.target === popup
+      || event.target.closest(".form-popup-close")
+      || event.target.closest(".form-popup-action")
+    ) {
+      closePopup();
+    }
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && popup.classList.contains("is-visible")) closePopup();
+  });
+
+  return popup;
+}
+
+function showFormPopup(title, text, dictionary) {
+  const popup = ensureFormPopup(dictionary);
+  const closeButton = popup.querySelector(".form-popup-close");
+  const actionButton = popup.querySelector(".form-popup-action");
+  const titleElement = popup.querySelector("[data-popup-title]");
+  const textElement = popup.querySelector("[data-popup-text]");
+
+  if (closeButton) closeButton.setAttribute("aria-label", dictionary["popup.close"] || "Close");
+  if (actionButton) actionButton.textContent = dictionary["popup.close"] || "Close";
+  if (titleElement) titleElement.textContent = title;
+  if (textElement) textElement.textContent = text;
+
+  window.clearTimeout(formPopupHideTimer);
+  popup.hidden = false;
+  window.requestAnimationFrame(() => popup.classList.add("is-visible"));
+  if (actionButton) actionButton.focus({ preventScroll: true });
+}
+
 function openRequestEmail(payload, dictionary) {
   const body = [
     "DA Tech website request",
@@ -2908,6 +2988,7 @@ function openRequestEmail(payload, dictionary) {
 
   window.location.href = `mailto:hello@da-technology.eu?subject=${encodeURIComponent("DA Tech weboldal igénylés")}&body=${encodeURIComponent(body)}`;
   if (formStatus) formStatus.textContent = dictionary["flow.success"];
+  showFormPopup(dictionary["popup.draftTitle"], dictionary["popup.draftText"], dictionary);
 }
 
 async function submitWebsiteRequest() {
@@ -2946,6 +3027,7 @@ async function submitWebsiteRequest() {
     });
     if (!response.ok) throw new Error(`Form endpoint ${response.status}`);
     if (formStatus) formStatus.textContent = dictionary["flow.endpointSuccess"];
+    showFormPopup(dictionary["popup.sentTitle"], dictionary["popup.sentText"], dictionary);
     requestForm.reset();
     setFlowStep(0);
   } catch {
