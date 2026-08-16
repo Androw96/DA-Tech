@@ -2621,6 +2621,15 @@ h3 {
   gap: 16px;
 }
 
+.request-flow-direct .flow-panel {
+  display: grid;
+  gap: 16px;
+}
+
+.request-flow-direct .flow-actions {
+  grid-template-columns: 1fr;
+}
+
 .flow-summary {
   display: grid;
   gap: 6px;
@@ -6044,14 +6053,51 @@ h3 {
     inset 0 0 0 1px rgba(255, 255, 255, 0.72);
 }
 
+.home-page #contact {
+  position: relative;
+  overflow: hidden;
+  width: min(var(--max), calc(100% - 36px));
+  margin: 0 auto;
+  padding-right: clamp(18px, 4vw, 46px);
+  padding-left: clamp(18px, 4vw, 46px);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(31, 99, 255, 0.24), transparent 25rem),
+    radial-gradient(circle at 10% 28%, rgba(106, 166, 255, 0.1), transparent 22rem),
+    linear-gradient(135deg, rgba(7, 18, 42, 0.9), rgba(3, 8, 20, 0.96));
+  border-top: 1px solid rgba(106, 166, 255, 0.2);
+  border-bottom: 1px solid rgba(106, 166, 255, 0.18);
+}
+
+.home-page #contact .contact-copy,
+.home-page #contact .contact-form {
+  width: min(100%, 100%);
+}
+
+.home-page #contact .contact-form {
+  border-color: rgba(7, 18, 37, 0.16);
+  color: #071225;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(31, 99, 255, 0.15), transparent 15rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(232, 241, 255, 0.9));
+  box-shadow:
+    0 32px 90px rgba(2, 7, 19, 0.28),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.72);
+}
+
 .contact-page .contact-form label,
+.home-page #contact .flow-summary strong,
+.home-page #contact .contact-form label,
 .contact-page .flow-summary strong {
   color: #071225;
 }
 
 .contact-page .contact-form input,
 .contact-page .contact-form select,
-.contact-page .contact-form textarea {
+.contact-page .contact-form textarea,
+.home-page #contact .contact-form input,
+.home-page #contact .contact-form select,
+.home-page #contact .contact-form textarea {
   border-color: rgba(31, 99, 255, 0.2);
   color: #071225;
   background: rgba(255, 255, 255, 0.86);
@@ -6059,7 +6105,9 @@ h3 {
 }
 
 .contact-page .contact-form input::placeholder,
-.contact-page .contact-form textarea::placeholder {
+.contact-page .contact-form textarea::placeholder,
+.home-page #contact .contact-form input::placeholder,
+.home-page #contact .contact-form textarea::placeholder {
   color: rgba(49, 66, 86, 0.58);
 }
 
@@ -6080,13 +6128,26 @@ h3 {
   background: linear-gradient(135deg, rgba(31, 99, 255, 0.1), rgba(106, 166, 255, 0.16));
 }
 
+.home-page #contact .flow-summary {
+  border-color: rgba(31, 99, 255, 0.22);
+  background: linear-gradient(135deg, rgba(31, 99, 255, 0.1), rgba(106, 166, 255, 0.16));
+}
+
 .contact-page .flow-summary span,
 .contact-page .legal-microcopy,
-.contact-page .consent-check {
+.contact-page .consent-check,
+.home-page #contact .flow-summary span,
+.home-page #contact .legal-microcopy,
+.home-page #contact .consent-check {
   color: #314256;
 }
 
 .contact-page .flow-actions .button-primary {
+  background: linear-gradient(135deg, #0f5cd6, #1f63ff 56%, #6aa6ff);
+  box-shadow: 0 20px 52px rgba(31, 99, 255, 0.34);
+}
+
+.home-page #contact .flow-actions .button-primary {
   background: linear-gradient(135deg, #0f5cd6, #1f63ff 56%, #6aa6ff);
   box-shadow: 0 20px 52px rgba(31, 99, 255, 0.34);
 }

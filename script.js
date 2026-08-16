@@ -2866,6 +2866,7 @@ const requestForm = document.querySelector(".request-flow");
 const projectSelect = requestForm ? requestForm.querySelector('select[name="project"]') : null;
 const flowRecommendation = document.querySelector("#flowRecommendation");
 const formStatus = document.querySelector("#formStatus");
+const isDirectRequestFlow = requestForm?.classList.contains("request-flow-direct");
 
 const projectRecommendationKeys = ["flow.summaryNew", "flow.summaryModern", "flow.summaryLanding", "flow.summaryAdvice"];
 
@@ -2919,12 +2920,12 @@ async function submitWebsiteRequest() {
   const consent = data.get("privacyConsent") === "on";
   if (!email) {
     if (formStatus) formStatus.textContent = dictionary["flow.missingEmail"];
-    setFlowStep(2);
+    if (!isDirectRequestFlow) setFlowStep(2);
     return;
   }
   if (!consent) {
     if (formStatus) formStatus.textContent = dictionary["flow.missingConsent"];
-    setFlowStep(2);
+    if (!isDirectRequestFlow) setFlowStep(2);
     return;
   }
 
@@ -2956,6 +2957,16 @@ async function submitWebsiteRequest() {
 
 function setFlowStep(nextStep) {
   if (!flowPanels.length) return;
+  if (isDirectRequestFlow) {
+    flowPanels.forEach((panel) => panel.classList.add("active"));
+    if (flowNext) {
+      const lang = window.localStorage.getItem("daTechLang") || "hu";
+      const dictionary = translations[lang] || translations.hu;
+      flowNext.textContent = dictionary["flow.send"];
+    }
+    updateFlowRecommendation();
+    return;
+  }
   flowStep = Math.max(0, Math.min(flowPanels.length - 1, nextStep));
   flowPanels.forEach((panel, index) => panel.classList.toggle("active", index === flowStep));
   flowButtons.forEach((button, index) => button.classList.toggle("active", index === flowStep));
@@ -2974,6 +2985,10 @@ flowButtons.forEach((button) => {
 if (flowPrev) flowPrev.addEventListener("click", () => setFlowStep(flowStep - 1));
 if (flowNext) {
   flowNext.addEventListener("click", () => {
+    if (isDirectRequestFlow) {
+      submitWebsiteRequest();
+      return;
+    }
     if (flowStep < flowPanels.length - 1) setFlowStep(flowStep + 1);
     else submitWebsiteRequest();
   });
