@@ -74,7 +74,9 @@ async function sendViaFormSubmit(payload, subject, to) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Accept": "application/json"
+      "Accept": "application/json",
+      "Origin": "https://da-technology.eu",
+      "Referer": "https://da-technology.eu/contact"
     },
     body: JSON.stringify({
       _subject: subject,
@@ -98,7 +100,13 @@ async function sendViaFormSubmit(payload, subject, to) {
   }
 
   try {
-    return JSON.parse(text);
+    const result = JSON.parse(text);
+    if (String(result.success).toLowerCase() === "false") {
+      return String(result.message || "").toLowerCase().includes("activation")
+        ? { activationRequired: true, message: result.message }
+        : null;
+    }
+    return result;
   } catch {
     return { success: true, raw: text };
   }
@@ -201,6 +209,14 @@ export async function onRequestPost({ request, env }) {
   if (!env.RESEND_API_KEY) {
     const formSubmitEmail = env.FORMSUBMIT_EMAIL || to;
     const formSubmitResult = await sendViaFormSubmit(payload, subject, formSubmitEmail);
+    if (formSubmitResult?.activationRequired) {
+      return jsonResponse({
+        ok: false,
+        error: "formsubmit_activation_required",
+        provider: "formsubmit"
+      }, 503);
+    }
+
     if (formSubmitResult) {
       return jsonResponse({
         ok: true,
