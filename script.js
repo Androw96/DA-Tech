@@ -262,6 +262,7 @@ const translations = {
     "flow.sending": "Küldés folyamatban...",
     "flow.endpointSuccess": "Köszönjük, megkaptuk az ajánlatkérést. Hamarosan jelentkezünk.",
     "flow.endpointError": "A küldés most nem sikerült. Kérlek próbáld újra pár perc múlva, vagy írj közvetlenül: hello@da-technology.eu",
+    "flow.activationRequired": "Küldtünk egy aktiváló emailt a hello@da-technology.eu címre. Kérlek kattints az Activate Form linkre, utána az űrlap automatikusan küldeni fog.",
     "popup.sentTitle": "Ajánlatkérés elküldve!",
     "popup.sentText": "Köszönjük, megkaptuk az üzeneted. Hamarosan jelentkezünk a megadott email címen.",
     "popup.close": "Rendben",
@@ -595,6 +596,7 @@ const translations = {
     "flow.sending": "Sending...",
     "flow.endpointSuccess": "Thank you, we received your request. We will get back to you soon.",
     "flow.endpointError": "Sending did not work right now. Please try again in a few minutes, or write directly to: hello@da-technology.eu",
+    "flow.activationRequired": "We sent an activation email to hello@da-technology.eu. Please click the Activate Form link, then the form will send automatically.",
     "popup.sentTitle": "Request sent!",
     "popup.sentText": "Thank you, we received your message. We will get back to you at the email address you provided.",
     "popup.close": "Got it",
@@ -928,6 +930,7 @@ const translations = {
     "flow.sending": "Wird gesendet...",
     "flow.endpointSuccess": "Danke, wir haben deine Anfrage erhalten. Wir melden uns bald.",
     "flow.endpointError": "Das Senden hat gerade nicht funktioniert. Bitte versuche es in ein paar Minuten erneut oder schreibe direkt an: hello@da-technology.eu",
+    "flow.activationRequired": "Wir haben eine Aktivierungs-E-Mail an hello@da-technology.eu gesendet. Bitte klicke auf den Activate Form Link, danach sendet das Formular automatisch.",
     "popup.sentTitle": "Anfrage gesendet!",
     "popup.sentText": "Danke, wir haben deine Nachricht erhalten. Wir melden uns an der angegebenen E-Mail-Adresse.",
     "popup.close": "Verstanden",
@@ -3064,6 +3067,33 @@ function showFormPopup(title, text, dictionary) {
   if (actionButton) actionButton.focus({ preventScroll: true });
 }
 
+async function submitViaFormSubmit(payload) {
+  const response = await fetch("https://formsubmit.co/ajax/hello@da-technology.eu", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Accept": "application/json" },
+    body: JSON.stringify({
+      _subject: `Új DA Tech ajánlatkérés: ${payload.project || "weboldal"}`,
+      _template: "table",
+      _captcha: "false",
+      _replyto: payload.email,
+      name: payload.name || "-",
+      email: payload.email,
+      project: payload.project || "-",
+      message: payload.message || "-",
+      source: payload.source || window.location.href,
+      language: payload.language || window.localStorage.getItem("daTechLang") || "hu"
+    })
+  });
+  const result = await response.json().catch(() => null);
+  if (!response.ok || !result) throw new Error("formsubmit_failed");
+  if (String(result.success).toLowerCase() === "false") {
+    const message = String(result.message || "").toLowerCase();
+    if (message.includes("activation")) throw new Error("formsubmit_activation_required");
+    throw new Error("formsubmit_failed");
+  }
+  return result;
+}
+
 async function submitWebsiteRequest() {
   if (!requestForm) return;
   const lang = window.localStorage.getItem("daTechLang") || "hu";
@@ -3103,8 +3133,20 @@ async function submitWebsiteRequest() {
     showFormPopup(dictionary["popup.sentTitle"], dictionary["popup.sentText"], dictionary);
     requestForm.reset();
     setFlowStep(0);
-  } catch {
-    if (formStatus) formStatus.textContent = dictionary["flow.endpointError"];
+  } catch (error) {
+    try {
+      await submitViaFormSubmit(payload);
+      if (formStatus) formStatus.textContent = dictionary["flow.endpointSuccess"];
+      showFormPopup(dictionary["popup.sentTitle"], dictionary["popup.sentText"], dictionary);
+      requestForm.reset();
+      setFlowStep(0);
+    } catch (fallbackError) {
+      if (formStatus) {
+        formStatus.textContent = fallbackError.message === "formsubmit_activation_required"
+          ? dictionary["flow.activationRequired"]
+          : dictionary["flow.endpointError"];
+      }
+    }
   } finally {
     if (flowNext) flowNext.disabled = false;
   }
