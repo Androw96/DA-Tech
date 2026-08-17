@@ -431,6 +431,12 @@ textarea {
   transform: translateY(-3px);
 }
 
+.floating-request-cta.is-safe-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(86px);
+}
+
 .button-secondary {
   border-color: rgba(244, 255, 248, 0.18);
   background: rgba(244, 255, 248, 0.06);
@@ -5752,8 +5758,9 @@ h3 {
 /* Launch polish: consistent subpage rhythm, clearer forms and stronger first screen. */
 .hero {
   width: 100%;
-  grid-template-columns: minmax(0, 0.98fr) minmax(380px, 480px);
-  min-height: max(760px, 100svh);
+  grid-template-columns: minmax(0, 780px) minmax(380px, 500px);
+  justify-content: center;
+  min-height: clamp(680px, calc(100svh - 88px), 820px);
   padding-right: clamp(28px, 6vw, 92px);
   padding-left: clamp(28px, 6vw, 92px);
   background:
@@ -5763,7 +5770,7 @@ h3 {
 }
 
 .hero-content {
-  max-width: 900px;
+  max-width: 780px;
 }
 
 .home-wordmark,
@@ -5777,7 +5784,8 @@ h3 {
 
 .hero-panel {
   justify-self: stretch;
-  transform: translateY(-8px);
+  align-self: center;
+  transform: translateY(-2px);
 }
 
 .hero::before {
@@ -5931,11 +5939,20 @@ h3 {
 
 @media (min-width: 1180px) {
   .hero {
-    grid-template-columns: minmax(620px, 1fr) minmax(390px, 470px);
+    grid-template-columns: minmax(0, 780px) minmax(390px, 500px);
+    justify-content: center;
   }
 
   .hero-panel {
-    margin-right: clamp(0px, 2vw, 28px);
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 1600px) {
+  .hero {
+    grid-template-columns: minmax(0, 760px) minmax(420px, 520px);
+    gap: clamp(54px, 5vw, 90px);
+    min-height: clamp(700px, calc(100svh - 88px), 860px);
   }
 }
 

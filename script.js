@@ -261,7 +261,7 @@ const translations = {
     "flow.success": "Elküldve.",
     "flow.sending": "Küldés folyamatban...",
     "flow.endpointSuccess": "Köszönjük, megkaptuk az ajánlatkérést. Hamarosan jelentkezünk.",
-    "flow.endpointError": "A küldés most nem sikerült. Kérlek próbáld újra pár perc múlva.",
+    "flow.endpointError": "A küldés most nem sikerült. Kérlek próbáld újra pár perc múlva, vagy írj közvetlenül: hello@da-technology.eu",
     "popup.sentTitle": "Ajánlatkérés elküldve!",
     "popup.sentText": "Köszönjük, megkaptuk az üzeneted. Hamarosan jelentkezünk a megadott email címen.",
     "popup.close": "Rendben",
@@ -594,7 +594,7 @@ const translations = {
     "flow.success": "Sent.",
     "flow.sending": "Sending...",
     "flow.endpointSuccess": "Thank you, we received your request. We will get back to you soon.",
-    "flow.endpointError": "Sending did not work right now. Please try again in a few minutes.",
+    "flow.endpointError": "Sending did not work right now. Please try again in a few minutes, or write directly to: hello@da-technology.eu",
     "popup.sentTitle": "Request sent!",
     "popup.sentText": "Thank you, we received your message. We will get back to you at the email address you provided.",
     "popup.close": "Got it",
@@ -927,7 +927,7 @@ const translations = {
     "flow.success": "Gesendet.",
     "flow.sending": "Wird gesendet...",
     "flow.endpointSuccess": "Danke, wir haben deine Anfrage erhalten. Wir melden uns bald.",
-    "flow.endpointError": "Das Senden hat gerade nicht funktioniert. Bitte versuche es in ein paar Minuten erneut.",
+    "flow.endpointError": "Das Senden hat gerade nicht funktioniert. Bitte versuche es in ein paar Minuten erneut oder schreibe direkt an: hello@da-technology.eu",
     "popup.sentTitle": "Anfrage gesendet!",
     "popup.sentText": "Danke, wir haben deine Nachricht erhalten. Wir melden uns an der angegebenen E-Mail-Adresse.",
     "popup.close": "Verstanden",
@@ -1052,6 +1052,33 @@ function ensureFloatingRequestButton() {
   button.setAttribute("aria-label", "Ajánlatkérés");
   button.textContent = "Ajánlatkérés";
   document.body.appendChild(button);
+  bindFloatingRequestSafety(button);
+}
+
+function bindFloatingRequestSafety(button) {
+  const footer = document.querySelector(".footer");
+  const cookieBanner = document.querySelector("#cookieBanner");
+  let footerVisible = false;
+
+  const updateVisibility = () => {
+    const cookieVisible = cookieBanner && !cookieBanner.classList.contains("is-hidden");
+    button.classList.toggle("is-safe-hidden", footerVisible || cookieVisible);
+  };
+
+  if (footer && "IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      footerVisible = entries.some((entry) => entry.isIntersecting);
+      updateVisibility();
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.02 });
+    observer.observe(footer);
+  }
+
+  if (cookieBanner && "MutationObserver" in window) {
+    const observer = new MutationObserver(updateVisibility);
+    observer.observe(cookieBanner, { attributes: true, attributeFilter: ["class"] });
+  }
+
+  updateVisibility();
 }
 
 function resizeCanvas() {

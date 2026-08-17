@@ -129,6 +129,40 @@ export async function onRequestPost({ request, env }) {
     }
   }
 
+  if (env.CLOUDFLARE_EMAIL_API_TOKEN) {
+    const accountId = env.CLOUDFLARE_ACCOUNT_ID || "5350f9a59bf200e8095355843a0309bb";
+    const cloudflareResponse = await fetch(`https://api.cloudflare.com/client/v4/accounts/${accountId}/email/sending/send`, {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${env.CLOUDFLARE_EMAIL_API_TOKEN}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        from,
+        to,
+        reply_to: payload.email,
+        subject,
+        html,
+        text
+      })
+    });
+
+    if (cloudflareResponse.ok) {
+      const result = await cloudflareResponse.json();
+      return jsonResponse({
+        ok: true,
+        provider: "cloudflare_email_rest",
+        messageId: result.result?.id || result.result?.message_id || null
+      });
+    }
+
+    const errorText = await cloudflareResponse.text();
+    console.error("Cloudflare Email REST failed", errorText);
+    if (!env.RESEND_API_KEY) {
+      return jsonResponse({ ok: false, error: "cloudflare_email_rest_failed" }, 502);
+    }
+  }
+
   if (!env.RESEND_API_KEY) {
     return jsonResponse({ ok: false, error: "missing_email_provider" }, 503);
   }
