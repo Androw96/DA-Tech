@@ -1,26 +1,19 @@
 # DA Tech ajánlatkérő email küldés
 
 A weboldal formja éles környezetben a `/api/request` Cloudflare Pages Function endpointot hívja.
-Az endpoint elsődlegesen Cloudflare Email Service `send_email` bindinggal küldi ki az ajánlatkérést.
-Resend csak opcionális tartalék lehet.
+Az endpoint Resend API-val küldi ki az ajánlatkérést Cloudflare Pages alatt.
 
-## Cloudflare Email Service
-
-A `wrangler.jsonc` beállítja:
-
-- `EMAIL` send_email binding
-- cél cím: `digital.architecture.tech@gmail.com`
-- küldő cím: `hello@da-technology.eu`
-
-Cloudflare-ben az Email Routing / Destination Address legyen engedélyezve és validálva.
-
-## Opcionális Resend fallback
+## Szükséges Cloudflare Pages változók
 
 Cloudflare Dashboard -> Workers & Pages -> `da-technology` -> Settings -> Environment variables:
 
 - `RESEND_API_KEY`: Resend API kulcs.
+- `REQUEST_TO_EMAIL`: `digital.architecture.tech@gmail.com`
+- `REQUEST_FROM_EMAIL`: például `D.A.-Tech <hello@da-technology.eu>`
 
-Resend fallbackhez:
+Ha a `RESEND_API_KEY` nincs beállítva, a frontend hibát jelez, mert a mailto vázlatos fallback ki lett véve.
+
+## Resend beállítás
 
 1. Hozz létre Resend fiókot.
 2. Add hozzá és validáld a `da-technology.eu` domaint.
