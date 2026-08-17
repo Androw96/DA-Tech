@@ -5758,15 +5758,19 @@ h3 {
 /* Launch polish: consistent subpage rhythm, clearer forms and stronger first screen. */
 .hero {
   width: 100%;
+  width: 100vw;
+  margin-right: calc(50% - 50vw);
+  margin-left: calc(50% - 50vw);
   grid-template-columns: minmax(0, 780px) minmax(380px, 500px);
   justify-content: center;
   min-height: clamp(680px, calc(100svh - 88px), 820px);
   padding-right: clamp(28px, 6vw, 92px);
   padding-left: clamp(28px, 6vw, 92px);
   background:
-    radial-gradient(circle at 74% 42%, rgba(31, 99, 255, 0.24), transparent 28rem),
-    radial-gradient(circle at 5% 45%, rgba(106, 166, 255, 0.13), transparent 28rem),
-    linear-gradient(90deg, rgba(8, 18, 40, 0.36), rgba(8, 18, 40, 0.08) 46%, rgba(31, 99, 255, 0.1));
+    radial-gradient(circle at 72% 42%, rgba(31, 99, 255, 0.38), transparent 34rem),
+    radial-gradient(circle at 95% 78%, rgba(31, 99, 255, 0.42), transparent 30rem),
+    radial-gradient(circle at 5% 45%, rgba(106, 166, 255, 0.2), transparent 30rem),
+    linear-gradient(112deg, #06132d 0%, #0a2556 48%, #0b2f72 70%, #071a42 100%);
 }
 
 .hero-content {
@@ -5791,11 +5795,15 @@ h3 {
 .hero::before {
   content: "";
   position: absolute;
-  inset: 89px 0 0;
+  top: 89px;
+  bottom: 0;
+  left: 50%;
   z-index: -4;
+  width: 100vw;
   background:
-    linear-gradient(90deg, rgba(2, 7, 19, 0.22), transparent 48%, rgba(31, 99, 255, 0.12)),
-    radial-gradient(circle at 50% 50%, rgba(106, 166, 255, 0.08), transparent 34rem);
+    linear-gradient(90deg, rgba(2, 7, 19, 0.08), rgba(31, 99, 255, 0.16) 52%, rgba(10, 37, 86, 0.5)),
+    radial-gradient(circle at 72% 52%, rgba(106, 166, 255, 0.16), transparent 42rem);
+  transform: translateX(-50%);
   pointer-events: none;
 }
 
