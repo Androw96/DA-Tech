@@ -52,6 +52,23 @@ function buildEmailHtml(payload) {
   `;
 }
 
+function buildEmailText(payload) {
+  return [
+    "Új DA Tech ajánlatkérés",
+    "",
+    `Projekt: ${payload.project}`,
+    `Név: ${payload.name || "-"}`,
+    `Email: ${payload.email}`,
+    "",
+    "Üzenet:",
+    payload.message || "-",
+    "",
+    `Forrás: ${payload.source}`,
+    `Nyelv: ${payload.language}`,
+    `Időpont: ${payload.createdAt}`
+  ].join("\n");
+}
+
 export async function onRequestOptions() {
   return new Response(null, { status: 204, headers: JSON_HEADERS });
 }
@@ -78,12 +95,43 @@ export async function onRequestPost({ request, env }) {
     return jsonResponse({ ok: false, error: "missing_email" }, 400);
   }
 
-  if (!env.RESEND_API_KEY) {
-    return jsonResponse({ ok: false, error: "missing_resend_api_key" }, 503);
+  const to = env.REQUEST_TO_EMAIL || "digital.architecture.tech@gmail.com";
+  const fromAddress = env.REQUEST_FROM_EMAIL_ADDRESS || "hello@da-technology.eu";
+  const fromName = env.REQUEST_FROM_EMAIL_NAME || "D.A.-Tech";
+  const from = env.REQUEST_FROM_EMAIL || `${fromName} <${fromAddress}>`;
+  const subject = `Új DA Tech ajánlatkérés: ${payload.project || "weboldal"}`;
+  const html = buildEmailHtml(payload);
+  const text = buildEmailText(payload);
+
+  if (env.EMAIL && typeof env.EMAIL.send === "function") {
+    try {
+      const result = await env.EMAIL.send({
+        from: { email: fromAddress, name: fromName },
+        to,
+        replyTo: payload.email,
+        subject,
+        html,
+        text
+      });
+      return jsonResponse({ ok: true, provider: "cloudflare_email", messageId: result.messageId });
+    } catch (error) {
+      console.error("Cloudflare email failed", {
+        code: error?.code,
+        message: error?.message
+      });
+      if (!env.RESEND_API_KEY) {
+        return jsonResponse({
+          ok: false,
+          error: "cloudflare_email_send_failed",
+          code: error?.code || "unknown"
+        }, 502);
+      }
+    }
   }
 
-  const to = env.REQUEST_TO_EMAIL || "digital.architecture.tech@gmail.com";
-  const from = env.REQUEST_FROM_EMAIL || "D.A.-Tech <hello@da-technology.eu>";
+  if (!env.RESEND_API_KEY) {
+    return jsonResponse({ ok: false, error: "missing_email_provider" }, 503);
+  }
 
   const resendResponse = await fetch("https://api.resend.com/emails", {
     method: "POST",
@@ -95,22 +143,9 @@ export async function onRequestPost({ request, env }) {
       from,
       to,
       reply_to: payload.email,
-      subject: `Új DA Tech ajánlatkérés: ${payload.project || "weboldal"}`,
-      html: buildEmailHtml(payload),
-      text: [
-        "Új DA Tech ajánlatkérés",
-        "",
-        `Projekt: ${payload.project}`,
-        `Név: ${payload.name || "-"}`,
-        `Email: ${payload.email}`,
-        "",
-        "Üzenet:",
-        payload.message || "-",
-        "",
-        `Forrás: ${payload.source}`,
-        `Nyelv: ${payload.language}`,
-        `Időpont: ${payload.createdAt}`
-      ].join("\n")
+      subject,
+      html,
+      text
     })
   });
 
