@@ -3210,8 +3210,13 @@ document.querySelectorAll(".reveal-on-scroll").forEach((element) => {
 });
 
 function releaseIntroGatedUi() {
+  const shouldResetScroll = document.documentElement.classList.contains("intro-pending")
+    && !window.location.hash;
   document.documentElement.classList.remove("intro-pending");
   document.documentElement.classList.add("intro-ready");
+  if (shouldResetScroll) {
+    window.requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: "auto" }));
+  }
 }
 
 ensureFloatingRequestButton();
