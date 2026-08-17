@@ -69,6 +69,41 @@ function buildEmailText(payload) {
   ].join("\n");
 }
 
+async function sendViaFormSubmit(payload, subject, to) {
+  const response = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(to)}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify({
+      _subject: subject,
+      _template: "table",
+      _captcha: "false",
+      _replyto: payload.email,
+      name: payload.name || "-",
+      email: payload.email,
+      project: payload.project || "-",
+      message: payload.message || "-",
+      source: payload.source || "-",
+      language: payload.language || "-",
+      createdAt: payload.createdAt
+    })
+  });
+
+  const text = await response.text();
+  if (!response.ok) {
+    console.error("FormSubmit fallback failed", text);
+    return null;
+  }
+
+  try {
+    return JSON.parse(text);
+  } catch {
+    return { success: true, raw: text };
+  }
+}
+
 export async function onRequestOptions() {
   return new Response(null, { status: 204, headers: JSON_HEADERS });
 }
@@ -95,7 +130,7 @@ export async function onRequestPost({ request, env }) {
     return jsonResponse({ ok: false, error: "missing_email" }, 400);
   }
 
-  const to = env.REQUEST_TO_EMAIL || "digital.architecture.tech@gmail.com";
+  const to = env.REQUEST_TO_EMAIL || "hello@da-technology.eu";
   const fromAddress = env.REQUEST_FROM_EMAIL_ADDRESS || "hello@da-technology.eu";
   const fromName = env.REQUEST_FROM_EMAIL_NAME || "D.A.-Tech";
   const from = env.REQUEST_FROM_EMAIL || `${fromName} <${fromAddress}>`;
@@ -164,6 +199,16 @@ export async function onRequestPost({ request, env }) {
   }
 
   if (!env.RESEND_API_KEY) {
+    const formSubmitEmail = env.FORMSUBMIT_EMAIL || to;
+    const formSubmitResult = await sendViaFormSubmit(payload, subject, formSubmitEmail);
+    if (formSubmitResult) {
+      return jsonResponse({
+        ok: true,
+        provider: "formsubmit",
+        activationMayBeRequired: true
+      });
+    }
+
     return jsonResponse({ ok: false, error: "missing_email_provider" }, 503);
   }
 
