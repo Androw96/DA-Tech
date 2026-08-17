@@ -1063,8 +1063,8 @@ function bindFloatingRequestSafety(button) {
   const updateVisibility = () => {
     const cookieVisible = cookieBanner && !cookieBanner.classList.contains("is-hidden");
     const footerRect = footer ? footer.getBoundingClientRect() : null;
-    const footerNear = footerRect ? footerRect.top < window.innerHeight - 12 : false;
-    const pageBottomNear = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 150;
+    const footerNear = footerRect ? footerRect.top < window.innerHeight + 260 : false;
+    const pageBottomNear = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 320;
     button.classList.toggle("is-safe-hidden", footerVisible || footerNear || pageBottomNear || cookieVisible);
   };
 
@@ -1072,7 +1072,7 @@ function bindFloatingRequestSafety(button) {
     const observer = new IntersectionObserver((entries) => {
       footerVisible = entries.some((entry) => entry.isIntersecting);
       updateVisibility();
-    }, { rootMargin: "0px 0px 180px 0px", threshold: 0 });
+    }, { rootMargin: "0px 0px 320px 0px", threshold: 0 });
     observer.observe(footer);
   }
 

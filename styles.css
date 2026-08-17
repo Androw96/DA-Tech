@@ -405,7 +405,7 @@ textarea {
   position: fixed;
   right: clamp(16px, 3vw, 34px);
   bottom: clamp(16px, 3vw, 34px);
-  z-index: 90;
+  z-index: 70;
   display: inline-flex;
   min-height: 54px;
   align-items: center;
@@ -454,7 +454,7 @@ textarea {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
-  transform: translateY(120px);
+  transform: translateY(150px) scale(0.96);
 }
 
 .button-secondary {
@@ -3240,6 +3240,8 @@ h3 {
 }
 
 .footer {
+  position: relative;
+  z-index: 95;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
