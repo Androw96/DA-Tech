@@ -1062,16 +1062,22 @@ function bindFloatingRequestSafety(button) {
 
   const updateVisibility = () => {
     const cookieVisible = cookieBanner && !cookieBanner.classList.contains("is-hidden");
-    button.classList.toggle("is-safe-hidden", footerVisible || cookieVisible);
+    const footerRect = footer ? footer.getBoundingClientRect() : null;
+    const footerNear = footerRect ? footerRect.top < window.innerHeight - 12 : false;
+    const pageBottomNear = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 150;
+    button.classList.toggle("is-safe-hidden", footerVisible || footerNear || pageBottomNear || cookieVisible);
   };
 
   if (footer && "IntersectionObserver" in window) {
     const observer = new IntersectionObserver((entries) => {
       footerVisible = entries.some((entry) => entry.isIntersecting);
       updateVisibility();
-    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.02 });
+    }, { rootMargin: "0px 0px 180px 0px", threshold: 0 });
     observer.observe(footer);
   }
+
+  window.addEventListener("scroll", updateVisibility, { passive: true });
+  window.addEventListener("resize", updateVisibility);
 
   if (cookieBanner && "MutationObserver" in window) {
     const observer = new MutationObserver(updateVisibility);
