@@ -8,9 +8,9 @@
       name="description"
       content="DA Tech modern, gyors és meggyőző weboldalakat készít cégeknek, akik több érdeklődőt, jobb megjelenést és erősebb online bizalmat szeretnének."
     >
-    <link rel="icon" type="image/png" sizes="256x256" href="assets/favicon-256.png?v=cinematic-intro-98">
-    <link rel="shortcut icon" type="image/png" href="assets/favicon-256.png?v=cinematic-intro-98">
-    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=cinematic-intro-98">
+    <link rel="icon" type="image/png" sizes="256x256" href="assets/favicon-256.png?v=redesign-23">
+    <link rel="shortcut icon" type="image/png" href="assets/favicon-256.png?v=redesign-23">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=redesign-23">
     <meta property="og:title" content="D.A.-Tech | Modern weboldalak">
     <meta property="og:description" content="Modern weboldalak és weboldal-modernizálás cégeknek, akik több ügyfelet akarnak az első benyomásból.">
     <meta property="og:image" content="https://da-technology.eu/assets/da-tech-wordmark-wide.png">
@@ -79,7 +79,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=cinematic-intro-98">
+    <link rel="stylesheet" href="styles.css?v=redesign-23">
   </head>
   <body class="home-page">
     <div class="noise" aria-hidden="true"></div>
@@ -138,34 +138,37 @@
     </section>
     <header class="site-header">
       <a class="brand" href="index.html?skipIntro=1" aria-label="DA Tech kezdőlap">
-        <img class="brand-logo" src="assets/da-tech-logo-nav.png" width="256" height="256" alt="DA Tech" fetchpriority="high" decoding="async">
+        <img class="brand-logo" src="assets/da-tech-logo-nav.png" width="186" height="104" alt="DA Tech" fetchpriority="high" decoding="async">
       </a>
+      <nav class="nav" aria-label="Fő navigáció">
+        <div class="nav-menu">
+          <button class="nav-menu-button" type="button" data-i18n="nav.methods">Szolgáltatásaink</button>
+          <div class="nav-dropdown">
+            <a href="weboldal-keszites.html" data-i18n="nav.methodBuild">Weboldalkészítés</a>
+            <a href="weboldal-modernizalas.html" data-i18n="nav.methodExtravagant">Weboldal-modernizálás</a>
+            <a href="extra-megoldasok.html" data-i18n="nav.methodProcess">Extravagáns megoldások</a>
+            <a href="audit.html" data-i18n="nav.audit">Weboldal értékelő</a>
+          </div>
+        </div>
+        <a href="prices.html" data-i18n="nav.prices">Árak</a>
+        <a href="about.html" data-i18n="nav.about">Rólunk</a>
+      </nav>
+      <div class="header-actions">
+        <div class="nav-menu lang-menu">
+          <button class="nav-menu-button lang-current" type="button" aria-label="Nyelv választás">HU</button>
+          <div class="nav-dropdown language-switcher">
+            <button class="lang-option active" type="button" data-lang="hu">HU</button>
+            <button class="lang-option" type="button" data-lang="en">EN</button>
+            <button class="lang-option" type="button" data-lang="de">DE</button>
+          </div>
+        </div>
+        <a class="nav-cta" href="contact.html" data-i18n="nav.cta">Ajánlatot kérek</a>
+      </div>
       <button class="mobile-menu-toggle" type="button" aria-label="Menü megnyitása" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </button>
-      <nav class="nav" aria-label="Fő navigáció">
-        <a href="about.html" data-i18n="nav.about">Rólunk</a>
-        <a href="prices.html" data-i18n="nav.prices">Árak</a><a href="audit.html" data-i18n="nav.audit">Weboldal értékelő</a>
-        <div class="nav-menu">
-          <button class="nav-menu-button" type="button" data-i18n="nav.methods">Szolgáltatásaink</button>
-          <div class="nav-dropdown">
-            <a href="weboldal-keszites.html" data-i18n="nav.methodBuild">Weboldal készítés</a>
-            <a href="weboldal-modernizalas.html" data-i18n="nav.methodExtravagant">Weboldal modernizálás</a>
-            <a href="extra-megoldasok.html" data-i18n="nav.methodProcess">Extravagáns megoldások</a>
-          </div>
-        </div>
-        <a href="why-us.html" data-i18n="nav.why">Miért mi?</a>
-      </nav>
-      <div class="header-actions">
-        <a class="nav-cta" href="contact.html" data-i18n="nav.cta">Weboldal igénylése</a>
-        <div class="language-switcher" aria-label="Nyelv választás">
-          <button class="lang-option active" type="button" data-lang="hu">HU</button>
-          <button class="lang-option" type="button" data-lang="en">EN</button>
-          <button class="lang-option" type="button" data-lang="de">DE</button>
-        </div>
-      </div>
     </header>
 
     <main id="top">
@@ -177,9 +180,7 @@
           <img class="home-wordmark" src="assets/da-tech-wordmark-cropped.png" width="1040" height="190" alt="D.A.-Tech" fetchpriority="high" decoding="async">
           <p class="eyebrow" data-i18n="hero.eyebrow">D.A.-Tech weboldal modernizálás</p>
           <h1 id="hero-title" class="home-slogan" data-i18n="hero.title">Ahol a design találkozik a technológiával.</h1>
-          <p class="hero-lead" data-i18n="hero.lead">
-            Régi, sablonos vagy gyenge weboldalból prémium digitális élményt építünk. Gyors. Mobilra hangolt. Ügyfélszerzésre tervezett.
-          </p>
+          <p class="hero-lead" data-i18n="hero.lead">Régi, sablonos vagy gyenge weboldalból prémium digitális élményt építünk. Gyors. Mobilra hangolt. Ügyfélszerzésre tervezett.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="contact.html" data-i18n="hero.primary">Weboldalt igénylek</a>
             <a class="button button-secondary" href="services.html" data-i18n="hero.secondary">Mit tudunk építeni?</a>
@@ -237,36 +238,184 @@
         </div>
       </section>
 
-      <section id="services" class="section services services-featured">
+      <section id="services" class="section services services-featured" aria-labelledby="services-title">
         <div class="section-heading service-intro">
           <p class="eyebrow" data-i18n="services.eyebrow">Szolgáltatások</p>
+          <h2 id="services-title" data-i18n="services.title">Weboldal-szolgáltatások egy kézből</h2>
         </div>
         <div class="service-grid">
           <article class="service-card">
             <span class="service-icon service-icon-screen" aria-hidden="true"></span>
             <h3 data-i18n="services.card1Title">Weboldal készítés</h3>
             <p data-i18n="services.card1Text">Modern, gyors, sallangmentes céges weboldalak és landing oldalak, amelyek telefonon is prémium első benyomást adnak.</p>
+            <p class="service-price"><span data-i18n="services.priceLabel">Irányár</span><strong data-i18n="prices.basicPrice">220 000 Ft-tól</strong></p>
             <a href="weboldal-keszites.html" class="service-link" data-i18n="services.card1Link">Weboldal készítés részletei</a>
+            <a href="#contact" class="service-cta" data-project="Új weboldal" data-i18n="packages.cta">Ezt kérem</a>
           </article>
           <article class="service-card">
             <span class="service-icon service-icon-refresh" aria-hidden="true"></span>
             <h3 data-i18n="services.card2Title">Weboldal modernizálás</h3>
             <p data-i18n="services.card2Text">Régi, sablonos vagy széteső oldalból átlátható, mobilbarát, bizalomépítő felületet készítünk.</p>
+            <p class="service-price"><span data-i18n="services.priceLabel">Irányár</span><strong data-i18n="prices.modernizePrice">290 000 Ft-tól</strong></p>
             <a href="weboldal-modernizalas.html" class="service-link" data-i18n="services.card2Link">Modernizálás részletei</a>
+            <a href="#contact" class="service-cta" data-project="Weboldal modernizálás" data-i18n="packages.cta">Ezt kérem</a>
           </article>
           <article class="service-card">
             <span class="service-icon service-icon-pin" aria-hidden="true"></span>
             <h3 data-i18n="services.card3Title">Extravagáns webes megoldások</h3>
             <p data-i18n="services.card3Text">Animált intro, before/after élmény, audit modul, mikrointerakciók és olyan részletek, amelyek miatt a márka emlékezetes marad.</p>
+            <p class="service-price"><span data-i18n="services.priceLabel">Irányár</span><strong data-i18n="prices.extraPrice">Egyedi ajánlat</strong></p>
             <a href="extra-megoldasok.html" class="service-link" data-i18n="services.card3Link">Extra megoldások részletei</a>
+            <a href="#contact" class="service-cta" data-i18n="packages.cta">Ezt kérem</a>
           </article>
         </div>
         <div class="service-help">
           <h3 data-i18n="services.helpTitle">Nem tudod, melyikre van szükséged?</h3>
           <p data-i18n="services.helpText">A legtöbb projekt kombináció: új első képernyő, mobilos rendbetétel, ajánlatkérési útvonal és egy kis extra wow-faktor. Írd meg, hol tartasz most, és javaslunk egy tiszta irányt.</p>
-          <a href="contact.html" data-i18n="services.helpLink">Kérek javaslatot</a>
+          <a href="#contact" data-project="Nem tudom, kérek tanácsot" data-i18n="services.helpLink">Kérek javaslatot</a>
         </div>
       </section>
+
+      <section class="section case-studies reveal-on-scroll" aria-labelledby="cases-title">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="cases.eyebrow">Példa átalakítások</p>
+          <h2 id="cases-title" data-i18n="cases.title">Nem több szöveg kell, hanem jobb első benyomás.</h2>
+          <p class="section-note" data-i18n="cases.exampleNote">Szemléltető példák: a számok tipikus célokat mutatnak, nem konkrét ügyfelek mért eredményeit.</p>
+        </div>
+        <div class="case-grid">
+          <article class="case-card">
+            <span data-i18n="cases.card1Tag">Régi céges oldal</span>
+            <h3 data-i18n="cases.card1Title">Elavult oldalból igényes nyitány.</h3>
+            <p data-i18n="cases.card1Text">Egyértelmű ajánlat, gyors kapcsolatfelvétel, mobilra tervezett szerkezet.</p>
+            <strong>+68% <small data-i18n="cases.metricTrust">erősebb bizalom</small></strong>
+          </article>
+          <article class="case-card">
+            <span data-i18n="cases.card2Tag">Landing oldal</span>
+            <h3 data-i18n="cases.card2Title">Szétszórt üzenetből egy világos felhívás.</h3>
+            <p data-i18n="cases.card2Text">A látogató nem bolyong: lát, megért, kattint.</p>
+            <strong>3x <small data-i18n="cases.metricPath">egyszerűbb ajánlatkérés</small></strong>
+          </article>
+          <article class="case-card">
+            <span data-i18n="cases.card3Tag">Weboldal-modernizálás</span>
+            <h3 data-i18n="cases.card3Title">Sablonból emlékezetes oldal.</h3>
+            <p data-i18n="cases.card3Text">Előtte–utána, neonos tech hangulat, gyors mobilnézet.</p>
+            <strong>100 <small data-i18n="cases.metricMobile">célérték mobilon</small></strong>
+          </article>
+        </div>
+      </section>
+
+      <section id="showcase" class="section showcase" aria-labelledby="showcase-title">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="showcase.eyebrow">Extravagáns megoldások</p>
+          <h2 id="showcase-title" data-i18n="showcase.title">Mozgás, fény, interakció – csak ott, ahol számít.</h2>
+        </div>
+        <div class="showcase-grid">
+          <article>
+            <div class="visual visual-orbit" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <h3 data-i18n="showcase.card1Title">Élő technológiai háttér</h3>
+            <p data-i18n="showcase.card1Text">Már az első másodpercben szakértelmet sugall.</p>
+          </article>
+          <article>
+            <div class="visual visual-bars" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <h3 data-i18n="showcase.card2Title">Ajánlatkérést segítő elemek</h3>
+            <p data-i18n="showcase.card2Text">Gyorsan megmutatják, miért érdemes ajánlatot kérni.</p>
+          </article>
+          <article>
+            <div class="visual visual-code" aria-hidden="true">
+              <span>&lt;modernize /&gt;</span>
+              <span>speed: excellent;</span>
+              <span>trust: online;</span>
+            </div>
+            <h3 data-i18n="showcase.card3Title">Fejlesztői minőség</h3>
+            <p data-i18n="showcase.card3Text">Gyors működés, tiszta szerkezet – nem egyszeri látványelem.</p>
+          </article>
+          <article>
+            <div class="visual visual-logo-reveal" aria-hidden="true">
+              <strong data-i18n="showcase.card4Logo">A Logód</strong>
+              <span></span>
+              <span></span>
+            </div>
+            <h3 data-i18n="showcase.card4Title">Megelevenedő logó</h3>
+            <p data-i18n="showcase.card4Text">A márkád nem egyszerűen megjelenik: fényből és mozgásból áll össze, hogy megmaradjon az emlékezetben.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="proof" class="section proof">
+        <div class="proof-copy">
+          <p class="eyebrow" data-i18n="proof.eyebrow">Miért a D.A.-Tech?</p>
+          <h2 data-i18n="proof.title">Számunkra nincs lehetetlen.</h2>
+          <p data-i18n="proof.text">Ha az ötlet üzletileg megéri, megtaláljuk hozzá a megoldást: a designban, a technológiában és az ügyfélszerzésben is.</p>
+        </div>
+        <div class="proof-stats">
+          <div><strong>2003</strong><span data-i18n="proof.statYear">óta működő cég</span></div>
+          <div><strong data-i18n="proof.statHoursValue">24 óra</strong><span data-i18n="proof.statHours">alatt az első javaslat</span></div>
+          <div><strong>3</strong><span data-i18n="proof.statLang">nyelven: HU · EN · DE</span></div>
+          <div><strong>Győr</strong><span data-i18n="proof.statCity">székhelyű magyar vállalkozás</span></div>
+        </div>
+        <div class="credibility-grid">
+          <article>
+            <span data-i18n="trust.legalKicker">Céges háttér</span>
+            <strong>D. A.-Tech 2003 Kft.</strong>
+            <p data-i18n="trust.legalText">2003 óta működő magyar vállalkozás, győri székhellyel és ellenőrizhető cégadatokkal.</p>
+          </article>
+          <article>
+            <span data-i18n="trust.processKicker">Ajánlat után</span>
+            <strong data-i18n="trust.processTitle">Válasz 24 órán belül</strong>
+            <p data-i18n="trust.processText">Kötelezettség nélküli ajánlatot adunk: előbb megértjük, mit kell elérnie a weboldalnak.</p>
+          </article>
+          <article>
+            <span data-i18n="trust.techKicker">Mérhető alapok</span>
+            <strong data-i18n="trust.techTitle">HTTPS, mobil, SEO-alapok</strong>
+            <p data-i18n="trust.techText">Gyors statikus felépítés, többnyelvű tartalom, jogi oldalak és egyszerű ajánlatkérés.</p>
+          </article>
+        </div>
+        <div class="trust-note">
+          <span data-i18n="trust.note1">Nem tűnünk el átadás után.</span>
+          <span data-i18n="trust.note2">A tervezést mobilon kezdjük.</span>
+          <span data-i18n="trust.note3">Nem sablont kapsz, hanem az üzleti céljaidat szolgáló oldalt.</span>
+        </div>
+      </section>
+
+
+      <section id="process" class="section process">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="process.eyebrow">Így dolgozunk</p>
+          <h2 data-i18n="process.title">Négy lépés, mellébeszélés nélkül.</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span>01</span>
+            <h3 data-i18n="process.step1Title">Felmérés és cél</h3>
+            <p data-i18n="process.step1Text">Mi nem működik, és milyen eredményt kell hoznia?</p>
+            <em class="timeline-time" data-i18n="process.step1Time">1–2 nap</em>
+          </div>
+          <div class="timeline-item">
+            <span>02</span>
+            <h3 data-i18n="process.step2Title">Látványterv</h3>
+            <p data-i18n="process.step2Text">Első benyomás, üzenet, vizuális irány, gombok.</p>
+            <em class="timeline-time" data-i18n="process.step2Time">1 hét</em>
+          </div>
+          <div class="timeline-item">
+            <span>03</span>
+            <h3 data-i18n="process.step3Title">Fejlesztés</h3>
+            <p data-i18n="process.step3Text">Gyors, modern, mobilbarát oldal, extra funkciókkal.</p>
+            <em class="timeline-time" data-i18n="process.step3Time">2–3 hét</em>
+          </div>
+          <div class="timeline-item">
+            <span>04</span>
+            <h3 data-i18n="process.step4Title">Finomhangolás</h3>
+            <p data-i18n="process.step4Text">Ritmus, sebesség, mobilnézet, ajánlatkérés.</p>
+            <em class="timeline-time" data-i18n="process.step4Time">3–5 nap</em>
+          </div>
+        </div>
+        <p class="process-total" data-i18n="process.total">Egy átlagos, 5–10 aloldalas céges weboldal nagyjából 4–5 hét alatt készül el.</p>
+      </section>
+
 
       <section class="section audit-lab audit-empty reveal-on-scroll" aria-labelledby="audit-title">
         <div class="section-heading">
@@ -322,227 +471,27 @@
         </div>
       </section>
 
-      <section class="section case-studies reveal-on-scroll" aria-labelledby="cases-title">
-        <div class="section-heading">
-          <p class="eyebrow" data-i18n="cases.eyebrow">Demo transformation</p>
-          <h2 id="cases-title" data-i18n="cases.title">Nem több szöveg. Jobb első benyomás.</h2>
-        </div>
-        <div class="case-grid">
-          <article class="case-card">
-            <span data-i18n="cases.card1Tag">Régi céges oldal</span>
-            <h3 data-i18n="cases.card1Title">Régi hatásból prémium belépő.</h3>
-            <p data-i18n="cases.card1Text">Egyértelmű ajánlat, gyors kapcsolat, mobil-first szerkezet.</p>
-            <strong>+68% <small data-i18n="cases.metricTrust">erősebb bizalmi érzet</small></strong>
-          </article>
-          <article class="case-card">
-            <span data-i18n="cases.card2Tag">Landing page</span>
-            <h3 data-i18n="cases.card2Title">Szétszórt üzenetből tiszta CTA.</h3>
-            <p data-i18n="cases.card2Text">A látogató nem bolyong: lát, ért, kattint.</p>
-            <strong>3x <small data-i18n="cases.metricPath">tisztább döntési út</small></strong>
-          </article>
-          <article class="case-card">
-            <span data-i18n="cases.card3Tag">Weboldal modernizálás</span>
-            <h3 data-i18n="cases.card3Title">Sablonból emlékezetes élmény.</h3>
-            <p data-i18n="cases.card3Text">Before/after, neon tech hangulat, gyors mobil élmény.</p>
-            <strong>100 <small data-i18n="cases.metricMobile">mobil audit célpont</small></strong>
-          </article>
-        </div>
-      </section>
-
-      <section id="proof" class="section proof">
-        <div class="proof-copy">
-          <p class="eyebrow" data-i18n="proof.eyebrow">Miért a D.A.-Tech?</p>
-          <h2 data-i18n="proof.title">Számunkra nincs lehetetlen.</h2>
-          <p data-i18n="proof.text">
-            Ha az ötlet üzletileg értékes, megkeressük hozzá a megoldást: designban, technológiában és ügyfélszerző útvonalban is.
-          </p>
-        </div>
-        <div class="proof-stack">
-          <div class="proof-item">
-            <strong data-i18n="proof.item1Title">Stratégiai design</strong>
-            <span data-i18n="proof.item1Text">A figyelmet oda vezetjük, ahol döntés születik.</span>
-          </div>
-          <div class="proof-item">
-            <strong data-i18n="proof.item2Title">Modern technikai alap</strong>
-            <span data-i18n="proof.item2Text">Gyors, reszponzív, keresőbarát alap.</span>
-          </div>
-          <div class="proof-item">
-            <strong data-i18n="proof.item3Title">Prémium érzés</strong>
-            <span data-i18n="proof.item3Text">Animáció, tér és fókusz, ami drágábbnak érződik.</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="section trust-system reveal-on-scroll" aria-labelledby="trust-title">
-        <div class="section-heading">
-          <p class="eyebrow" data-i18n="trust.eyebrow">Bizalmi rendszer</p>
-          <h2 id="trust-title" data-i18n="trust.title">Bizalom gyorsan, felesleges magyarázkodás nélkül.</h2>
-        </div>
-        <div class="trust-grid">
-          <div><strong>01</strong><span data-i18n="trust.item1">Átlátható folyamat és mérföldkövek.</span></div>
-          <div><strong>02</strong><span data-i18n="trust.item2">Mobil-first megjelenés minden képernyőre.</span></div>
-          <div><strong>03</strong><span data-i18n="trust.item3">SEO és sebesség alapok már induláskor.</span></div>
-          <div><strong>04</strong><span data-i18n="trust.item4">Átadás után is továbbfejleszthető rendszer.</span></div>
-        </div>
-        <div class="trust-note">
-          <span data-i18n="trust.note1">Nem tűnünk el átadás után.</span>
-          <span data-i18n="trust.note2">Mobilon kezdjük a gondolkodást.</span>
-          <span data-i18n="trust.note3">Nem sablont kapsz, hanem üzleti célt kiszolgáló oldalt.</span>
-        </div>
-        <div class="credibility-grid">
-          <article>
-            <span data-i18n="trust.legalKicker">Céges háttér</span>
-            <strong>D. A.-Tech 2003 Kft.</strong>
-            <p data-i18n="trust.legalText">2003 óta működő magyar vállalkozás, győri székhellyel és ellenőrizhető cégadatokkal.</p>
-          </article>
-          <article>
-            <span data-i18n="trust.processKicker">Ajánlat után</span>
-            <strong data-i18n="trust.processTitle">24 órán belüli irány</strong>
-            <p data-i18n="trust.processText">Nem kötelező erejű ajánlatot adunk: először megértjük, mire kell dolgoznia a weboldalnak.</p>
-          </article>
-          <article>
-            <span data-i18n="trust.techKicker">Mérhető alapok</span>
-            <strong data-i18n="trust.techTitle">HTTPS, mobil, SEO alap</strong>
-            <p data-i18n="trust.techText">Gyors statikus felépítés, többnyelvű tartalom, jogi oldalak és tiszta ajánlatkérési útvonal.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="showcase" class="section showcase" aria-labelledby="showcase-title">
-        <div class="section-heading">
-          <p class="eyebrow" data-i18n="showcase.eyebrow">Extravagáns megoldások</p>
-          <h2 id="showcase-title" data-i18n="showcase.title">Mozgás, fény, interakció. Csak ott, ahol számít.</h2>
-        </div>
-        <div class="showcase-grid">
-          <article>
-            <div class="visual visual-orbit" aria-hidden="true">
-              <span></span><span></span><span></span>
-            </div>
-            <h3 data-i18n="showcase.card1Title">Élő tech háttér</h3>
-            <p data-i18n="showcase.card1Text">Az első másodpercben tech szakértelmet sugall.</p>
-          </article>
-          <article>
-            <div class="visual visual-bars" aria-hidden="true">
-              <span></span><span></span><span></span><span></span>
-            </div>
-            <h3 data-i18n="showcase.card2Title">Konverziós modulok</h3>
-            <p data-i18n="showcase.card2Text">Gyorsan mutatják, miért érdemes ajánlatot kérni.</p>
-          </article>
-          <article>
-            <div class="visual visual-code" aria-hidden="true">
-              <span>&lt;modernize /&gt;</span>
-              <span>speed: excellent;</span>
-              <span>trust: online;</span>
-            </div>
-            <h3 data-i18n="showcase.card3Title">Fejlesztői minőség</h3>
-            <p data-i18n="showcase.card3Text">Gyors működés, tiszta struktúra, nem egyszer használatos show.</p>
-          </article>
-          <article>
-            <div class="visual visual-logo-reveal" aria-hidden="true">
-              <strong data-i18n="showcase.card4Logo">A Logód</strong>
-              <span></span>
-              <span></span>
-            </div>
-            <h3 data-i18n="showcase.card4Title">Logó reveal élmény</h3>
-            <p data-i18n="showcase.card4Text">A márka nem csak megjelenik: fényből, mozgásból és fókuszból épül fel, hogy emlékezzenek rá.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="process" class="section process">
-        <div class="section-heading">
-          <p class="eyebrow" data-i18n="process.eyebrow">Így dolgozunk</p>
-          <h2 data-i18n="process.title">Négy lépés. Nincs ködösítés.</h2>
-        </div>
-        <div class="timeline">
-          <div class="timeline-item">
-            <span>01</span>
-            <h3 data-i18n="process.step1Title">Audit és cél</h3>
-            <p data-i18n="process.step1Text">Mi nem működik, és milyen eredményt kell hoznia?</p>
-          </div>
-          <div class="timeline-item">
-            <span>02</span>
-            <h3 data-i18n="process.step2Title">Design irány</h3>
-            <p data-i18n="process.step2Text">Első benyomás, üzenet, vizuális irány, CTA.</p>
-          </div>
-          <div class="timeline-item">
-            <span>03</span>
-            <h3 data-i18n="process.step3Title">Fejlesztés</h3>
-            <p data-i18n="process.step3Text">Gyors, modern, mobilbarát felület, extra funkciókkal.</p>
-          </div>
-          <div class="timeline-item">
-            <span>04</span>
-            <h3 data-i18n="process.step4Title">Finomhangolás</h3>
-            <p data-i18n="process.step4Text">Ritmus, sebesség, mobilnézet, ajánlatkérési út.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section packages reveal-on-scroll" aria-labelledby="packages-title">
-        <div class="section-heading">
-          <p class="eyebrow" data-i18n="packages.eyebrow">Ajánlati irányok</p>
-          <h2 id="packages-title" data-i18n="packages.title">Három indulási irány. Mind konverzióra építve.</h2>
-        </div>
-        <div class="package-grid">
-          <article>
-            <span>Start</span>
-            <h3 data-i18n="packages.startTitle">Gyors, modern jelenlét</h3>
-            <p data-i18n="packages.startText">Landing page vagy egyszerű céges oldal erős első benyomással.</p>
-            <ul>
-              <li data-i18n="packages.startPoint1">1 oldalas prémium struktúra</li>
-              <li data-i18n="packages.startPoint2">Mobil-first megjelenés</li>
-              <li data-i18n="packages.startPoint3">Ajánlatkérési CTA útvonal</li>
-            </ul>
-            <a href="contact.html" data-i18n="packages.cta">Ezt kérem</a>
-          </article>
-          <article class="featured">
-            <span>Modernize</span>
-            <h3 data-i18n="packages.modernTitle">Régi oldalból prémium felület</h3>
-            <p data-i18n="packages.modernText">A régi oldal megtartja a lényeget, de új élményt kap.</p>
-            <ul>
-              <li data-i18n="packages.modernPoint1">Before/after modernizálási audit</li>
-              <li data-i18n="packages.modernPoint2">Új első képernyő és szolgáltatás logika</li>
-              <li data-i18n="packages.modernPoint3">Sebesség, bizalom és mobil élmény fókusz</li>
-            </ul>
-            <a href="contact.html" data-i18n="packages.cta">Ezt kérem</a>
-          </article>
-          <article>
-            <span>Premium Build</span>
-            <h3 data-i18n="packages.premiumTitle">Teljes digitális élmény</h3>
-            <p data-i18n="packages.premiumText">Egyedi többoldalas weboldal, prémium interakciókkal és brand rendszerrel.</p>
-            <ul>
-              <li data-i18n="packages.premiumPoint1">Többoldalas céges rendszer</li>
-              <li data-i18n="packages.premiumPoint2">Extravagáns animációk és audit modulok</li>
-              <li data-i18n="packages.premiumPoint3">Többnyelvű, skálázható tartalom</li>
-            </ul>
-            <a href="contact.html" data-i18n="packages.cta">Ezt kérem</a>
-          </article>
-        </div>
-      </section>
-
       <section id="contact" class="section contact">
         <div class="contact-copy">
           <p class="eyebrow" data-i18n="contact.eyebrow">Indítsuk el</p>
           <h2 data-i18n="contact.title">Készen állsz egy weboldalra, ami végre komolyan képviseli a céged?</h2>
-          <p data-i18n="contact.text">
-            Írd meg pár mondatban, mit szeretnél. Mi visszajövünk egy tiszta iránnyal.
-          </p>
-          <div class="contact-trust-panel">
-            <strong data-i18n="contact.trustTitle">Díjmentes, kötelezettség nélküli első válasz.</strong>
-            <span data-i18n="contact.trustText">Ha az űrlap technikai okból nem menne át, írj közvetlenül: hello@da-technology.eu</span>
-          </div>
+          <p data-i18n="contact.text">Írd meg pár mondatban, mit szeretnél, és konkrét javaslattal jelentkezünk.</p>
+          <ol class="contact-steps">
+            <li><span data-i18n="contact.proofResponseLabel">Válaszidő</span><strong data-i18n="contact.proofResponseText">24 órán belül</strong></li>
+            <li><span data-i18n="contact.proofStartLabel">Első lépés</span><strong data-i18n="contact.proofStartText">Díjmentes egyeztetés</strong></li>
+            <li><span data-i18n="contact.proofOfferLabel">Ajánlat</span><strong data-i18n="contact.proofOfferText">Világos, átlátható javaslat</strong></li>
+          </ol>
+          <p class="contact-direct"><span data-i18n="contact.directLabel">Inkább e-mailben írnál?</span> <a href="mailto:hello@da-technology.eu">hello@da-technology.eu</a></p>
         </div>
         <form class="contact-form request-flow request-flow-direct">
           <div class="flow-panel active">
-            <label>
-              <span data-i18n="form.project">Mire van szükséged?</span>
-              <select name="project">
-                <option data-i18n="form.optionNew">Új weboldal</option>
-                <option data-i18n="form.optionModern">Weboldal modernizálás</option>
-                <option data-i18n="form.optionLanding">Landing page</option>
-                <option data-i18n="form.optionAdvice">Nem tudom, kérek tanácsot</option>
-              </select>
-            </label>
+            <fieldset class="choice-chips">
+              <legend data-i18n="form.project">Mire van szükséged?</legend>
+              <label><input type="radio" name="project" value="Új weboldal" checked><span data-i18n="form.optionNew">Új weboldal</span></label>
+              <label><input type="radio" name="project" value="Weboldal modernizálás"><span data-i18n="form.optionModern">Weboldal-modernizálás</span></label>
+              <label><input type="radio" name="project" value="Landing page"><span data-i18n="form.optionLanding">Landing oldal</span></label>
+              <label><input type="radio" name="project" value="Nem tudom, kérek tanácsot"><span data-i18n="form.optionAdvice">Nem tudom, kérek tanácsot</span></label>
+            </fieldset>
           </div>
           <div class="flow-panel active">
             <label>
@@ -567,15 +516,11 @@
               </span>
             </label>
           </div>
-          <div class="flow-summary">
-            <strong data-i18n="flow.summaryTitle">DA Tech javaslat</strong>
-            <span id="flowRecommendation" data-i18n="flow.summaryText">Modernizálási audit, prémium első képernyő és mobil-first konverziós útvonal.</span>
-          </div>
-          <p class="legal-microcopy" data-i18n="form.privacyMicrocopy">Az adatokat csak az ajánlatkérés megválaszolására használjuk. Marketing emailt külön hozzájárulás nélkül nem küldünk.</p>
           <p class="form-status" id="formStatus" aria-live="polite"></p>
           <div class="flow-actions">
             <button class="button button-primary" type="button" id="flowNext" data-i18n="flow.send">Ajánlatkérés küldése</button>
           </div>
+          <p class="legal-microcopy" data-i18n="form.privacyMicrocopy">Az adatokat csak az ajánlatkérés megválaszolására használjuk. Marketing e-mailt külön hozzájárulás nélkül nem küldünk.</p>
         </form>
       </section>
     </main>
@@ -583,6 +528,9 @@
     <footer class="footer">
       <span>© 2026 D.A.-Tech</span>
       <span data-i18n="footer.tagline">Modern weboldalak és weboldal modernizálás</span>
+      <nav class="footer-links" aria-label="Oldalak">
+        <a href="about.html" data-i18n="nav.about">Rólunk</a>
+      </nav>
       <nav class="footer-links" aria-label="Jogi linkek">
         <a href="privacy.html" data-i18n="footer.privacy">Adatkezelés</a>
         <a href="cookies.html" data-i18n="footer.cookies">Cookie-k</a>
@@ -603,6 +551,6 @@
       </div>
     </div>
 
-    <script src="script.js?v=cinematic-intro-98" defer></script>
+    <script src="script.js?v=redesign-23" defer></script>
   </body>
 </html>

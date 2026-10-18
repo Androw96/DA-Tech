@@ -68,6 +68,7 @@ const translations = {
     "services.helpTitle": "Nem tudod, melyikre van szükséged?",
     "services.helpText": "A legtöbb projekt kombináció: új első képernyő, mobilos rendbetétel, ajánlatkérési útvonal és egy kis extra wow-faktor. Írd meg, hol tartasz most, és javaslunk egy tiszta irányt.",
     "services.helpLink": "Kérek javaslatot",
+    "services.priceLabel": "Irányár",
     "pageWeb.eyebrow": "Szolgáltatás",
     "pageWeb.title": "Weboldal készítés, ami komolyan képviseli a céged.",
     "pageWeb.lead": "Modern, gyors, mobilbarát céges weboldalt építünk tiszta üzenettel, erős első képernyővel és ajánlatkérésre vezető útvonallal.",
@@ -107,6 +108,11 @@ const translations = {
     "proof.eyebrow": "Miért a D.A.-Tech?",
     "proof.title": "Számunkra nincs lehetetlen.",
     "proof.text": "Ha az ötlet üzletileg értékes, megkeressük hozzá a megoldást: designban, technológiában és ügyfélszerző útvonalban is.",
+    "proof.statYear": "óta működő cég",
+    "proof.statHoursValue": "24 óra",
+    "proof.statHours": "alatt az első javaslat",
+    "proof.statLang": "nyelven: HU · EN · DE",
+    "proof.statCity": "székhelyű magyar vállalkozás",
     "proof.item1Title": "Stratégiai design",
     "proof.item1Text": "A figyelmet oda vezetjük, ahol döntés születik.",
     "proof.item2Title": "Modern technikai alap",
@@ -134,11 +140,17 @@ const translations = {
     "process.step3Text": "Gyors, modern, mobilbarát felület, extra funkciókkal.",
     "process.step4Title": "Finomhangolás",
     "process.step4Text": "Ritmus, sebesség, mobilnézet, ajánlatkérési út.",
+    "process.step1Time": "1–2 nap",
+    "process.step2Time": "1 hét",
+    "process.step3Time": "2–3 hét",
+    "process.step4Time": "3–5 nap",
+    "process.total": "Egy átlagos, 5–10 aloldalas céges weboldal nagyjából 4–5 hét alatt készül el.",
     "contact.eyebrow": "Indítsuk el",
     "contact.title": "Készen állsz egy weboldalra, ami végre komolyan képviseli a céged?",
     "contact.text": "Írd meg pár mondatban, mit szeretnél. Mi visszajövünk egy tiszta iránnyal.",
     "contact.trustTitle": "Díjmentes, kötelezettség nélküli első válasz.",
     "contact.trustText": "Ha az űrlap technikai okból nem menne át, írj közvetlenül: hello@da-technology.eu",
+    "contact.directLabel": "Inkább e-mailben írnál?",
     "contact.companyNameLabel": "Cégnév",
     "contact.companyTaxLabel": "Adószám",
     "contact.companyAddressLabel": "Székhely",
@@ -160,6 +172,7 @@ const translations = {
     "form.optionModern": "Weboldal modernizálás",
     "form.optionLanding": "Landing page",
     "form.optionAdvice": "Nem tudom, kérek tanácsot",
+    "form.optionExtra": "Extra megoldás",
     "form.message": "Röviden a projektről",
     "form.messagePlaceholder": "Mi a cél, mi nem működik most, milyen hatást szeretnél?",
     "form.submit": "Weboldal igénylés indítása",
@@ -208,6 +221,7 @@ const translations = {
     "before.newLabel": "Modern DA Tech élmény",
     "cases.eyebrow": "Demo transformation",
     "cases.title": "Nem több szöveg. Jobb első benyomás.",
+    "cases.exampleNote": "Szemléltető példák: a számok tipikus célokat mutatnak, nem konkrét ügyfelek mért eredményeit.",
     "cases.card1Tag": "Régi céges oldal",
     "cases.card1Title": "Régi hatásból prémium belépő.",
     "cases.card1Text": "Egyértelmű ajánlat, gyors kapcsolat, mobil-first szerkezet.",
@@ -255,12 +269,6 @@ const translations = {
     "packages.premiumPoint2": "Extravagáns animációk és audit modulok",
     "packages.premiumPoint3": "Többnyelvű, skálázható tartalom",
     "packages.cta": "Ezt kérem",
-    "flow.summaryTitle": "DA Tech javaslat",
-    "flow.summaryText": "Modernizálási audit, prémium első képernyő és mobil-first konverziós útvonal.",
-    "flow.summaryNew": "Prémium első képernyő, világos céges struktúra és gyors ajánlatkérési útvonal.",
-    "flow.summaryModern": "Before/after audit, új vizuális rendszer, mobil-first rebuild és bizalmi szekciók.",
-    "flow.summaryLanding": "Egy ajánlatra fókuszált landing page, erős CTA ritmussal és konverziós blokkokkal.",
-    "flow.summaryAdvice": "Rövid stratégiai audit, majd javaslat a legjobb indulási irányra.",
     "flow.prev": "Vissza",
     "flow.next": "Tovább",
     "flow.send": "Igénylés indítása",
@@ -408,6 +416,7 @@ const translations = {
     "services.helpTitle": "Not sure which one you need?",
     "services.helpText": "Most projects are a combination: a stronger first screen, mobile cleanup, request path and a little extra wow-factor. Tell us where you are now, and we recommend a clear direction.",
     "services.helpLink": "Request a recommendation",
+    "services.priceLabel": "Guide price",
     "pageWeb.eyebrow": "Service",
     "pageWeb.title": "Website creation that represents your company seriously.",
     "pageWeb.lead": "We build modern, fast, mobile-friendly business websites with a clear message, strong first screen and a path toward requests.",
@@ -447,6 +456,11 @@ const translations = {
     "proof.eyebrow": "Why DA Tech?",
     "proof.title": "For us, impossible is not the brief.",
     "proof.text": "If the idea has business value, we find the way to build it: through design, technology and a conversion path that makes sense.",
+    "proof.statYear": "in business since",
+    "proof.statHoursValue": "24 h",
+    "proof.statHours": "to a first direction",
+    "proof.statLang": "languages: HU · EN · DE",
+    "proof.statCity": "based Hungarian company",
     "proof.item1Title": "Strategic design",
     "proof.item1Text": "We guide attention to the moment where decisions happen.",
     "proof.item2Title": "Modern technical base",
@@ -474,11 +488,17 @@ const translations = {
     "process.step3Text": "Fast, modern, mobile-friendly interface with extras.",
     "process.step4Title": "Fine tuning",
     "process.step4Text": "Rhythm, speed, mobile view and request path.",
+    "process.step1Time": "1–2 days",
+    "process.step2Time": "1 week",
+    "process.step3Time": "2–3 weeks",
+    "process.step4Time": "3–5 days",
+    "process.total": "A typical 5–10 page company website takes about 4–5 weeks.",
     "contact.eyebrow": "Start the build",
     "contact.title": "Ready for a website that finally represents your company seriously?",
     "contact.text": "Tell us in a few sentences what you want. We come back with a clear direction.",
     "contact.trustTitle": "Free first response, with no obligation.",
     "contact.trustText": "If the form ever fails for a technical reason, write directly to: hello@da-technology.eu",
+    "contact.directLabel": "Prefer email?",
     "contact.companyNameLabel": "Company",
     "contact.companyTaxLabel": "Tax number",
     "contact.companyAddressLabel": "Registered office",
@@ -500,6 +520,7 @@ const translations = {
     "form.optionModern": "Website modernization",
     "form.optionLanding": "Landing page",
     "form.optionAdvice": "Not sure, I need advice",
+    "form.optionExtra": "Special solution",
     "form.message": "Project summary",
     "form.messagePlaceholder": "What is the goal, what does not work now, what effect do you want?",
     "form.submit": "Start website request",
@@ -548,6 +569,7 @@ const translations = {
     "before.newLabel": "Modern DA Tech experience",
     "cases.eyebrow": "Demo transformation",
     "cases.title": "Not more text. A better first impression.",
+    "cases.exampleNote": "Illustrative examples: the figures show typical goals, not measured results of a specific client.",
     "cases.card1Tag": "Old company website",
     "cases.card1Title": "From old feel to premium entry.",
     "cases.card1Text": "Clear offer, fast contact, mobile-first structure.",
@@ -595,12 +617,6 @@ const translations = {
     "packages.premiumPoint2": "Extravagant animations and audit modules",
     "packages.premiumPoint3": "Multilingual scalable content",
     "packages.cta": "Request this",
-    "flow.summaryTitle": "DA Tech recommendation",
-    "flow.summaryText": "Modernization audit, premium first screen and mobile-first conversion path.",
-    "flow.summaryNew": "Premium first screen, clear company structure and a fast request path.",
-    "flow.summaryModern": "Before/after audit, new visual system, mobile-first rebuild and trust sections.",
-    "flow.summaryLanding": "A one-offer landing page with strong CTA rhythm and conversion blocks.",
-    "flow.summaryAdvice": "Short strategic audit, then a recommendation for the best starting direction.",
     "flow.prev": "Back",
     "flow.next": "Next",
     "flow.send": "Start request",
@@ -748,6 +764,7 @@ const translations = {
     "services.helpTitle": "Nicht sicher, was du brauchst?",
     "services.helpText": "Die meisten Projekte sind eine Kombination: staerkerer erster Bildschirm, Mobile-Bereinigung, Anfrageweg und etwas Extra-Wow. Sag uns, wo du gerade stehst, und wir empfehlen eine klare Richtung.",
     "services.helpLink": "Empfehlung anfragen",
+    "services.priceLabel": "Richtpreis",
     "pageWeb.eyebrow": "Leistung",
     "pageWeb.title": "Website-Erstellung, die dein Unternehmen ernsthaft repraesentiert.",
     "pageWeb.lead": "Wir bauen moderne, schnelle, mobile Firmenwebsites mit klarer Botschaft, starkem ersten Bildschirm und Anfrageweg.",
@@ -787,6 +804,11 @@ const translations = {
     "proof.eyebrow": "Warum D.A.-Tech?",
     "proof.title": "Fuer uns gibt es kein Unmoeglich.",
     "proof.text": "Wenn die Idee geschaeftlich wertvoll ist, finden wir den passenden Weg: in Design, Technologie und einer klaren Conversion-Strecke.",
+    "proof.statYear": "Unternehmen seit",
+    "proof.statHoursValue": "24 Std.",
+    "proof.statHours": "bis zur ersten Richtung",
+    "proof.statLang": "Sprachen: HU · EN · DE",
+    "proof.statCity": "ansaessiges ungarisches Unternehmen",
     "proof.item1Title": "Strategisches Design",
     "proof.item1Text": "Wir fuehren Aufmerksamkeit dorthin, wo Entscheidungen entstehen.",
     "proof.item2Title": "Moderne technische Basis",
@@ -814,11 +836,17 @@ const translations = {
     "process.step3Text": "Schnelle, moderne, mobile Oberflaeche mit Extras.",
     "process.step4Title": "Feinschliff",
     "process.step4Text": "Rhythmus, Geschwindigkeit, Mobile View und Anfrageweg.",
+    "process.step1Time": "1–2 Tage",
+    "process.step2Time": "1 Woche",
+    "process.step3Time": "2–3 Wochen",
+    "process.step4Time": "3–5 Tage",
+    "process.total": "Eine typische Firmenwebsite mit 5–10 Unterseiten dauert etwa 4–5 Wochen.",
     "contact.eyebrow": "Projekt starten",
     "contact.title": "Bereit fuer eine Website, die dein Unternehmen endlich stark repraesentiert?",
     "contact.text": "Sag uns in wenigen Saetzen, was du willst. Wir kommen mit einer klaren Richtung zurueck.",
     "contact.trustTitle": "Kostenlose erste Rueckmeldung, ohne Verpflichtung.",
     "contact.trustText": "Falls das Formular aus technischen Gruenden nicht funktioniert, schreibe direkt an: hello@da-technology.eu",
+    "contact.directLabel": "Lieber per E-Mail?",
     "contact.companyNameLabel": "Firma",
     "contact.companyTaxLabel": "Steuernummer",
     "contact.companyAddressLabel": "Sitz",
@@ -840,6 +868,7 @@ const translations = {
     "form.optionModern": "Website-Modernisierung",
     "form.optionLanding": "Landingpage",
     "form.optionAdvice": "Noch unsicher, ich brauche Beratung",
+    "form.optionExtra": "Besondere Loesung",
     "form.message": "Kurz zum Projekt",
     "form.messagePlaceholder": "Was ist das Ziel, was funktioniert aktuell nicht, welche Wirkung wuenschst du dir?",
     "form.submit": "Website-Anfrage starten",
@@ -888,6 +917,7 @@ const translations = {
     "before.newLabel": "Modernes DA Tech Erlebnis",
     "cases.eyebrow": "Demo Transformation",
     "cases.title": "Nicht mehr Text. Ein besserer erster Eindruck.",
+    "cases.exampleNote": "Illustrative Beispiele: Die Zahlen zeigen typische Ziele, keine gemessenen Ergebnisse eines bestimmten Kunden.",
     "cases.card1Tag": "Alte Unternehmensseite",
     "cases.card1Title": "Von alt wirkend zu premium Einstieg.",
     "cases.card1Text": "Klares Angebot, schneller Kontakt, Mobile-first Struktur.",
@@ -935,12 +965,6 @@ const translations = {
     "packages.premiumPoint2": "Extravagante Animationen und Audit-Module",
     "packages.premiumPoint3": "Mehrsprachiger skalierbarer Inhalt",
     "packages.cta": "Das anfragen",
-    "flow.summaryTitle": "DA Tech Empfehlung",
-    "flow.summaryText": "Modernisierungs-Audit, premium erster Bildschirm und mobile-first Conversion-Pfad.",
-    "flow.summaryNew": "Premium erste Ansicht, klare Unternehmensstruktur und schneller Anfrageweg.",
-    "flow.summaryModern": "Vorher/Nachher Audit, neues visuelles System, Mobile-first Rebuild und Vertrauensbereiche.",
-    "flow.summaryLanding": "Eine Landingpage fuer ein Angebot mit starkem CTA-Rhythmus und Conversion-Bloecken.",
-    "flow.summaryAdvice": "Kurzer Strategie-Audit, danach Empfehlung fuer die beste Startrichtung.",
     "flow.prev": "Zurueck",
     "flow.next": "Weiter",
     "flow.send": "Anfrage starten",
@@ -1058,6 +1082,10 @@ function setLanguage(lang) {
     button.setAttribute("aria-pressed", String(button.dataset.lang === lang));
   });
 
+  document.querySelectorAll(".lang-current").forEach((label) => {
+    label.textContent = lang.toUpperCase();
+  });
+
   window.localStorage.setItem("daTechLang", lang);
   if (flowPanels.length) setFlowStep(flowStep);
   if (lastAuditRawUrl !== null) updateWebsiteAudit(lastAuditRawUrl);
@@ -1068,7 +1096,7 @@ function ensureFloatingRequestButton() {
 
   const button = document.createElement("a");
   button.className = "floating-request-cta";
-  button.href = "contact.html";
+  button.href = document.querySelector("#contact .request-flow") ? "#contact" : "contact.html";
   button.dataset.i18n = "floating.cta";
   button.setAttribute("aria-label", "Ajánlatkérés");
   button.textContent = "Ajánlatkérés";
@@ -1215,6 +1243,13 @@ if (marqueeTrack) marqueeTrack.innerHTML += marqueeTrack.innerHTML;
 
 document.querySelectorAll(".lang-option").forEach((button) => {
   button.addEventListener("click", () => setLanguage(button.dataset.lang));
+});
+
+const currentPage = window.location.pathname.split("/").pop().replace(/\.html$/, "") || "index";
+document.querySelectorAll(".site-header .nav a").forEach((link) => {
+  if (link.getAttribute("href").replace(/\.html$/, "") !== currentPage) return;
+  link.setAttribute("aria-current", "page");
+  link.closest(".nav-menu")?.classList.add("has-current");
 });
 
 document.querySelectorAll(".site-header").forEach((header) => {
@@ -2992,21 +3027,8 @@ const flowButtons = [...document.querySelectorAll(".flow-steps button")];
 const flowPrev = document.querySelector("#flowPrev");
 const flowNext = document.querySelector("#flowNext");
 const requestForm = document.querySelector(".request-flow");
-const projectSelect = requestForm ? requestForm.querySelector('select[name="project"]') : null;
-const flowRecommendation = document.querySelector("#flowRecommendation");
 const formStatus = document.querySelector("#formStatus");
 const isDirectRequestFlow = requestForm?.classList.contains("request-flow-direct");
-
-const projectRecommendationKeys = ["flow.summaryNew", "flow.summaryModern", "flow.summaryLanding", "flow.summaryAdvice"];
-
-function updateFlowRecommendation() {
-  if (!flowRecommendation) return;
-  const lang = window.localStorage.getItem("daTechLang") || "hu";
-  const dictionary = translations[lang] || translations.hu;
-  const selectedIndex = projectSelect ? projectSelect.selectedIndex : 0;
-  const key = projectRecommendationKeys[selectedIndex] || "flow.summaryText";
-  flowRecommendation.textContent = dictionary[key] || dictionary["flow.summaryText"];
-}
 
 function buildRequestPayload(data) {
   return {
@@ -3179,7 +3201,6 @@ function setFlowStep(nextStep) {
       const dictionary = translations[lang] || translations.hu;
       flowNext.textContent = dictionary["flow.send"];
     }
-    updateFlowRecommendation();
     return;
   }
   flowStep = Math.max(0, Math.min(flowPanels.length - 1, nextStep));
@@ -3191,7 +3212,6 @@ function setFlowStep(nextStep) {
     const dictionary = translations[lang] || translations.hu;
     flowNext.textContent = flowStep === flowPanels.length - 1 ? dictionary["flow.send"] : dictionary["flow.next"];
   }
-  updateFlowRecommendation();
 }
 
 flowButtons.forEach((button) => {
@@ -3208,7 +3228,12 @@ if (flowNext) {
     else submitWebsiteRequest();
   });
 }
-if (projectSelect) projectSelect.addEventListener("change", updateFlowRecommendation);
+document.querySelectorAll("[data-project]").forEach((link) => {
+  link.addEventListener("click", () => {
+    const choice = requestForm?.querySelector(`input[name="project"][value="${link.dataset.project}"]`);
+    if (choice) choice.checked = true;
+  });
+});
 if (requestForm) requestForm.addEventListener("submit", (event) => event.preventDefault());
 
 const cookieBanner = document.querySelector("#cookieBanner");
