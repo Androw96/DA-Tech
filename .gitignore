@@ -1,0 +1,7 @@
+# Local Cloudflare Pages dev (wrangler)
+.wrangler/
+node_modules/
+.dev.vars
+
+# IDE
+.idea/
