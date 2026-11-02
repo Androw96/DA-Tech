@@ -16,6 +16,7 @@
     <meta name="twitter:description" content="DA Tech cookie tájékoztató és hozzájárulási információk.">
     <meta name="twitter:image" content="https://da-technology.eu/assets/da-tech-wordmark-wide.png">
     <meta name="theme-color" content="#050816">
+    <script src="theme.js?v=1"></script>
     <link rel="icon" type="image/png" sizes="256x256" href="assets/favicon-256.png?v=cinematic-intro-98">
     <link rel="shortcut icon" type="image/png" href="assets/favicon-256.png?v=cinematic-intro-98">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=cinematic-intro-98">
@@ -23,11 +24,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css?v=cinematic-intro-98">
+    <link rel="stylesheet" href="theme.css?v=2">
   </head>
   <body>
     <div class="noise" aria-hidden="true"></div>
     <header class="site-header">
       <a class="brand" href="index.html?skipIntro=1" aria-label="DA Tech kezdőlap"><img class="brand-logo" src="assets/da-tech-logo-nav.png" width="256" height="256" alt="DA Tech" fetchpriority="high" decoding="async"></a>
+      <button class="theme-toggle" type="button" role="switch" aria-checked="true" aria-label="Sötét mód" title="Váltás világos módra" disabled>
+        <svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+        <svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+      </button>
       <button class="mobile-menu-toggle" type="button" aria-label="Menü megnyitása" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="nav" aria-label="Fő navigáció">
         <a href="about.html" data-i18n="nav.about">Rólunk</a>
@@ -48,19 +54,19 @@
         <div class="legal-grid">
           <article class="legal-card">
             <h2>HU</h2>
-            <p><strong>Szükséges tárolás:</strong> nyelvválasztás, intro megtekintése és cookie döntés megjegyzése.</p>
+            <p><strong>Szükséges tárolás:</strong> nyelv- és témaválasztás, intro megtekintése és cookie döntés megjegyzése.</p>
             <p><strong>Nem szükséges cookie:</strong> jelenleg nincs aktív analytics, hirdetési vagy remarketing cookie.</p>
             <p><strong>Hozzájárulás:</strong> ha később mérési vagy marketing eszköz kerül be, az csak előzetes, önkéntes és visszavonható hozzájárulással történhet.</p>
           </article>
           <article class="legal-card">
             <h2>EN</h2>
-            <p><strong>Necessary storage:</strong> language choice, intro state and cookie choice.</p>
+            <p><strong>Necessary storage:</strong> language and theme choice, intro state and cookie choice.</p>
             <p><strong>Non-essential cookies:</strong> no active analytics, advertising or remarketing cookies are currently used.</p>
             <p><strong>Consent:</strong> if measurement or marketing tools are added later, they must only run after prior, freely given and withdrawable consent.</p>
           </article>
           <article class="legal-card">
             <h2>DE</h2>
-            <p><strong>Notwendige Speicherung:</strong> Sprachwahl, Intro-Status und Cookie-Entscheidung.</p>
+            <p><strong>Notwendige Speicherung:</strong> Sprach- und Designauswahl, Intro-Status und Cookie-Entscheidung.</p>
             <p><strong>Nicht notwendige Cookies:</strong> derzeit keine aktiven Analytics-, Werbe- oder Remarketing-Cookies.</p>
             <p><strong>Einwilligung:</strong> Mess- oder Marketingtools duerfen spaeter nur nach vorheriger, freiwilliger und widerrufbarer Einwilligung laufen.</p>
           </article>
